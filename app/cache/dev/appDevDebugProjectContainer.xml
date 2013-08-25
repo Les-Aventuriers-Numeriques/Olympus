@@ -16,6 +16,7 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="EasySiteBundle">Easy\SiteBundle\EasySiteBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2635,6 +2636,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\Olympus\vendor\doctrine\doctrine-bundle\Doctrine\Bundle\DoctrineBundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\Olympus\src\Easy\SiteBundle/Resources/views</argument>
+        <argument>EasySite</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\Olympus\src\Acme\DemoBundle/Resources/views</argument>

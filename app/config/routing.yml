@@ -1,0 +1,4 @@
+easy_site:
+    resource: "@EasySiteBundle/Resources/config/routing.yml"
+    prefix:   /
+

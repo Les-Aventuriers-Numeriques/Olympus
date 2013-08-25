@@ -1,0 +1,10 @@
+body {
+    width: 1024px;
+    margin: auto;
+    background-image:url('/Olympus/web/bundles/easysite/images/font.png');
+}
+
+.bloc {
+    background-color: #FFFFFF;
+    padding: 1em;
+}

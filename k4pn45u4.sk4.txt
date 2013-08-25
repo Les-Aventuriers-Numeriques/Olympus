@@ -1,0 +1,258 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+	modified:   app/AppKernel.php
+	deleted:    app/cache/dev/annotations/Easy-SiteBundle-Controller-AccueilControllerindexAction.cache.php
+	deleted:    app/cache/dev/annotations/Easy-SiteBundle-Controller-AccueilController.cache.php
+	deleted:    app/cache/dev/annotations/Easy-SiteBundle-Controller-DefaultControllerindexAction.cache.php
+	deleted:    app/cache/dev/annotations/Easy-SiteBundle-Controller-DefaultController.cache.php
+	deleted:    app/cache/dev/annotations/Symfony-Bundle-TwigBundle-Controller-ExceptionControllershowAction.cache.php
+	deleted:    app/cache/dev/annotations/Symfony-Bundle-TwigBundle-Controller-ExceptionController.cache.php
+	deleted:    app/cache/dev/annotations/Symfony-Bundle-WebProfilerBundle-Controller-ProfilerControllertoolbarAction.cache.php
+	deleted:    app/cache/dev/annotations/Symfony-Bundle-WebProfilerBundle-Controller-ProfilerController.cache.php
+	modified:   app/cache/dev/appDevDebugProjectContainer.php
+	modified:   app/cache/dev/appDevDebugProjectContainer.xml
+	modified:   app/cache/dev/appDevUrlGenerator.php
+	modified:   app/cache/dev/appDevUrlMatcher.php
+	deleted:    app/cache/dev/classes.php
+	deleted:    app/cache/dev/profiler/06/60/b06006
+	deleted:    app/cache/dev/profiler/07/8b/8b8b07
+	deleted:    app/cache/dev/profiler/10/e2/2ee210
+	deleted:    app/cache/dev/profiler/11/bb/c1bb11
+	deleted:    app/cache/dev/profiler/14/16/841614
+	deleted:    app/cache/dev/profiler/16/5d/c65d16
+	deleted:    app/cache/dev/profiler/17/2b/b42b17
+	deleted:    app/cache/dev/profiler/17/5d/675d17
+	deleted:    app/cache/dev/profiler/1b/de/84de1b
+	deleted:    app/cache/dev/profiler/25/2f/0a2f25
+	deleted:    app/cache/dev/profiler/29/88/5f8829
+	deleted:    app/cache/dev/profiler/2a/3e/123e2a
+	deleted:    app/cache/dev/profiler/2f/f3/1bf32f
+	deleted:    app/cache/dev/profiler/31/af/b0af31
+	deleted:    app/cache/dev/profiler/37/43/544337
+	deleted:    app/cache/dev/profiler/3b/7d/b27d3b
+	deleted:    app/cache/dev/profiler/3b/b2/fdb23b
+	deleted:    app/cache/dev/profiler/3e/f5/03f53e
+	deleted:    app/cache/dev/profiler/45/4f/ba4f45
+	deleted:    app/cache/dev/profiler/46/de/a4de46
+	deleted:    app/cache/dev/profiler/4f/88/7c884f
+	deleted:    app/cache/dev/profiler/52/5f/a05f52
+	deleted:    app/cache/dev/profiler/52/a0/14a052
+	deleted:    app/cache/dev/profiler/53/cc/1fcc53
+	deleted:    app/cache/dev/profiler/54/30/b33054
+	deleted:    app/cache/dev/profiler/59/a7/1aa759
+	deleted:    app/cache/dev/profiler/5c/60/9f605c
+	deleted:    app/cache/dev/profiler/5e/56/c1565e
+	deleted:    app/cache/dev/profiler/5e/5d/525d5e
+	deleted:    app/cache/dev/profiler/63/30/7c3063
+	deleted:    app/cache/dev/profiler/71/5b/955b71
+	deleted:    app/cache/dev/profiler/78/8c/5d8c78
+	deleted:    app/cache/dev/profiler/79/b2/abb279
+	deleted:    app/cache/dev/profiler/86/fd/68fd86
+	deleted:    app/cache/dev/profiler/8a/96/8e968a
+	deleted:    app/cache/dev/profiler/8f/50/ce508f
+	deleted:    app/cache/dev/profiler/93/54/355493
+	deleted:    app/cache/dev/profiler/98/10/d81098
+	deleted:    app/cache/dev/profiler/9c/6c/e76c9c
+	deleted:    app/cache/dev/profiler/a2/87/4787a2
+	deleted:    app/cache/dev/profiler/a3/24/f424a3
+	deleted:    app/cache/dev/profiler/ae/17/8917ae
+	deleted:    app/cache/dev/profiler/b3/7e/8e7eb3
+	deleted:    app/cache/dev/profiler/b5/23/c223b5
+	deleted:    app/cache/dev/profiler/cb/df/64dfcb
+	deleted:    app/cache/dev/profiler/cd/f9/04f9cd
+	deleted:    app/cache/dev/profiler/d0/93/c893d0
+	deleted:    app/cache/dev/profiler/da/20/3e20da
+	deleted:    app/cache/dev/profiler/db/69/6769db
+	deleted:    app/cache/dev/profiler/e5/4f/0a4fe5
+	deleted:    app/cache/dev/profiler/index.csv
+	deleted:    app/cache/dev/sessions/sess_c9dhh0esmnfcfj566selm67je4
+	modified:   app/cache/dev/twig/02/95/0a37a77df300c1c5295a91591e28.php
+	modified:   app/cache/dev/twig/07/85/ec501f04d3b2b3f988022d556b7d.php
+	modified:   app/cache/dev/twig/0a/7e/068c36895a8dc035a2bf0e066b0b.php
+	modified:   app/cache/dev/twig/0a/bf/ac5dc900c4395ac18e92ef1bfe15.php
+	modified:   app/cache/dev/twig/17/ce/796023d964e23f04f81e2fe8a071.php
+	modified:   app/cache/dev/twig/19/ec/526305ab04a9506274d8765e9a0a.php
+	modified:   app/cache/dev/twig/29/ff/7b2dab00886938e19b4fa742480b.php
+	modified:   app/cache/dev/twig/35/20/14532eb307dce83e9cf302850c6c.php
+	modified:   app/cache/dev/twig/3b/a8/9143d7f700a6b3e05cbe95d40684.php
+	modified:   app/cache/dev/twig/42/2d/d1098a1c54bbce3c87e216e4b75d.php
+	modified:   app/cache/dev/twig/5c/b5/6c362135ec6a8650ffea7bdb1bf4.php
+	modified:   app/cache/dev/twig/5d/7c/8038d10d3b50668afb64ff3b44ec.php
+	modified:   app/cache/dev/twig/5e/8b/af1f6a6779520f7eed0dc3e2cc13.php
+	modified:   app/cache/dev/twig/5f/9f/063e762f023218e847efad29a364.php
+	modified:   app/cache/dev/twig/75/de/52fa245e8969d2d4c0586c7e2e1a.php
+	modified:   app/cache/dev/twig/78/44/753149daed33c2646a902fa1a5f1.php
+	modified:   app/cache/dev/twig/8d/93/329bed6fed2033f5b9c3481fe9b9.php
+	modified:   app/cache/dev/twig/8f/b9/c6c9960e3b7791207b79449df62c.php
+	modified:   app/cache/dev/twig/a0/eb/c82671d43bf80fe02386a90c6c70.php
+	modified:   app/cache/dev/twig/a6/97/df2fa1ee73a2fdaf68282d1b4241.php
+	modified:   app/cache/dev/twig/ab/17/0e6710fe432a384a966071e08a0d.php
+	modified:   app/cache/dev/twig/bb/90/710def756f99c93cadeb19441008.php
+	modified:   app/cache/dev/twig/bc/09/e951332da481e258c27295c7797c.php
+	modified:   app/cache/dev/twig/c6/df/f626b9a423e1d5619f2b20cbbf2e.php
+	modified:   app/cache/dev/twig/c8/51/9b53785bfd89c6cdb8ddd2ea3bfb.php
+	modified:   app/cache/dev/twig/e4/34/e67eafb80a205775eeaf13037add.php
+	modified:   app/cache/dev/twig/f1/df/19324cbcf149b7490eacf9e9f250.php
+	modified:   app/cache/dev/twig/f4/dc/be9ec3358a8e6b9832c6166d3238.php
+	modified:   app/cache/dev/twig/fa/23/2e227786272c5f5095355c94a0d8.php
+	modified:   app/cache/dev/twig/fc/91/d33ca427fa776a4f8f56b3684e1b.php
+	deleted:    app/cache/prod/annotations/Symfony-Bundle-TwigBundle-Controller-ExceptionControllershowAction.cache.php
+	deleted:    app/cache/prod/annotations/Symfony-Bundle-TwigBundle-Controller-ExceptionController.cache.php
+	modified:   app/cache/prod/appProdProjectContainer.php
+	modified:   app/cache/prod/appProdUrlMatcher.php
+	deleted:    app/cache/prod/classes.php
+	modified:   app/cache/prod/twig/c3/f8/916037d870b02d2fa748c5128cf1.php
+	modified:   app/config/config.yml
+	modified:   app/config/parameters.yml
+	modified:   app/config/routing.yml
+	modified:   composer.json
+	modified:   composer.lock
+	modified:   docs/modele_bdd.mwb
+	modified:   src/Easy/SiteBundle/Resources/views/layout.html.twig
+	modified:   vendor/autoload.php
+	modified:   vendor/composer/autoload_namespaces.php
+	modified:   vendor/composer/autoload_real.php
+	modified:   vendor/composer/installed.json
+	modified:   vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf
+	modified:   vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	app/cache/dev/templates.php
+#	app/cache/dev/twig/0c/
+#	app/cache/dev/twig/0d/
+#	app/cache/dev/twig/14/
+#	app/cache/dev/twig/15/
+#	app/cache/dev/twig/19/b5/
+#	app/cache/dev/twig/1e/
+#	app/cache/dev/twig/1f/
+#	app/cache/dev/twig/23/
+#	app/cache/dev/twig/29/43/
+#	app/cache/dev/twig/2e/
+#	app/cache/dev/twig/2f/
+#	app/cache/dev/twig/30/
+#	app/cache/dev/twig/31/
+#	app/cache/dev/twig/32/
+#	app/cache/dev/twig/39/
+#	app/cache/dev/twig/40/
+#	app/cache/dev/twig/48/
+#	app/cache/dev/twig/4a/
+#	app/cache/dev/twig/4c/
+#	app/cache/dev/twig/51/
+#	app/cache/dev/twig/53/
+#	app/cache/dev/twig/57/
+#	app/cache/dev/twig/58/
+#	app/cache/dev/twig/5a/
+#	app/cache/dev/twig/5c/ea/
+#	app/cache/dev/twig/5d/f0/
+#	app/cache/dev/twig/62/
+#	app/cache/dev/twig/63/
+#	app/cache/dev/twig/68/
+#	app/cache/dev/twig/6b/
+#	app/cache/dev/twig/6d/
+#	app/cache/dev/twig/6e/
+#	app/cache/dev/twig/74/
+#	app/cache/dev/twig/75/a6/
+#	app/cache/dev/twig/78/c5/
+#	app/cache/dev/twig/78/d9/
+#	app/cache/dev/twig/7a/
+#	app/cache/dev/twig/7d/
+#	app/cache/dev/twig/7f/
+#	app/cache/dev/twig/80/
+#	app/cache/dev/twig/84/
+#	app/cache/dev/twig/8a/
+#	app/cache/dev/twig/8e/
+#	app/cache/dev/twig/92/
+#	app/cache/dev/twig/96/
+#	app/cache/dev/twig/9c/
+#	app/cache/dev/twig/a6/fb/
+#	app/cache/dev/twig/ab/b9/
+#	app/cache/dev/twig/b0/
+#	app/cache/dev/twig/b1/
+#	app/cache/dev/twig/bc/7e/
+#	app/cache/dev/twig/c3/
+#	app/cache/dev/twig/cb/
+#	app/cache/dev/twig/cd/
+#	app/cache/dev/twig/d4/
+#	app/cache/dev/twig/d6/
+#	app/cache/dev/twig/d8/
+#	app/cache/dev/twig/e0/
+#	app/cache/dev/twig/e1/
+#	app/cache/dev/twig/e7/
+#	app/cache/dev/twig/ea/
+#	app/cache/dev/twig/ef/
+#	app/cache/dev/twig/f0/
+#	app/cache/dev/twig/f4/a1/
+#	app/cache/dev/twig/fa/d7/
+#	app/cache/dev/twig/fd/
+#	app/cache/prod/annotations/
+#	app/cache/prod/appProdUrlGenerator.php
+#	app/cache/prod/assetic/
+#	app/cache/prod/doctrine/
+#	app/cache/prod/templates.php
+#	app/cache/prod/twig/02/
+#	app/cache/prod/twig/0a/
+#	app/cache/prod/twig/0c/
+#	app/cache/prod/twig/0d/
+#	app/cache/prod/twig/14/
+#	app/cache/prod/twig/17/
+#	app/cache/prod/twig/19/
+#	app/cache/prod/twig/29/
+#	app/cache/prod/twig/2e/
+#	app/cache/prod/twig/2f/
+#	app/cache/prod/twig/30/
+#	app/cache/prod/twig/31/
+#	app/cache/prod/twig/32/
+#	app/cache/prod/twig/39/
+#	app/cache/prod/twig/40/
+#	app/cache/prod/twig/48/
+#	app/cache/prod/twig/4a/
+#	app/cache/prod/twig/57/
+#	app/cache/prod/twig/58/
+#	app/cache/prod/twig/5c/
+#	app/cache/prod/twig/5e/
+#	app/cache/prod/twig/62/
+#	app/cache/prod/twig/68/
+#	app/cache/prod/twig/6d/
+#	app/cache/prod/twig/6e/
+#	app/cache/prod/twig/74/
+#	app/cache/prod/twig/7a/
+#	app/cache/prod/twig/80/
+#	app/cache/prod/twig/84/
+#	app/cache/prod/twig/8d/
+#	app/cache/prod/twig/8e/
+#	app/cache/prod/twig/8f/
+#	app/cache/prod/twig/96/
+#	app/cache/prod/twig/9c/
+#	app/cache/prod/twig/a0/
+#	app/cache/prod/twig/a6/
+#	app/cache/prod/twig/ab/
+#	app/cache/prod/twig/b1/
+#	app/cache/prod/twig/bb/
+#	app/cache/prod/twig/bc/
+#	app/cache/prod/twig/c6/
+#	app/cache/prod/twig/c8/
+#	app/cache/prod/twig/cd/
+#	app/cache/prod/twig/d6/
+#	app/cache/prod/twig/d8/
+#	app/cache/prod/twig/e4/
+#	app/cache/prod/twig/e7/
+#	app/cache/prod/twig/ea/
+#	app/cache/prod/twig/ef/
+#	app/cache/prod/twig/f0/
+#	app/cache/prod/twig/f4/
+#	app/cache/prod/twig/fd/
+#	docs/export_sans_relation.sql
+#	nbproject/private/private.xml
+#	src/Easy/SiteBundle/Entity/
+#	src/Easy/SiteBundle/Resources/config/doctrine/
+#	src/Easy/UtilisateurBundle/
+#	vendor/friendsofsymfony/
+#	web/bundles/easysite/
+

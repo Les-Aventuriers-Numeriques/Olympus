@@ -1,0 +1,3 @@
+easy_utilisateur_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EasyUtilisateurBundle:Default:index }

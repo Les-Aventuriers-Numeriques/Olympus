@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Utilisateur" table="utilisateur">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="45" nullable="true"/>
+    <field name="prenom" type="string" column="prenom" length="45" nullable="true"/>
+    <field name="email" type="string" column="email" length="45" nullable="true"/>
+    <field name="login" type="string" column="login" length="45" nullable="true"/>
+    <field name="password" type="string" column="password" length="45" nullable="true"/>
+    <field name="avatar" type="text" column="avatar" nullable="true"/>
+    <field name="steam" type="text" column="steam" nullable="true"/>
+    <field name="leitmotiv" type="text" column="leitmotiv" nullable="true"/>
+  </entity>
+</doctrine-mapping>

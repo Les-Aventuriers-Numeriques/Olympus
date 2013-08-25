@@ -1,3 +1,7 @@
+easy_utilisateur:
+    resource: "@EasyUtilisateurBundle/Resources/config/routing.yml"
+    prefix:   /
+
 easy_site:
     resource: "@EasySiteBundle/Resources/config/routing.yml"
     prefix:   /

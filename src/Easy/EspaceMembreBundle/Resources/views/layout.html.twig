@@ -16,47 +16,31 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <nav class="navbar navbar-default" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">=EaSy=</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Accueil</a></li>
-                    <li><a href="#">Forum</a></li>
-                    <li><a href="#">Membres</a></li>
-                    <li><a href="#">Nos Serveurs</a></li>
-                    <li><a href="#">Recrutement</a></li>
-                    <li><a href="#">Nous Contacter</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </nav>
+                {% include "EasySiteBundle::menu.html.twig" %}
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-md-3">
                 <div class="bloc">
-                    {% include "EasySiteBundle::ts.html.twig" %}
+                    <div class="page-header">
+                        <h1>Menu</h1> 
+                    </div>
+                    <a href=""><span class="glyphicon glyphicon-user"></span> Gérer mon Profil</a><br />
+                    <a href=""><span class="glyphicon glyphicon-euro"></span> Consulter les Dons</a><br />
+                    <a href=""><span class="glyphicon glyphicon-calendar"></span> Consulter les Evènements</a><br />
+                    <a href=""><span class="glyphicon glyphicon-send"></span> Ecrire un Ticket</a><br />
+                    ----<br />
+                    <a href=""><span class="glyphicon glyphicon-user"></span> Administration des News</a><br />
+                    <a href=""><span class="glyphicon glyphicon-calendar"></span> Administration des Evènements</a><br />
+                    <a href=""><span class="glyphicon glyphicon-th-list"></span> Administration du Forum</a><br />
+                    <a href=""><span class="glyphicon glyphicon-euro"></span> Administration des Dons</a><br />
+                    <a href=""><span class="glyphicon glyphicon-envelope"></span> Administration des Tickets</a><br />
                 </div>
             </div>
-            <div class="col-xs-8 col-md-6">
+            <div class="col-xs-12 col-md-9">
                 <div class="bloc">
                     {% block body %}
                     {% endblock %}
-                </div>
-            </div>
-            <div class="col-xs-4 col-md-3">
-                <div class="bloc">
-                    test3
                 </div>
             </div>
         </div>

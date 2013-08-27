@@ -1,67 +1,14 @@
-{# src/Easy/SiteBundle/Resources/views/layout.html.twig #}
+{# src/Easy/SiteBundle/Resources/views/Default/index.html.twig #}
  
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}=EaSy= Company{% endblock %}</title>
-        <link href="{{ asset('bundles/easysite/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
-        <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                Bannière
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <nav class="navbar navbar-default" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">=EaSy=</a>
-                </div>
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Accueil</a></li>
-                    <li><a href="#">Forum</a></li>
-                    <li><a href="#">Membres</a></li>
-                    <li><a href="#">Nos Serveurs</a></li>
-                    <li><a href="#">Recrutement</a></li>
-                    <li><a href="#">Nous Contacter</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4 col-md-3">
-                <div class="bloc">
-                    {% include "EasySiteBundle::ts.html.twig" %}
-                </div>
-            </div>
-            <div class="col-xs-8 col-md-6">
-                <div class="bloc">
-                    {% block body %}
-                    {% endblock %}
-                </div>
-            </div>
-            <div class="col-xs-4 col-md-3">
-                <div class="bloc">
-                    test3
-                </div>
-            </div>
-        </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
-        <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
-    </body>
-</html>
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+ 
+{% block body %}
+    <div class="page-header">
+        <h1>Bienvenue {{app.user.username}}</h1>
+    </div>
+    <div>
+        {{ app.request.attributes.get('_controller') }}
+    </div>
+{% endblock %}

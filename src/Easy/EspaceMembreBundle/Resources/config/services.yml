@@ -1,0 +1,7 @@
+parameters:
+#    easy_espace_membre.example.class: Easy\EspaceMembreBundle\Example
+
+services:
+#    easy_espace_membre.example:
+#        class: %easy_espace_membre.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

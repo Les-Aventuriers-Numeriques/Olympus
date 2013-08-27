@@ -15,32 +15,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <nav class="navbar navbar-default" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">=EaSy=</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Accueil</a></li>
-                    <li><a href="#">Forum</a></li>
-                    <li><a href="#">Membres</a></li>
-                    <li><a href="#">Nos Serveurs</a></li>
-                    <li><a href="#">Recrutement</a></li>
-                    <li><a href="#">Nous Contacter</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </nav>
-            </div>
+            {% include "EasySiteBundle::menu.html.twig" %}
         </div>
         <div class="row">
             <div class="col-xs-4 col-md-3">
@@ -56,7 +31,11 @@
             </div>
             <div class="col-xs-4 col-md-3">
                 <div class="bloc">
-                    test3
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

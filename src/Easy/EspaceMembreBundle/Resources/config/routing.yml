@@ -1,0 +1,3 @@
+espace_membre_accueil:
+    pattern:  /espace-membre
+    defaults: { _controller: EasyEspaceMembreBundle:EspaceMembre:index }

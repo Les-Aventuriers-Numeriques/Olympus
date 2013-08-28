@@ -1,0 +1,3 @@
+easy_squad_xml_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EasySquadXmlBundle:Default:index }

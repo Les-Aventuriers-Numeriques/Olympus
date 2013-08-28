@@ -1,3 +1,7 @@
+easy_squad_xml:
+    resource: "@EasySquadXmlBundle/Resources/config/routing.yml"
+    prefix:   /
+
 easy_espace_membre:
     resource: "@EasyEspaceMembreBundle/Resources/config/routing.yml"
     prefix:   /

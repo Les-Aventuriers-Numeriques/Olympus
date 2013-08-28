@@ -1,0 +1,7 @@
+parameters:
+#    easy_squad_xml.example.class: Easy\SquadXmlBundle\Example
+
+services:
+#    easy_squad_xml.example:
+#        class: %easy_squad_xml.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

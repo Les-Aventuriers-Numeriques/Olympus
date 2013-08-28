@@ -589,7 +589,7 @@ class appDevDebugProjectContainer extends Container
         $d = new \Doctrine\Common\Cache\ArrayCache();
         $d->setNamespace('sf2orm_default_26eba242083b876793f7138ef56094f9');
 
-        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => 'C:\\wamp\\www\\Olympus\\src\\Easy\\SiteBundle\\Entity', 1 => 'C:\\wamp\\www\\Olympus\\src\\Easy\\UtilisateurBundle\\Entity'));
+        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => 'C:\\wamp\\www\\Olympus\\src\\Easy\\SiteBundle\\Entity', 1 => 'C:\\wamp\\www\\Olympus\\src\\Easy\\UtilisateurBundle\\Entity', 2 => 'C:\\wamp\\www\\Olympus\\src\\Easy\\DonBundle\\Entity'));
 
         $f = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('C:\\wamp\\www\\Olympus\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\doctrine' => 'FOS\\UserBundle\\Entity'));
         $f->setGlobalBasename('mapping');
@@ -597,11 +597,12 @@ class appDevDebugProjectContainer extends Container
         $g = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $g->addDriver($e, 'Easy\\SiteBundle\\Entity');
         $g->addDriver($e, 'Easy\\UtilisateurBundle\\Entity');
+        $g->addDriver($e, 'Easy\\DonBundle\\Entity');
         $g->addDriver($f, 'FOS\\UserBundle\\Entity');
         $g->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array('C:\\wamp\\www\\Olympus\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\doctrine\\model' => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
 
         $h = new \Doctrine\ORM\Configuration();
-        $h->setEntityNamespaces(array('EasySiteBundle' => 'Easy\\SiteBundle\\Entity', 'FOSUserBundle' => 'FOS\\UserBundle\\Entity', 'EasyUtilisateurBundle' => 'Easy\\UtilisateurBundle\\Entity'));
+        $h->setEntityNamespaces(array('EasySiteBundle' => 'Easy\\SiteBundle\\Entity', 'FOSUserBundle' => 'FOS\\UserBundle\\Entity', 'EasyUtilisateurBundle' => 'Easy\\UtilisateurBundle\\Entity', 'EasyDonBundle' => 'Easy\\DonBundle\\Entity'));
         $h->setMetadataCacheImpl($b);
         $h->setQueryCacheImpl($c);
         $h->setResultCacheImpl($d);
@@ -2132,7 +2133,7 @@ class appDevDebugProjectContainer extends Container
         $k = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $g, $this->get('security.authentication.session_strategy'), $e, 'main', $j, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $e, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $c), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $c, $d);
         $k->setRememberMeServices($h);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $b, 1 => $this->get('security.user.provider.concrete.in_memory')), 'main', $c, $d), 2 => $i, 3 => $k, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($a, $h, $g, $c, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '521e5276ee4a9', $c), 6 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $e, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $e, 'fos_user_security_login', false), NULL, NULL, $c));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $b, 1 => $this->get('security.user.provider.concrete.in_memory')), 'main', $c, $d), 2 => $i, 3 => $k, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($a, $h, $g, $c, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '521e5c4cb46a8', $c), 6 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $e, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $e, 'fos_user_security_login', false), NULL, NULL, $c));
     }
 
     /**
@@ -3190,6 +3191,13 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\wamp\\www\\Olympus\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views', 'FOSUser');
         $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\UtilisateurBundle/Resources/views', 'EasyUtilisateur');
         $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\EspaceMembreBundle/Resources/views', 'EasyEspaceMembre');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\SquadXmlBundle/Resources/views', 'EasySquadXml');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\DispoBundle/Resources/views', 'EasyDispo');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\ArticleBundle/Resources/views', 'EasyArticle');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\DonBundle/Resources/views', 'EasyDon');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\ForumBundle/Resources/views', 'EasyForum');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\FormationBundle/Resources/views', 'EasyFormation');
+        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\TicketBundle/Resources/views', 'EasyTicket');
         $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Acme\\DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('C:\\wamp\\www\\Olympus\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\wamp\\www\\Olympus\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
@@ -3502,7 +3510,7 @@ class appDevDebugProjectContainer extends Container
         $b = $this->get('security.user_checker');
         $c = $this->get('security.encoder_factory');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'main', $c, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($b, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('521e5276ee4a9'), 3 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'secured_area', $c, true)), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'main', $c, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($b, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('521e5c4cb46a8'), 3 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'secured_area', $c, true)), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3790,6 +3798,13 @@ class appDevDebugProjectContainer extends Container
                 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
                 'EasyUtilisateurBundle' => 'Easy\\UtilisateurBundle\\EasyUtilisateurBundle',
                 'EasyEspaceMembreBundle' => 'Easy\\EspaceMembreBundle\\EasyEspaceMembreBundle',
+                'EasySquadXmlBundle' => 'Easy\\SquadXmlBundle\\EasySquadXmlBundle',
+                'EasyDispoBundle' => 'Easy\\DispoBundle\\EasyDispoBundle',
+                'EasyArticleBundle' => 'Easy\\ArticleBundle\\EasyArticleBundle',
+                'EasyDonBundle' => 'Easy\\DonBundle\\EasyDonBundle',
+                'EasyForumBundle' => 'Easy\\ForumBundle\\EasyForumBundle',
+                'EasyFormationBundle' => 'Easy\\FormationBundle\\EasyFormationBundle',
+                'EasyTicketBundle' => 'Easy\\TicketBundle\\EasyTicketBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',

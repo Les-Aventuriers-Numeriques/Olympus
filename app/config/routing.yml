@@ -1,3 +1,27 @@
+easy_ticket:
+    resource: "@EasyTicketBundle/Resources/config/routing.yml"
+    prefix:   /
+
+easy_formation:
+    resource: "@EasyFormationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+easy_forum:
+    resource: "@EasyForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
+easy_don:
+    resource: "@EasyDonBundle/Resources/config/routing.yml"
+    prefix:   /
+
+easy_article:
+    resource: "@EasyArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+easy_dispo:
+    resource: "@EasyDispoBundle/Resources/config/routing.yml"
+    prefix:   /
+
 easy_squad_xml:
     resource: "@EasySquadXmlBundle/Resources/config/routing.yml"
     prefix:   /

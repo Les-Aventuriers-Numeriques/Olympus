@@ -21,6 +21,12 @@ class AppKernel extends Kernel
             new Easy\UtilisateurBundle\EasyUtilisateurBundle(),
             new Easy\EspaceMembreBundle\EasyEspaceMembreBundle(),
             new Easy\SquadXmlBundle\EasySquadXmlBundle(),
+            new Easy\DispoBundle\EasyDispoBundle(),
+            new Easy\ArticleBundle\EasyArticleBundle(),
+            new Easy\DonBundle\EasyDonBundle(),
+            new Easy\ForumBundle\EasyForumBundle(),
+            new Easy\FormationBundle\EasyFormationBundle(),
+            new Easy\TicketBundle\EasyTicketBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

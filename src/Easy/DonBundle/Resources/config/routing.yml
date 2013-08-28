@@ -1,0 +1,7 @@
+easy_don_accueil:
+    pattern:  /espace-membre/dons
+    defaults: { _controller: EasyDonBundle:Don:index }
+    
+easy_don_tableau:
+    pattern:  /espace-membre/dons/tableau-recapitulatif
+    defaults: { _controller: EasyDonBundle:Don:list }

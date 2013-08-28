@@ -1,0 +1,43 @@
+{# src/Easy/DonBundle/Resources/views/Don/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Dons{% endblock %}
+ 
+{% block body %}
+    <div class="page-header">
+        <h1>Aperçu des Dons</h1>
+    </div>
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Statistiques générales</a></li>
+            <li><a href="#tab2" data-toggle="tab">Mes Statistiques</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <h2>Objectif {{ mois["now"|date("m")] }} {{ "now"|date("Y") }}</h2>
+                <div class="progress progress-danger">
+                    <div class="bar" style="width: 80%"></div>
+                </div>
+                <p>
+                    Objectif : {{ constant('Easy\\DonBundle\\Entity\\Don::PRIX_SERVEUR_PAR_MOIS') }} €<br/>
+                    Montant récolté : <br/>
+                    Date du dernier don : <br/>
+                    Montant moyen : <br/>
+                </p>
+            </div>
+            <div class="tab-pane" id="tab2">
+                <p>
+                    Nombre de Dons : <br/>
+                    Date du premier don : <br/>
+                    Date du dernier don : <br/>
+                    Montant moyen : <br/>
+                </p>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-large btn-primary" href=" {{ path('easy_don_tableau') }}" type="button">Consulter le tableau global</a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -14,6 +14,11 @@ use FOS\UserBundle\Entity\User as BaseUser;
 class Utilisateur extends BaseUser
 {
     /**
+    * @ORM\OneToMany(targetEntity="Easy\DonBundle\Entity\Don", mappedBy="utilisateur")
+    */
+    private $dons;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
@@ -251,5 +256,45 @@ class Utilisateur extends BaseUser
     public function getLeitmotiv()
     {
         return $this->leitmotiv;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dons = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add dons
+     *
+     * @param \Easy\DonBundle\Entity\Don $dons
+     * @return Utilisateur
+     */
+    public function addDon(\Easy\DonBundle\Entity\Don $dons)
+    {
+        $this->dons[] = $dons;
+    
+        return $this;
+    }
+
+    /**
+     * Remove dons
+     *
+     * @param \Easy\DonBundle\Entity\Don $dons
+     */
+    public function removeDon(\Easy\DonBundle\Entity\Don $dons)
+    {
+        $this->dons->removeElement($dons);
+    }
+
+    /**
+     * Get dons
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDons()
+    {
+        return $this->dons;
     }
 }

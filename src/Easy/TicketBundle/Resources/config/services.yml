@@ -1,0 +1,7 @@
+parameters:
+#    easy_ticket.example.class: Easy\TicketBundle\Example
+
+services:
+#    easy_ticket.example:
+#        class: %easy_ticket.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

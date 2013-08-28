@@ -1,0 +1,38 @@
+{# src/Easy/DonBundle/Resources/views/Don/list.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Dons{% endblock %}
+ 
+{% block body %}
+    <div class="page-header">
+        <h1>Tableau des dons</h1>
+    </div>
+    <div>
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th colspan="12">
+                        {{'now'|date('Y')}}
+                    </th>
+                </tr>
+                <tr>
+                    {% for unMois in mois|keys %}
+                        <th>{{ unMois }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                            
+            </tbody>
+            <tfoot>
+                <tr>
+                    {% for unMois in mois|keys %}
+                        <th>Total</th>
+                    {% endfor %}
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+{% endblock %}

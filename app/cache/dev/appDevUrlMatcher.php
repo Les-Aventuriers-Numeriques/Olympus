@@ -133,6 +133,55 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/hello')) {
+            // easy_ticket_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'easy_ticket_homepage')), array (  '_controller' => 'Easy\\TicketBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // easy_formation_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'easy_formation_homepage')), array (  '_controller' => 'Easy\\FormationBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // easy_forum_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'easy_forum_homepage')), array (  '_controller' => 'Easy\\ForumBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/espace-membre/dons')) {
+            // easy_don_accueil
+            if ($pathinfo === '/espace-membre/dons') {
+                return array (  '_controller' => 'Easy\\DonBundle\\Controller\\DonController::indexAction',  '_route' => 'easy_don_accueil',);
+            }
+
+            // easy_don_tableau
+            if ($pathinfo === '/espace-membre/dons/tableau-recapitulatif') {
+                return array (  '_controller' => 'Easy\\DonBundle\\Controller\\DonController::listAction',  '_route' => 'easy_don_tableau',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/hello')) {
+            // easy_article_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'easy_article_homepage')), array (  '_controller' => 'Easy\\ArticleBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // easy_dispo_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'easy_dispo_homepage')), array (  '_controller' => 'Easy\\DispoBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // easy_squad_xml_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'easy_squad_xml_homepage')), array (  '_controller' => 'Easy\\SquadXmlBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+        }
+
         // espace_membre_accueil
         if ($pathinfo === '/espace-membre') {
             return array (  '_controller' => 'Easy\\EspaceMembreBundle\\Controller\\EspaceMembreController::indexAction',  '_route' => 'espace_membre_accueil',);

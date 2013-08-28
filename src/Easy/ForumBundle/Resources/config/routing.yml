@@ -1,0 +1,3 @@
+easy_forum_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EasyForumBundle:Default:index }

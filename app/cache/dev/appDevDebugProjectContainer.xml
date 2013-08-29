@@ -27,7 +27,6 @@
       <parameter key="EasyForumBundle">Easy\ForumBundle\EasyForumBundle</parameter>
       <parameter key="EasyFormationBundle">Easy\FormationBundle\EasyFormationBundle</parameter>
       <parameter key="EasyTicketBundle">Easy\TicketBundle\EasyTicketBundle</parameter>
-      <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -635,14 +634,6 @@
         <argument type="collection">
           <argument>assetic.request_listener</argument>
           <argument>onKernelRequest</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListenerService">
-        <argument>kernel.controller</argument>
-        <argument type="collection">
-          <argument>acme.demo.listener</argument>
-          <argument>onKernelController</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -1637,7 +1628,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>521eeafc9f796</argument>
+            <argument>521f21bc1c221</argument>
           </service>
         </argument>
         <argument type="service">
@@ -1983,7 +1974,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>521eeafc9f796</argument>
+            <argument>521f21bc1c221</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2255,9 +2246,6 @@
             <tag name="twig.extension"/>
           </service>
         </argument>
-      </call>
-      <call method="addExtension">
-        <argument type="service" id="twig.extension.acme.demo"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -2738,14 +2726,6 @@
       <argument type="service" id="router"/>
       <argument>86400</argument>
     </service>
-    <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
-      <tag name="twig.extension"/>
-      <argument type="service" id="twig.loader"/>
-    </service>
-    <service id="acme.demo.listener" class="Acme\DemoBundle\EventListener\ControllerListener">
-      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
-      <argument type="service" id="twig.extension.acme.demo"/>
-    </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3108,10 +3088,6 @@
       <call method="addPath">
         <argument>C:\wamp\www\Olympus\src\Easy\TicketBundle/Resources/views</argument>
         <argument>EasyTicket</argument>
-      </call>
-      <call method="addPath">
-        <argument>C:\wamp\www\Olympus\src\Acme\DemoBundle/Resources/views</argument>
-        <argument>AcmeDemo</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\Olympus\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>

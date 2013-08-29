@@ -147,6 +147,24 @@ class Utilisateur extends \Easy\UtilisateurBundle\Entity\Utilisateur implements 
         return parent::getLeitmotiv();
     }
 
+    public function addDon(\Easy\DonBundle\Entity\Don $dons)
+    {
+        $this->__load();
+        return parent::addDon($dons);
+    }
+
+    public function removeDon(\Easy\DonBundle\Entity\Don $dons)
+    {
+        $this->__load();
+        return parent::removeDon($dons);
+    }
+
+    public function getDons()
+    {
+        $this->__load();
+        return parent::getDons();
+    }
+
     public function addRole($role)
     {
         $this->__load();
@@ -426,7 +444,7 @@ class Utilisateur extends \Easy\UtilisateurBundle\Entity\Utilisateur implements 
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'lastLogin', 'locked', 'expired', 'expiresAt', 'confirmationToken', 'passwordRequestedAt', 'roles', 'credentialsExpired', 'credentialsExpireAt', 'id', 'nom', 'prenom', 'avatar', 'steam', 'leitmotiv');
+        return array('__isInitialized__', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'lastLogin', 'locked', 'expired', 'expiresAt', 'confirmationToken', 'passwordRequestedAt', 'roles', 'credentialsExpired', 'credentialsExpireAt', 'id', 'nom', 'prenom', 'avatar', 'steam', 'leitmotiv', 'dons');
     }
 
     public function __clone()

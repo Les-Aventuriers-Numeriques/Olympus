@@ -34,7 +34,6 @@ class appDevDebugProjectContainer extends Container
         $this->scopes = array('request' => 'container');
         $this->scopeChildren = array('request' => array());
         $this->methodMap = array(
-            'acme.demo.listener' => 'getAcme_Demo_ListenerService',
             'annotation_reader' => 'getAnnotationReaderService',
             'assetic.asset_factory' => 'getAssetic_AssetFactoryService',
             'assetic.asset_manager' => 'getAssetic_AssetManagerService',
@@ -250,7 +249,6 @@ class appDevDebugProjectContainer extends Container
             'twig' => 'getTwigService',
             'twig.controller.exception' => 'getTwig_Controller_ExceptionService',
             'twig.exception_listener' => 'getTwig_ExceptionListenerService',
-            'twig.extension.acme.demo' => 'getTwig_Extension_Acme_DemoService',
             'twig.loader' => 'getTwig_LoaderService',
             'twig.translation.extractor' => 'getTwig_Translation_ExtractorService',
             'uri_signer' => 'getUriSignerService',
@@ -275,19 +273,6 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.transport' => 'swiftmailer.mailer.default.transport',
             'swiftmailer.transport.real' => 'swiftmailer.mailer.default.transport.real',
         );
-    }
-
-    /**
-     * Gets the 'acme.demo.listener' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return Acme\DemoBundle\EventListener\ControllerListener A Acme\DemoBundle\EventListener\ControllerListener instance.
-     */
-    protected function getAcme_Demo_ListenerService()
-    {
-        return $this->services['acme.demo.listener'] = new \Acme\DemoBundle\EventListener\ControllerListener($this->get('twig.extension.acme.demo'));
     }
 
     /**
@@ -676,7 +661,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addListenerService('kernel.response', array(0 => 'monolog.handler.firephp', 1 => 'onKernelResponse'), 0);
         $instance->addListenerService('kernel.response', array(0 => 'monolog.handler.chromephp', 1 => 'onKernelResponse'), 0);
         $instance->addListenerService('kernel.request', array(0 => 'assetic.request_listener', 1 => 'onKernelRequest'), 0);
-        $instance->addListenerService('kernel.controller', array(0 => 'acme.demo.listener', 1 => 'onKernelController'), 0);
         $instance->addSubscriberService('response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener');
         $instance->addSubscriberService('streamed_response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\StreamedResponseListener');
         $instance->addSubscriberService('locale_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\LocaleListener');
@@ -2133,7 +2117,7 @@ class appDevDebugProjectContainer extends Container
         $k = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $g, $this->get('security.authentication.session_strategy'), $e, 'main', $j, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $e, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $c), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $c, $d);
         $k->setRememberMeServices($h);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $b, 1 => $this->get('security.user.provider.concrete.in_memory')), 'main', $c, $d), 2 => $i, 3 => $k, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($a, $h, $g, $c, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '521eeafc9f796', $c), 6 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $e, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $e, 'fos_user_security_login', false), NULL, NULL, $c));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $b, 1 => $this->get('security.user.provider.concrete.in_memory')), 'main', $c, $d), 2 => $i, 3 => $k, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($a, $h, $g, $c, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '521f21bc1c221', $c), 6 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $e, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $e, 'fos_user_security_login', false), NULL, NULL, $c));
     }
 
     /**
@@ -3138,7 +3122,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
-        $instance->addExtension($this->get('twig.extension.acme.demo'));
         $instance->addGlobal('app', $this->get('templating.globals'));
 
         return $instance;
@@ -3198,7 +3181,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\ForumBundle/Resources/views', 'EasyForum');
         $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\FormationBundle/Resources/views', 'EasyFormation');
         $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Easy\\TicketBundle/Resources/views', 'EasyTicket');
-        $instance->addPath('C:\\wamp\\www\\Olympus\\src\\Acme\\DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('C:\\wamp\\www\\Olympus\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\wamp\\www\\Olympus\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/wamp/www/Olympus/app/Resources/views');
@@ -3510,7 +3492,7 @@ class appDevDebugProjectContainer extends Container
         $b = $this->get('security.user_checker');
         $c = $this->get('security.encoder_factory');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'main', $c, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($b, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('521eeafc9f796'), 3 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'secured_area', $c, true)), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'main', $c, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($b, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('521f21bc1c221'), 3 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'secured_area', $c, true)), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3695,23 +3677,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'twig.extension.acme.demo' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return Acme\DemoBundle\Twig\Extension\DemoExtension A Acme\DemoBundle\Twig\Extension\DemoExtension instance.
-     */
-    protected function getTwig_Extension_Acme_DemoService()
-    {
-        return $this->services['twig.extension.acme.demo'] = new \Acme\DemoBundle\Twig\Extension\DemoExtension($this->get('twig.loader'));
-    }
-
-    /**
      * Gets the 'validator.mapping.class_metadata_factory' service.
      *
      * This service is shared.
@@ -3805,7 +3770,6 @@ class appDevDebugProjectContainer extends Container
                 'EasyForumBundle' => 'Easy\\ForumBundle\\EasyForumBundle',
                 'EasyFormationBundle' => 'Easy\\FormationBundle\\EasyFormationBundle',
                 'EasyTicketBundle' => 'Easy\\TicketBundle\\EasyTicketBundle',
-                'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

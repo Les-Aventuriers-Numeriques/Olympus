@@ -30,7 +30,27 @@ class DonController extends Controller
      */
     public function addAction()
     {
-        return $this->render('EasyDonBundle:Don:index.html.twig');
+        // Récupération des moyens de paiement et des utilisateurs
+        $moyensPaiement = $this->getDoctrine()->getManager()->getRepository('EasyDonBundle:MoyenPaiement')->findAll();
+        $utilisateurs = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Utilisateur')->findAll();
+            
+        return $this->render('EasyDonBundle:Don:add.html.twig', array('moyensPaiement' => $moyensPaiement,
+                                                                        'utilisateurs' => $utilisateurs
+                ));
+    }
+    
+    /*
+     * Fonction permettant de lister précisement les dons pour un mois donné
+     */
+    public function saveAction()
+    {
+        // Récupération des moyens de paiement et des utilisateurs
+        $moyensPaiement = $this->getDoctrine()->getManager()->getRepository('EasyDonBundle:MoyenPaiement')->findAll();
+        $utilisateurs = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Utilisateur')->findAll();
+            
+        return $this->render('EasyDonBundle:Don:add.html.twig', array('moyensPaiement' => $moyensPaiement,
+                                                                        'utilisateurs' => $utilisateurs
+                ));
     }
     
     /*

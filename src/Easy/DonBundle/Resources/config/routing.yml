@@ -5,3 +5,7 @@ easy_don_accueil:
 easy_don_tableau:
     pattern:  /espace-membre/dons/tableau-recapitulatif
     defaults: { _controller: EasyDonBundle:Don:list }
+
+easy_don_ajouter:
+    pattern:  /espace-membre/dons/ajouter
+    defaults: { _controller: EasyDonBundle:Don:add }

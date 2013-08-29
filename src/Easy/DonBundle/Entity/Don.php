@@ -36,6 +36,12 @@ class Don
     */
     private $utilisateur;
     
+    /**
+    * @ORM\ManyToOne(targetEntity="Easy\DonBundle\Entity\MoyenPaiement")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $moyenPaiement;
+    
     
     /**
      * @var integer
@@ -139,5 +145,28 @@ class Don
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    /**
+     * Set moyen_paiement
+     *
+     * @param \Easy\DonBundle\Entity\MoyenPaiement $moyenPaiement
+     * @return Don
+     */
+    public function setMoyenPaiement(\Easy\DonBundle\Entity\MoyenPaiement $moyenPaiement)
+    {
+        $this->moyen_paiement = $moyenPaiement;
+    
+        return $this;
+    }
+
+    /**
+     * Get moyen_paiement
+     *
+     * @return \Easy\DonBundle\Entity\MoyenPaiement 
+     */
+    public function getMoyenPaiement()
+    {
+        return $this->moyen_paiement;
     }
 }

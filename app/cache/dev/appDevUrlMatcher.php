@@ -162,6 +162,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Easy\\DonBundle\\Controller\\DonController::listAction',  '_route' => 'easy_don_tableau',);
             }
 
+            // easy_don_ajouter
+            if ($pathinfo === '/espace-membre/dons/ajouter') {
+                return array (  '_controller' => 'Easy\\DonBundle\\Controller\\DonController::addAction',  '_route' => 'easy_don_ajouter',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/hello')) {

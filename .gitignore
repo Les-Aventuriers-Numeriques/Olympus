@@ -163,10 +163,10 @@ pip-log.txt
 .DS_Store
 
 
-/web/bundles/
-/app/bootstrap*
-/app/cache/*
-/app/logs/*
-/vendor/
+web/bundles/
+app/bootstrap*
+app/cache/*
+app/logs/*
+vendor/
 
 nbproject/

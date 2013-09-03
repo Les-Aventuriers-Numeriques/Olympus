@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class MoyenPaiement
 {
     /**
-    * @ORM\OneToMany(targetEntity="Easy\DonBundle\Entity\Don", mappedBy="moyenPaiement")
+    * @ORM\OneToMany(targetEntity="Easy\DonBundle\Entity\Don", mappedBy="moyen_paiement")
     */
     private $dons;
     

@@ -12,9 +12,15 @@ class DonController extends Controller
      */
     public function indexAction()
     {
+        // Récupération des dons des stats de l'utilisateur
+        $utilisateur = $this->container->get('security.context')->getToken()->getUser();
+        $dons_utilisateur = $this->getDoctrine()->getManager()->getRepository('EasyDonBundle:Don')->findByUtilisateur($utilisateur);
+        $don_moyen = $this->getDoctrine()->getManager()->getRepository('EasyDonBundle:Don')->findMoyenneUtilisateur($utilisateur);
         
-        
-        return $this->render('EasyDonBundle:Don:index.html.twig', array('mois' => Don::$mois));
+        return $this->render('EasyDonBundle:Don:index.html.twig', array('mois' => Don::$mois,
+                                                                        'dons_utilisateur' => $dons_utilisateur,
+                                                                        'don_moyen' => $don_moyen
+                ));
     }
     
     /*
@@ -22,7 +28,10 @@ class DonController extends Controller
      */
     public function listAction()
     {
-        return $this->render('EasyDonBundle:Don:list.html.twig', array('mois' => Don::$mois));
+        $utilisateurs = $this->container->get('fos_user.user_manager')->findUsers();
+        return $this->render('EasyDonBundle:Don:list.html.twig', array('mois' => Don::$mois,
+                                                                        'utilisateurs' => $utilisateurs
+            ));
     }
     
     /*

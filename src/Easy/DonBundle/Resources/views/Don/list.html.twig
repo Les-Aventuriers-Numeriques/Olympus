@@ -17,13 +17,18 @@
                     </th>
                 </tr>
                 <tr>
+                    <th>Utilisateurs</th>
                     {% for unMois in mois|keys %}
                         <th>{{ unMois }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                            
+                {% for utilisateur in utilisateurs %}
+                    <tr>
+                        <td>{{ utilisateur.username }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
             <tfoot>
                 <tr>

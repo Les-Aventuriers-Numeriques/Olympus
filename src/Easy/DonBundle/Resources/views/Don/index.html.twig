@@ -16,11 +16,13 @@
         <div class="tab-content">
             <div class="tab-pane active" id="tab1">
                 <h2>Objectif {{ mois["now"|date("m")] }} {{ "now"|date("Y") }}</h2>
-                <div class="progress progress-danger">
-                    <div class="bar" style="width: 80%"></div>
-                </div>
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                 </div
                 <p>
-                    Objectif : {{ constant('Easy\\DonBundle\\Entity\\Don::PRIX_SERVEUR_PAR_MOIS') }} €<br/>
+                    Objectif : {{ constant('Easy\\DonBundle\\Entity\\Don::PRIX_SERVEUR_PAR_MOIS')|number_format(2, ',', ' ') }} €<br/>
                     Montant récolté : <br/>
                     Date du dernier don : <br/>
                     Montant moyen : <br/>
@@ -28,10 +30,11 @@
             </div>
             <div class="tab-pane" id="tab2">
                 <p>
-                    Nombre de Dons : <br/>
-                    Date du premier don : <br/>
-                    Date du dernier don : <br/>
-                    Montant moyen : <br/>
+                    Nombre de Dons : {{ dons_utilisateur|length }}<br/>
+                    Montant moyen : {{ don_moyen|number_format(2, ' ', ',') }} €<br/>
+                    {% for don in dons_utilisateur %}
+                        {{ don.date|date('d/m/Y') }} : {{ don.montant|number_format(2, ',', ' ') }} € par {{ don.moyenPaiement.libelle }}<br/>
+                    {% endfor %}
                 </p>
             </div>
         </div>

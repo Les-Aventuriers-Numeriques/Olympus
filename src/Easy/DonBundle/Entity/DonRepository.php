@@ -13,25 +13,31 @@ use Doctrine\ORM\EntityRepository;
 class DonRepository extends EntityRepository
 {
     /*
-     * Renvoie le total des dons effectué pour un utilisateur
+     * Renvoie la moyenne des dons pour un utilisateur
      */
-    public function findTotal($utilisateur)
+    public function findMoyenneUtilisateur($utilisateur)
     {
+        $requete = $this->createQueryBuilder('d')
+                    ->select('AVG(d.montant)')
+                    ->where('d.utilisateur='.$utilisateur->getId())
+                    ->getQuery()
+                    ->getSingleScalarResult();
         
+        return $requete;
     }
+    
+   /*
+     * 
+     */
+    public function findDonsPourUnMois($date)
+    {        
+        return 0;
+    } 
     
     /*
      * Statistiques
      */
     public function selectStatistiquesGlobales()
-    {
-        
-    }
-    
-    /*
-     * Sélectionne l'ensenble des dons effectués par utilisateur et par mois
-     */
-    public function selectDonParMois()
     {
         
     }

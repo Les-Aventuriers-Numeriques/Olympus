@@ -40,7 +40,7 @@ class Don
     * @ORM\ManyToOne(targetEntity="Easy\DonBundle\Entity\MoyenPaiement")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $moyenPaiement;
+    private $moyen_paiement;
     
     
     /**

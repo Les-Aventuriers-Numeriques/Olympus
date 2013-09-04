@@ -54,7 +54,12 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        entity_managers:
+            default:
+                auto_mapping: true
+                dql:
+                    string_functions:
+                        date_part: Easy\DonBundle\DatePartFunction
 
 # Swiftmailer Configuration
 swiftmailer:

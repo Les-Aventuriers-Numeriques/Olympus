@@ -27,6 +27,9 @@
                 {% for utilisateur in utilisateurs %}
                     <tr>
                         <td>{{ utilisateur.username }}</td>
+                        {% for unMois in mois|keys %}
+                            <th>Test</th>
+                        {% endfor %}
                     </tr>
                 {% endfor %}
             </tbody>

@@ -29,9 +29,22 @@ class DonRepository extends EntityRepository
    /*
      * 
      */
-    public function findDonsPourUnMois($date)
-    {        
-        return 0;
+    public function findTotalDonsMois()
+    {      
+        /*$req_mois = '';
+        foreach (Don::$mois as $key => $mois) 
+        {
+            $req_mois .= 'SUM(CASE WHEN month(d.date)='.$key.' THEN d.montant ELSE 0 END) AS '.$mois;
+        }
+        $requete = $this->createQueryBuilder('d')
+                    ->select('u.username,'.$req_mois)
+                    ->join('Utilisateur', 'u')
+                    ->groupBy('u.id')
+                    ->getQuery()
+                    ->getResult();
+        
+        print_r($requete);
+        exit(0);*/
     } 
     
     /*

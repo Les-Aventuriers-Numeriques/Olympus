@@ -29,8 +29,11 @@ class DonController extends Controller
     public function listAction()
     {
         $utilisateurs = $this->container->get('fos_user.user_manager')->findUsers();
+        //$dons = $this->getDoctrine()->getManager()->getRepository('EasyDonBundle:Don')->findTotalDonsMois();
+        
         return $this->render('EasyDonBundle:Don:list.html.twig', array('mois' => Don::$mois,
-                                                                        'utilisateurs' => $utilisateurs
+                                                                        'utilisateurs' => $utilisateurs,
+                                                                        //'dons' => $dons
             ));
     }
     

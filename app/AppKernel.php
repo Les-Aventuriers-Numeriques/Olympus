@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Easy\ForumBundle\EasyForumBundle(),
             new Easy\FormationBundle\EasyFormationBundle(),
             new Easy\TicketBundle\EasyTicketBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

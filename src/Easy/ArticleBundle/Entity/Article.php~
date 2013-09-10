@@ -1,6 +1,6 @@
 <?php
 
-namespace Easy\SiteBundle\Entity;
+namespace Easy\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,6 +12,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+   /**
+    * @ORM\ManyToOne(targetEntity="Easy\ArticleBundle\Entity\CategorieArticle")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $categorie_article;
+    
+   /**
+    * @ORM\ManyToOne(targetEntity="Easy\UtilisateurBundle\Entity\Utilisateur")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $utilisateur;
+    
     /**
      * @var integer
      *
@@ -121,5 +133,28 @@ class Article
     public function getContenu()
     {
         return $this->contenu;
+    }
+
+    /**
+     * Set categorie_article
+     *
+     * @param \Easy\ArticleBundle\Entity\CategorieArticle $categorieArticle
+     * @return Article
+     */
+    public function setCategorieArticle(\Easy\ArticleBundle\Entity\CategorieArticle $categorieArticle)
+    {
+        $this->categorie_article = $categorieArticle;
+    
+        return $this;
+    }
+
+    /**
+     * Get categorie_article
+     *
+     * @return \Easy\ArticleBundle\Entity\CategorieArticle 
+     */
+    public function getCategorieArticle()
+    {
+        return $this->categorie_article;
     }
 }

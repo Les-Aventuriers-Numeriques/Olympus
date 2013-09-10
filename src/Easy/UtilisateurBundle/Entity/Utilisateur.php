@@ -18,6 +18,11 @@ class Utilisateur extends BaseUser
     */
     private $dons;
     
+   /**
+    * @ORM\OneToMany(targetEntity="Easy\ArticleBundle\Entity\Article", mappedBy="utilisateur")
+    */
+    private $articles;
+    
     /**
      * @var integer
      *
@@ -262,6 +267,7 @@ class Utilisateur extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->dons = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -296,5 +302,38 @@ class Utilisateur extends BaseUser
     public function getDons()
     {
         return $this->dons;
+    }
+
+    /**
+     * Add articles
+     *
+     * @param \Easy\ArticleBundle\Entity\Article $articles
+     * @return Utilisateur
+     */
+    public function addArticle(\Easy\ArticleBundle\Entity\Article $articles)
+    {
+        $this->articles[] = $articles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \Easy\ArticleBundle\Entity\Article $articles
+     */
+    public function removeArticle(\Easy\ArticleBundle\Entity\Article $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

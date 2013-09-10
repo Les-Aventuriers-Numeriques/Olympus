@@ -1,17 +1,22 @@
 <?php
 
-namespace Easy\SiteBundle\Entity;
+namespace Easy\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categoriearticle
+ * CategorieArticle
  *
  * @ORM\Table(name="categoriearticle")
  * @ORM\Entity
  */
-class Categoriearticle
+class CategorieArticle
 {
+    /**
+    * @ORM\OneToMany(targetEntity="Easy\ArticleBundle\Entity\Article", mappedBy="categorie_article")
+    */
+    private $articles;
+    
     /**
      * @var integer
      *
@@ -91,5 +96,45 @@ class Categoriearticle
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add articles
+     *
+     * @param \Easy\ArticleBundle\Entity\Article $articles
+     * @return CategorieArticle
+     */
+    public function addArticle(\Easy\ArticleBundle\Entity\Article $articles)
+    {
+        $this->articles[] = $articles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \Easy\ArticleBundle\Entity\Article $articles
+     */
+    public function removeArticle(\Easy\ArticleBundle\Entity\Article $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

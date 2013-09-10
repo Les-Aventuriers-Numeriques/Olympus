@@ -1,10 +1,8 @@
-body {
-    width: 1024px;
-    margin: auto;
-    background-image:url('/Olympus/web/bundles/easysite/images/font.png');
+h1 {
+  margin-top: 0;
+  font-size: 30px;
 }
 
-.bloc {
-    background-color: #FFFFFF;
-    padding: 1em;
+.panel-primary>.panel-heading {
+  color: #fff;
 }

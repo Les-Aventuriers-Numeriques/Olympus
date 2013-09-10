@@ -263,6 +263,8 @@ class Utilisateur extends BaseUser
     public function __construct()
     {
         $this->dons = new \Doctrine\Common\Collections\ArrayCollection();
+        
+        parent::__construct();
     }
     
     /**

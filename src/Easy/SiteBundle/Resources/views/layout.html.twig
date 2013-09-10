@@ -1,44 +1,57 @@
 {# src/Easy/SiteBundle/Resources/views/layout.html.twig #}
- 
+
 <!DOCTYPE HTML>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}=EaSy= Company{% endblock %}</title>
+        <title>=EaSy= Company{% set _title = block('title') %}{% if _title is not empty %} | {{ _title|raw }}{% endif %}</title>
         <link href="{{ asset('bundles/easysite/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+        <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
     </head>
     <body>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
+        <div class="container">
+            <header>
                 Bannière
-            </div>
-        </div>
-        <div class="row">
+            </header>
+
             {% include "EasySiteBundle::menu.html.twig" %}
+
+            <div class="row">
+                <div class="col-xs-4 col-md-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            {% if not app.debug %}
+                            {% include "EasySiteBundle::ts.html.twig" %}
+                            {% else %}
+                            TS Viewer désactivé en mode dev
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-md-6">
+                  <div class="panel panel-primary">
+                      <div class="panel-body">
+                          {% if _title is not empty %}<h1>{{ _title|raw }}</h1>{% endif %}
+
+                          {% block body %} {% endblock %}
+                      </div>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-md-3">
+                    <div class="panel panel-primary">
+                          <div class="panel-body">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary">Connexion</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-xs-4 col-md-3">
-                <div class="bloc">
-                    {% include "EasySiteBundle::ts.html.twig" %}
-                </div>
-            </div>
-            <div class="col-xs-8 col-md-6">
-                <div class="bloc">
-                    {% block body %}
-                    {% endblock %}
-                </div>
-            </div>
-            <div class="col-xs-4 col-md-3">
-                <div class="bloc">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                    {% else %}
-                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
     </body>

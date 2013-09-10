@@ -1,13 +1,12 @@
 {# src/Easy/SiteBundle/Resources/views/Default/index.html.twig #}
- 
+
 {% extends "EasyEspaceMembreBundle::layout.html.twig" %}
 
-{% block title %}{{ parent() }} - Accueil{% endblock %}
- 
+{% block title %}{{ parent() }}Hello{% endblock %}
+
 {% block body %}
-    <div class="page-header">
-        <h1>Bienvenue {{app.user.username}}</h1>
-    </div>
+    <p>Bienvenue {{app.user.username}}</p>
+    
     <div>
         {{ app.request.attributes.get('_controller') }}
     </div>

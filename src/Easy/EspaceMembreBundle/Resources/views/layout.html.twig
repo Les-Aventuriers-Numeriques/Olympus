@@ -1,50 +1,52 @@
 {# src/Easy/SiteBundle/Resources/views/layout.html.twig #}
- 
+
 <!DOCTYPE HTML>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}=EaSy= Company{% endblock %}</title>
+        <title>=EaSy= Company{% set _title = block('title') %}{% if _title is not empty %} | {{ _title|raw }}{% endif %}</title>
         <link href="{{ asset('bundles/easysite/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+        <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
     </head>
     <body>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
+        <div class="container">
+            <header>
                 Bannière
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                {% include "EasySiteBundle::menu.html.twig" %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4 col-md-3">
-                <div class="bloc">
-                    <div class="page-header">
-                        <h1>Menu</h1> 
+            </header>
+
+            {% include "EasySiteBundle::menu.html.twig" %}
+
+            <div class="row">
+                <div class="col-xs-4 col-md-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Menu</div>
+                        <div class="panel-body">
+                            <a href=""><i class="icon-user"></i> Gérer mon Profil</a><br />
+                            <a href="{{ path('easy_don_accueil') }}"><i class="icon-euro"></i> Consulter les Dons</a><br />
+                            <a href=""><i class="icon-calendar"></i> Consulter les Evènements</a><br />
+                            <a href=""><i class="icon-envelope"></i> Ecrire un Ticket</a><br />
+                            ----<br />
+                            <a href=""><i class="icon-user"></i> Administration des News</a><br />
+                            <a href=""><i class="icon-calendar"></i> Administration des Evènements</a><br />
+                            <a href=""><i class="icon-th-list"></i> Administration du Forum</a><br />
+                            <a href=""><i class="icon-euro"></i> Administration des Dons</a><br />
+                            <a href=""><i class="icon-envelope"></i> Administration des Tickets</a>
+                        </div>
                     </div>
-                    <a href=""><span class="glyphicon glyphicon-user"></span> Gérer mon Profil</a><br />
-                    <a href="{{ path('easy_don_accueil') }}"><span class="glyphicon glyphicon-euro"></span> Consulter les Dons</a><br />
-                    <a href=""><span class="glyphicon glyphicon-calendar"></span> Consulter les Evènements</a><br />
-                    <a href=""><span class="glyphicon glyphicon-send"></span> Ecrire un Ticket</a><br />
-                    ----<br />
-                    <a href=""><span class="glyphicon glyphicon-user"></span> Administration des News</a><br />
-                    <a href=""><span class="glyphicon glyphicon-calendar"></span> Administration des Evènements</a><br />
-                    <a href=""><span class="glyphicon glyphicon-th-list"></span> Administration du Forum</a><br />
-                    <a href=""><span class="glyphicon glyphicon-euro"></span> Administration des Dons</a><br />
-                    <a href=""><span class="glyphicon glyphicon-envelope"></span> Administration des Tickets</a><br />
                 </div>
-            </div>
-            <div class="col-xs-12 col-md-9">
-                <div class="bloc">
-                    {% block body %}
-                    {% endblock %}
+                <div class="col-xs-8 col-md-9">
+                  <div class="panel panel-primary">
+                      <div class="panel-body">
+                          {% if _title is not empty %}<h1>{{ _title|raw }}</h1>{% endif %}
+
+                          {% block body %} {% endblock %}
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
     </body>

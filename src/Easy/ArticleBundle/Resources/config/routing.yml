@@ -1,3 +1,15 @@
-easy_article_index:
+easy_article_admin:
     pattern:  /administration/articles
-    defaults: { _controller: EasyArticleBundle:Article:index }
+    defaults: { _controller: EasyArticleBundle:Article:listAdmin }
+    
+easy_article_delete:
+    pattern:  /administration/article/supprimer/{id}
+    defaults: { _controller: EasyArticleBundle:Article:deleteAdmin }
+
+easy_article_new:
+    pattern:  /administration/article/nouveau
+    defaults: { _controller: EasyArticleBundle:Article:updateAdmin }
+    
+easy_article_update:
+    pattern:  /administration/article/modifier/{id}
+    defaults: { _controller: EasyArticleBundle:Article:updateAdmin }

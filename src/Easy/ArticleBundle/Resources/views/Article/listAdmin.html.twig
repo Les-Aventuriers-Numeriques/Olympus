@@ -1,0 +1,35 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Articles{% endblock %}
+ 
+{% block body %}
+<a href="{{ path('easy_article_new') }}"><i class="icon-plus-sign"></i> Ecrire un Article</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Article</th>
+            <th>Date</th>
+            <th>Catégorie</th>
+            <th>Rédacteur</th>
+            <td><i class="icon-edit"></i></td>
+            <td><i class="icon-trash"></i></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.date|date('d/m/Y H:i') }}</td>
+                <td>{{ article.categorieArticle.libelle }}</td>
+                <td>{{ article.utilisateur.usernameCanonical }}</td>
+                <td><a href="{{ path('easy_article_update', { 'id' : article.id }) }}"><i class="icon-edit"></a></i></td>
+                <td><a href="{{ path('easy_article_delete', { 'id' : article.id }) }}"><i class="icon-trash"></a></i></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

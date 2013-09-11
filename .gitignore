@@ -169,4 +169,4 @@ app/cache/*
 app/logs/*
 vendor/*
 
-nbproject/
+nbproject/*

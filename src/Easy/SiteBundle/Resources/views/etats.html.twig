@@ -1,11 +1,8 @@
 {# src/Easy/SiteBundle/Resources/views/ts.html.twig #}
 
 <div>
-    Etats Serveurs
-    <ul>
-        <li>ArmA 3</li>
-        <li>MC1</li>
-        <li>MC2</li>
-        <li>PR</li>
-    </ul>
+    <p><span class="label label-warning">Bientôt</span> ArmA 3</p>
+    <p>{% if (infos_mc1) %}<span class="label label-success">En Ligne</span>{% else %}<span class="label label-danger">Hors Ligne</span>{% endif %} Minecraft Survival</p>
+    <p>{% if (infos_mc2) %}<span class="label label-success">En Ligne</span>{% else %}<span class="label label-danger">Hors Ligne</span>{% endif %} Minecraft Flat</p>
+    <p><span class="label label-danger">Hors Ligne</span> Project Reality</p>
 </div>

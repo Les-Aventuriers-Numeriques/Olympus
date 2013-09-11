@@ -5,8 +5,8 @@
 {% block title %}{{ parent() }}Hello{% endblock %}
 
 {% block body %}
-    <p>Bienvenue {{app.user.username}}</p>
-    
+    <p>Bienvenue</p>
+
     <div>
         {{ app.request.attributes.get('_controller') }}
     </div>

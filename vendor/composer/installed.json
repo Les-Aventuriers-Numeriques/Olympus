@@ -919,89 +919,18 @@
         ]
     },
     {
-        "name": "friendsofsymfony/user-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "FOS/UserBundle",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-            "reference": "2038b755126e590ff2f21a7d64b3b9554e9c58e9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/2038b755126e590ff2f21a7d64b3b9554e9c58e9",
-            "reference": "2038b755126e590ff2f21a7d64b3b9554e9c58e9",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "symfony/form": "~2.1",
-            "symfony/framework-bundle": "~2.1",
-            "symfony/security-bundle": "~2.1"
-        },
-        "require-dev": {
-            "doctrine/doctrine-bundle": "*",
-            "swiftmailer/swiftmailer": ">=4.3, <6.0",
-            "symfony/validator": "~2.1",
-            "symfony/yaml": "~2.1",
-            "twig/twig": "~1.5",
-            "willdurand/propel-typehintable-behavior": "dev-master"
-        },
-        "suggest": {
-            "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
-        },
-        "time": "2013-09-06 08:11:57",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "FOS\\UserBundle": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christophe Coevoet",
-                "email": "stof@notk.org"
-            },
-            {
-                "name": "Thibault Duplessis",
-                "email": "thibault.duplessis@gmail.com",
-                "homepage": "http://ornicar.github.com"
-            },
-            {
-                "name": "FriendsOfSymfony Community",
-                "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
-            }
-        ],
-        "description": "Symfony FOSUserBundle",
-        "homepage": "http://friendsofsymfony.github.com",
-        "keywords": [
-            "User management"
-        ]
-    },
-    {
         "name": "gedmo/doctrine-extensions",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-            "reference": "1114bf953a017a0912d327582ff72ee72fd60fad"
+            "reference": "9269353beef9f686f0e5f186c3e05faef260f426"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/1114bf953a017a0912d327582ff72ee72fd60fad",
-            "reference": "1114bf953a017a0912d327582ff72ee72fd60fad",
+            "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/9269353beef9f686f0e5f186c3e05faef260f426",
+            "reference": "9269353beef9f686f0e5f186c3e05faef260f426",
             "shasum": ""
         },
         "require": {
@@ -1022,7 +951,7 @@
             "doctrine/mongodb-odm": ">=1.0.0-BETA7",
             "doctrine/orm": ">=2.3.2"
         },
-        "time": "2013-09-06 13:21:28",
+        "time": "2013-09-11 18:26:09",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1751,6 +1680,77 @@
             "debug",
             "i18n",
             "text"
+        ]
+    },
+    {
+        "name": "friendsofsymfony/user-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "FOS/UserBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
+            "reference": "a19e42c454b76ac4816208eae4d94ed47cb3ebab"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a19e42c454b76ac4816208eae4d94ed47cb3ebab",
+            "reference": "a19e42c454b76ac4816208eae4d94ed47cb3ebab",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "symfony/form": "~2.1",
+            "symfony/framework-bundle": "~2.1",
+            "symfony/security-bundle": "~2.1"
+        },
+        "require-dev": {
+            "doctrine/doctrine-bundle": "*",
+            "swiftmailer/swiftmailer": ">=4.3, <6.0",
+            "symfony/validator": "~2.1",
+            "symfony/yaml": "~2.1",
+            "twig/twig": "~1.5",
+            "willdurand/propel-typehintable-behavior": "dev-master"
+        },
+        "suggest": {
+            "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
+        },
+        "time": "2013-09-11 00:20:12",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "FOS\\UserBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christophe Coevoet",
+                "email": "stof@notk.org"
+            },
+            {
+                "name": "Thibault Duplessis",
+                "email": "thibault.duplessis@gmail.com",
+                "homepage": "http://ornicar.github.com"
+            },
+            {
+                "name": "FriendsOfSymfony Community",
+                "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
+            }
+        ],
+        "description": "Symfony FOSUserBundle",
+        "homepage": "http://friendsofsymfony.github.com",
+        "keywords": [
+            "User management"
         ]
     }
 ]

@@ -2,7 +2,7 @@
  * Styles généraux */
 
 body {
-    background: #fff url(/bundles//easysite/images/body_background.png) repeat;
+    background: #fff url(/bundles/easysite/images/body_background.png) repeat; 
 }
 
 h1 {

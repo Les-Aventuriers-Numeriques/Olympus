@@ -1,0 +1,42 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/showAdmin.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Articles{% endblock %}
+ 
+{% block body %}
+<div>
+    <form role="form" action="{{ path('easy_article_update') }}" method="post">
+        <p>
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input type="text" class="form-control" name="titre" placeholder="Titre" value="{% if (article) %}{{ article.titre }}{% endif %}">
+                <input type="hidden" name="article" value="{% if (article) %}{{ article.id }}{% endif %}">
+                <input type="hidden" name="utilisateur" value="{{ app.user.username }}">
+            </div>
+            <div class="form-group">
+                <label for="categorie">Catégorie</label>
+                <select name="categorie" class="form-control">
+                    {% for categorie in categories %}
+                        <option value="{{ categorie.id }}">{{ categorie.libelle }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contenu">Contenu</label>
+                <textarea class="form-control" name="contenu" placeholder="Contenu">{% if (article) %}{{ article.contenu }}{% endif %}</textarea>
+            </div>
+            
+            <br />
+            <button type="submit" class="btn btn-default">Envoyer</button>
+        </p>
+    </form>
+</div>
+
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+        tinymce.init({selector:'textarea'});
+</script>
+
+
+{% endblock %}

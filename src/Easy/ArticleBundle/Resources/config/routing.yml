@@ -6,10 +6,14 @@ easy_article_delete:
     pattern:  /administration/article/supprimer/{id}
     defaults: { _controller: EasyArticleBundle:Article:deleteAdmin }
 
-easy_article_new:
-    pattern:  /administration/article/nouveau
-    defaults: { _controller: EasyArticleBundle:Article:updateAdmin }
+easy_article_show:
+    pattern:  /administration/article/modifier/{id}
+    defaults: { _controller: EasyArticleBundle:Article:showAdmin }
+    
+easy_article_add:
+    pattern:  /administration/article/ajouter
+    defaults: { _controller: EasyArticleBundle:Article:showAdmin }
     
 easy_article_update:
-    pattern:  /administration/article/modifier/{id}
+    pattern:  /administration/article/modifier
     defaults: { _controller: EasyArticleBundle:Article:updateAdmin }

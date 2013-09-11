@@ -38,7 +38,7 @@
                                 <a class="list-group-item" href=""><i class="icon-calendar"></i> Evènements</a>
                                 <a class="list-group-item" href=""><i class="icon-euro"></i> Dons</a>
                                 <a class="list-group-item" href=""><i class="icon-envelope"></i> Tickets</a>
-                                <a class="list-group-item" href=""><i class="icon-refresh"></i> Générer le squad.xml</a>
+                                <a class="list-group-item" href="" id="generate_squad_xml"><i class="icon-refresh"></i> Générer le squad.xml</a>
                           </div>
                         </div>
                     </div>
@@ -60,5 +60,53 @@
 
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
+        <script>
+        $(function() {
+            // TODO Afficher ce script uniquement si l'utilisateur est admin
+
+            var GENERATING_SQUAD_XML = false; // Variable globale permettant de savoir si le fichier squald.xml est en cours de génération
+
+            // Clic sur l'élément du menu "Générer le squad.xml"
+            $('#generate_squad_xml').click(function(e) {
+                e.preventDefault();
+
+                // Si le fichier est déjà en cours de génération
+                if (GENERATING_SQUAD_XML == true) {
+                    return false; // On dégage
+                }
+
+                var previous_text = $(this).html();
+                var previous_color = $(this).css('color');
+
+                var self = $(this);
+
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ path('easy_squad_xml_generate') }}',
+                    dataType: 'json',
+                    beforeSend: function(jqXHR, settings) {
+                        GENERATING_SQUAD_XML = true; // On indique que la génération a commencée
+
+                        // On désactive le lien sur lequel on vient de cliquer
+                        self.html('<i class="icon-refresh"></i> Génération...');
+                        self.css('color', '#999');
+                    },
+                    complete: function(jqXHR, textStatus) {
+                        GENERATING_SQUAD_XML = false; // Génération échouée ou terminée
+
+                        // On remet le texte et la couleur d'avant
+                        self.html(previous_text);
+                        self.css('color', previous_color);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('Echec de la génération du fichier squad.xml : '+jqXHR.statusText);
+                    },
+                    success: function(data, textStatus, jqXHR) {
+                        alert('Le fichier squad.xml a bien été généré à l\'adresse TODO');
+                    }
+                });
+            });
+        });
+        </script>
     </body>
 </html>

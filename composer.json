@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "dev-master",
         "gedmo/doctrine-extensions": "2.3.*@dev",
-        "stof/doctrine-extensions-bundle": "1.1.*@dev"
+        "stof/doctrine-extensions-bundle": "1.1.*@dev",
+        "symfony/filesystem": "2.3.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

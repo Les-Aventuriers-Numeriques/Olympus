@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE squad SYSTEM "squad.dtd">
+<?xml-stylesheet href="squad.xsl?" type="text/xsl"?>
+
+<squad nick="=EaSy=">
+    <name><![CDATA[=EaSy= Company]]></name>
+    <email><![CDATA[guitouzid@wanadoo.fr]]></email>
+    <web><![CDATA[http://www.easy-company.fr/]]></web>
+    <picture><![CDATA[grif.paa]]></picture>
+    <title><![CDATA[A French Multigaming Team since 2008]]></title>
+
+    {% for soldier in soldiers %}
+    <member id="{{ soldier.steam }}" nick="{{ soldier.username_canonical }}">
+        <name><![CDATA[{{ soldier.username }}]]></name>
+        <email><![CDATA[{{ soldier.email }}]]></email>
+        <icq><![CDATA[N/A]]></icq>
+        <remark><![CDATA[{% if soldier.leitmotiv is not empty %}{{ soldier.leitmotiv }}{% else %}N/A{% endif %}]]></remark>
+    </member>
+    {% endfor %}
+</squad>

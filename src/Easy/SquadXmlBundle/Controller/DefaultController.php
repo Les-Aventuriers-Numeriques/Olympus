@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function generateAction()
     {
-        return $this->render('EasySquadXmlBundle:Default:index.html.twig', array('name' => $name));
+        
     }
 }

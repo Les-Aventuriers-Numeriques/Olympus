@@ -19,23 +19,27 @@
 
             <div class="row">
                 <div class="col-xs-4 col-md-3">
-                    <div class="panel panel-info">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">Menu</div>
-                        <div class="panel-body">
-                            <a href=""><i class="icon-user"></i> Gérer mon Profil</a><br />
-                            <a href="{{ path('easy_don_accueil') }}"><i class="icon-euro"></i> Consulter les Dons</a><br />
-                            <a href=""><i class="icon-calendar"></i> Consulter les Evènements</a><br />
-                            <a href=""><i class="icon-envelope"></i> Ecrire un Ticket</a><br />
+                        <div class="panel-body panel-list-group">
+                          <div class="list-group">
+                                <a class="list-group-item" href=""><i class="icon-user"></i> Gérer mon Profil</a>
+                                <a class="list-group-item" href="{{ path('easy_don_accueil') }}"><i class="icon-euro"></i> Consulter les Dons</a>
+                                <a class="list-group-item" href=""><i class="icon-calendar"></i> Consulter les Evènements</a>
+                                <a class="list-group-item" href=""><i class="icon-envelope"></i> Ecrire un Ticket</a>
+                          </div>
                         </div>
                     </div>
                     <div class="panel panel-danger">
                         <div class="panel-heading"><i class="icon-cogs"></i> Administration</div>
-                        <div class="panel-body">
-                            <a href="{{ path('easy_article_admin') }}"><i class="icon-user"></i> News</a><br />
-                            <a href=""><i class="icon-calendar"></i> Evènements</a><br />
-                            <a href=""><i class="icon-th-list"></i> Forum</a><br />
-                            <a href=""><i class="icon-euro"></i> Dons</a><br />
-                            <a href=""><i class="icon-envelope"></i> Tickets</a>
+                        <div class="panel-body panel-list-group">
+                          <div class="list-group">
+                                <a class="list-group-item" href="{{ path('easy_article_admin') }}"><i class="icon-font"></i> News</a>
+                                <a class="list-group-item" href=""><i class="icon-calendar"></i> Evènements</a>
+                                <a class="list-group-item" href=""><i class="icon-euro"></i> Dons</a>
+                                <a class="list-group-item" href=""><i class="icon-envelope"></i> Tickets</a>
+                                <a class="list-group-item" href=""><i class="icon-refresh"></i> Générer le squad.xml</a>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -49,6 +53,9 @@
                   </div>
                 </div>
             </div>
+            <footer>
+                =EaSy= Company &copy; 2008 - {{ "now"|date('Y') }} - <a href="">Mentions Légales</a>
+            </footer>
         </div>
 
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>

@@ -1,3 +1,3 @@
-easy_squad_xml_homepage:
+easy_squad_xml_generate:
     pattern:  /hello/{name}
-    defaults: { _controller: EasySquadXmlBundle:Default:index }
+    defaults: { _controller: EasySquadXmlBundle:Default:generate }

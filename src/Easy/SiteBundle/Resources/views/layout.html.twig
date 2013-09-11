@@ -37,12 +37,13 @@
                     </div>
                 </div>
                 <div class="col-xs-8 col-md-6">
-                  <div class="panel panel-primary">
-                      <div class="panel-body">
-                          {% if _title is not empty %}<h1>{{ _title|raw }}</h1>{% endif %}
-                          {% block body %} {% endblock %}
-                      </div>
-                  </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            {% if _title is not empty %}<h1>{{ _title|raw }}</h1>{% endif %}
+
+                            {% block body %} {% endblock %}
+                        </div>
+                    </div>
                 </div>
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
@@ -64,7 +65,11 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading"><i class="icon-beer"></i> Tchat</div>
                         <div class="panel-body">
-                            {% include "EasySiteBundle::tchat.html.twig" %}
+                            {% if not app.debug %}
+                                {% include "EasySiteBundle::tchat.html.twig" %}
+                            {% else %}
+                                Tchat désactivé en mode dev
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,13 @@
+/***************************************************************
+ * Styles généraux */
+
+body {
+    background: #fff url(/bundles//easysite/images/body_background.png) repeat;
+}
+
 h1 {
-  margin-top: 0;
-  font-size: 30px;
+    margin-top: 0;
+    font-size: 30px;
 }
 
 footer {
@@ -8,6 +15,48 @@ footer {
     text-align: center;
 }
 
+/***************************************************************
+ * Panels */
+
+/* Panel rouge */
+.panel-danger {
+   border-color: #EEA1AD;
+}
+
+.panel-danger>.panel-heading {
+    border-color: #EEA1AD;
+}
+
+/* Panel bleu */
 .panel-primary>.panel-heading {
-  color: #fff;
+    color: #fff;
+}
+
+/* Panels avec une liste groupée à l'intérieure */
+.panel-body.panel-list-group .list-group {
+    margin-bottom: 0;
+}
+
+.panel-body.panel-list-group {
+    padding: 0;
+}
+
+.panel-body.panel-list-group .list-group-item {
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+}
+
+.panel-body.panel-list-group .list-group-item:hover, .panel-body.panel-list-group .list-group-item:focus {
+    background-color: #F5F5F5;
+}
+
+.panel-body.panel-list-group .list-group-item:first-child {
+    border-top: none;
+    border-radius: 0;
+}
+
+.panel-body.panel-list-group .list-group-item:last-child {
+    border-radius: 0;
+    border-bottom: none;
 }

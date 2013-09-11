@@ -22,9 +22,9 @@
                     <div class="panel panel-primary">
                         <div class="panel-body">
                             {% if not app.debug %}
-                            {% include "EasySiteBundle::ts.html.twig" %}
+                                {% include "EasySiteBundle::ts.html.twig" %}
                             {% else %}
-                            TS Viewer désactivé en mode dev
+                                TS Viewer désactivé en mode dev
                             {% endif %}
                         </div>
                     </div>
@@ -33,14 +33,13 @@
                   <div class="panel panel-primary">
                       <div class="panel-body">
                           {% if _title is not empty %}<h1>{{ _title|raw }}</h1>{% endif %}
-
                           {% block body %} {% endblock %}
                       </div>
                   </div>
                 </div>
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
-                          <div class="panel-body">
+                        <div class="panel-body">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                             {% else %}
@@ -48,8 +47,21 @@
                             {% endif %}
                         </div>
                     </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            {% include "EasySiteBundle::etats.html.twig" %}
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            {% include "EasySiteBundle::tchat.html.twig" %}
+                        </div>
+                    </div>
                 </div>
             </div>
+            <footer>
+                =EaSy= Company &copy; 2008 - {{ "now"|date('Y') }} - <a href="">Mentions Légales</a>
+            </footer>
         </div>
 
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>

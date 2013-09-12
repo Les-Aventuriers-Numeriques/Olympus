@@ -81,5 +81,16 @@
 
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
+        <script>
+        $(function() {
+            $('.tooltip-state').tooltip({
+                html: true,
+                placement: 'left',
+                title: function() {
+                    return $(this).attr('data-tooltip');
+                }
+            });
+        });
+        </script>
     </body>
 </html>

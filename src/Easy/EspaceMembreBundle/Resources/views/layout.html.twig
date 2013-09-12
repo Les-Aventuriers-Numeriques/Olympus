@@ -82,8 +82,8 @@
 
                 $.ajax({
                     type: 'GET',
+                    dataType: 'html',
                     url: '{{ path('easy_squad_xml_generate') }}',
-                    dataType: 'json',
                     beforeSend: function(jqXHR, settings) {
                         GENERATING_SQUAD_XML = true; // On indique que la génération a commencée
 
@@ -99,7 +99,7 @@
                         self.css('color', previous_color);
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        alert('Echec de la génération du fichier squad.xml : '+jqXHR.statusText);
+                        alert('Echec de la génération du fichier squad.xml');
                     },
                     success: function(data, textStatus, jqXHR) {
                         alert('Le fichier squad.xml a bien été généré.');

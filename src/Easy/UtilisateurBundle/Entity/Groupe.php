@@ -1,8 +1,10 @@
 <?php
 
-namespace Easy\SiteBundle\Entity;
+namespace Easy\UtilisateurBundle\Entity;
 
+use FOS\UserBundle\Model\Group as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
 
 /**
  * Groupe
@@ -11,16 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="Easy\SiteBundle\Repository\GroupeRepository")
  * 
  */
-class Groupe
+class Groupe extends BaseGroup
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -35,8 +37,6 @@ class Groupe
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
-
-
 
     /**
      * Get id

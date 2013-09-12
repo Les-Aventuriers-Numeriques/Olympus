@@ -24,6 +24,15 @@ class Utilisateur extends BaseUser
     private $articles;
     
     /**
+     * @ORM\ManyToMany(targetEntity="Easy\UtilisateurBundle\Entity\Groupe")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
@@ -269,6 +278,8 @@ class Utilisateur extends BaseUser
     {
         parent::__construct();
         $this->dons = new \Doctrine\Common\Collections\ArrayCollection();
+        
+        parent::__construct();
     }
     
     /**
@@ -302,5 +313,38 @@ class Utilisateur extends BaseUser
     public function getDons()
     {
         return $this->dons;
+    }
+
+    /**
+     * Add articles
+     *
+     * @param \Easy\ArticleBundle\Entity\Article $articles
+     * @return Utilisateur
+     */
+    public function addArticle(\Easy\ArticleBundle\Entity\Article $articles)
+    {
+        $this->articles[] = $articles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \Easy\ArticleBundle\Entity\Article $articles
+     */
+    public function removeArticle(\Easy\ArticleBundle\Entity\Article $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

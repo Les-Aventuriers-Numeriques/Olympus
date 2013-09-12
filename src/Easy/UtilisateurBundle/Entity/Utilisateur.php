@@ -4,6 +4,7 @@ namespace Easy\UtilisateurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
 
 /**
  * Utilisateur
@@ -22,6 +23,15 @@ class Utilisateur extends BaseUser
     * @ORM\OneToMany(targetEntity="Easy\ArticleBundle\Entity\Article", mappedBy="utilisateur")
     */
     private $articles;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Easy\UtilisateurBundle\Entity\Groupe")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
     
     /**
      * @var integer
@@ -338,4 +348,6 @@ class Utilisateur extends BaseUser
     {
         return $this->articles;
     }
+
+ 
 }

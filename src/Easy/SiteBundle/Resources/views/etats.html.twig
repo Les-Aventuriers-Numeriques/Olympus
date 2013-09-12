@@ -1,8 +1,7 @@
 {# src/Easy/SiteBundle/Resources/views/ts.html.twig #}
-
-<div>
-    <p><span class="label label-warning">Bientôt</span> ArmA 3</p>
-    <p>{% if (infos_mc1) %}<span class="label label-success">En Ligne</span>{% else %}<span class="label label-danger">Hors Ligne</span>{% endif %} Minecraft Survival</p>
-    <p>{% if (infos_mc2) %}<span class="label label-success">En Ligne</span>{% else %}<span class="label label-danger">Hors Ligne</span>{% endif %} Minecraft Flat</p>
-    <p><span class="label label-danger">Hors Ligne</span> Project Reality</p>
-</div>
+<ul class="list-group">
+  <li class="list-group-item"><span class="label label-warning">Bientôt</span> ArmA 3</li>
+  <li class="list-group-item">{% if (infos_mc1) %}<span class="badge">0</span> <span class="label label-success">En Ligne</span>{% else %}<span class="label label-danger">Hors Ligne</span>{% endif %} Minecraft Survival</li>
+  <li class="list-group-item">{% if (infos_mc2) %}<span class="badge">0</span> <span class="label label-success">En Ligne</span>{% else %}<span class="label label-danger">Hors Ligne</span>{% endif %} Minecraft Flat</li>
+  <li class="list-group-item"><span class="label label-danger">Hors Ligne</span> Project Reality</li>
+</ul>

@@ -7,17 +7,29 @@ use Easy\SiteBundle\Extension\MinecraftQuery;
 
 class AccueilController extends Controller
 {
-    public function indexAction()
+    public function loadEtats()
     {
         // Informations serveurs
         $infos_mc1 = new MinecraftQuery();
         $infos_mc1->Connect( '37.59.47.34', 25565 , 1 );
         $infos_mc2 = new MinecraftQuery();
         $infos_mc2->Connect( '37.59.47.34', 25566 , 1 );
-
+        
+        return array('infos_mc1' => $infos_mc1, 'infos_mc2' => $infos_mc2);
+    }
+    
+    public function indexAction()
+    {
+        $etats = $this->loadEtats();
         // Chargement des News
         $articles = $this->getDoctrine()->getManager()->getRepository('EasyArticleBundle:Article')->findBy(array(), array('date' => 'DESC'), 5, 0);
 
-        return $this->render('EasySiteBundle:Default:index.html.twig', array('articles' => $articles, 'infos_mc1' => $infos_mc1, 'infos_mc2' => $infos_mc2));
+        return $this->render('EasySiteBundle:Default:index.html.twig', array('articles' => $articles, 'infos_mc1' => $etats['infos_mc1'], 'infos_mc2' => $etats['infos_mc2']));
+    }
+    
+    public function pageDonAction()
+    {
+        $etats = $this->loadEtats();
+        return $this->render('EasySiteBundle:Pages:dons.html.twig', array('infos_mc1' => $etats['infos_mc1'], 'infos_mc2' => $etats['infos_mc2']));
     }
 }

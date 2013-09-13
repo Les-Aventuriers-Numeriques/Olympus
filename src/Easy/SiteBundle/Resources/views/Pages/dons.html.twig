@@ -1,0 +1,49 @@
+{# src/Easy/SiteBundle/Resources/views/Pages/dons.html.twig #}
+
+{% extends "EasySiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}Dons{% endblock %}
+
+{% block body %}
+    <div>
+        <img class="img-responsive" src="{{ asset('bundles/easysite/images/oncle_sam.png') }}" alt="Oncle Sam">
+    </div>
+    <h3>Vous souhaitez aider notre communauté ?</h3>
+    <p>
+        Vous voulez nous aider à financer notre serveur dédié ? C’est extremment simple. Vous avez juste à choisir un moyen de payement. 
+        Les dons sont le seul et unique revenu de la =EaSy= Company, par conséquent, nous comptons sur votre générosité.
+    </p>
+    
+    <h3>Don par Paypal</h3>
+    <p>
+        Le moyen de payement le plus rentable reste Paypal car vous payez une taxe de 3,4% + 0,25 € du montant total du don. 
+        Le payement par Paypal peut être aussi effectué sans posséder de compte Paypal, juste en utilisant votre Carte Bancaire.
+    </p>
+    <div style="text-align: center;">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick" /><br />
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7----- 										" /><br />
+            <input type="image" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !" name="submit" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donateCC_LG.gif" /><br />
+            <img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1" border="0" />
+        </form>
+    </div>
+    <h3>Don par Allopass (Payement à l’Acte)</h3>
+    <p>
+        Le payement par Allopass (à l’Acte) permet à une personne de pouvoir payer sans utiliser de carte de crédit. 
+        Attention, ce service vous fera appeler un numéro surtaxé, où un code vous sera donné. La =EaSy= Company recevra 1,00 € pour 1 appel (coût de 1,80 €).
+    </p>
+    <div style="text-align: center;"><!-- Begin Allopass Checkout-Button Code --><br />
+        <script type="text/javascript" src="https://payment.allopass.com/buy/checkout.apu?ids=228281&amp;idd=900321&amp;lang=fr"></script>
+        <br />
+        <noscript>                                                                      
+            <a href="https://payment.allopass.com/buy/buy.apu?ids=228281&#038;idd=900321" style="border:0"><br />
+                <img src="https://payment.allopass.com/static/buy/button/fr/162x56.png" style="border:0" alt="Buy now!" /><br /></a>
+            <br />
+        </noscript>
+    </div>
+    <h3>Don par Allopass (Payement à la Durée)</h3>
+    <p>
+        Le payement par Allopass (à la Durée) permet à une personne de pouvoir payer sans utiliser de carte de crédit tout en 
+        laissant son téléphone en communication. Attention, ce service vous fera appeler un numéro surtaxé, où on vous demandera de ne pas raccrocher. 
+        La =EaSy= Company recevra 0,75 € lors de l’appel (coût de 1,34 € par appel) puis 0,15 € chaque minute (coût de 0,34 € par minute)
+    </p>
+{% endblock %}

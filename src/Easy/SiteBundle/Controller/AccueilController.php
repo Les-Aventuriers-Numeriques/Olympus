@@ -15,6 +15,8 @@ class AccueilController extends Controller
         $infos_mc2 = new MinecraftQuery();
         $infos_mc2->Connect( '37.59.47.34', 25566 , 1 );
         
+        // Evènements
+        
         return array('infos_mc1' => $infos_mc1, 'infos_mc2' => $infos_mc2);
     }
     

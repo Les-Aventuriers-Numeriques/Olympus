@@ -378,6 +378,16 @@ class Utilisateur extends BaseUser
     {
         return $this->id_steam;
     }
+    
+    /**
+     * Get est_publique
+     *
+     * @return boolean 
+     */
+    public function getEstPublique()
+    {
+        return $this->est_publique;
+    }
 
     /**
      * Set est_publique

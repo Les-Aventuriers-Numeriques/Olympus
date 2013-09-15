@@ -10,6 +10,10 @@ h1 {
     font-size: 30px;
 }
 
+header {
+    margin-bottom: 10px;
+}
+
 footer {
     font-size: 0.8em;
     text-align: center;

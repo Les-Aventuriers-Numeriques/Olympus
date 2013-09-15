@@ -7,6 +7,12 @@ use Easy\SiteBundle\Extension\MinecraftQuery;
 
 class AccueilController extends Controller
 {
+    public function preExecute()
+    {
+        $etats = $this->loadEtats();
+        return array('infos_mc1' => $etats['infos_mc1'], 'infos_mc2' => $etats['infos_mc2']);
+    }
+    
     public function loadEtats()
     {
         // Informations serveurs
@@ -33,5 +39,11 @@ class AccueilController extends Controller
     {
         $etats = $this->loadEtats();
         return $this->render('EasySiteBundle:Pages:dons.html.twig', array('infos_mc1' => $etats['infos_mc1'], 'infos_mc2' => $etats['infos_mc2']));
+    }
+    
+    public function pageMentionsAction()
+    {
+        $etats = $this->loadEtats();
+        return $this->render('EasySiteBundle:Pages:mentions.html.twig', array('infos_mc1' => $etats['infos_mc1'], 'infos_mc2' => $etats['infos_mc2']));
     }
 }

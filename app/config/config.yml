@@ -99,3 +99,9 @@ fos_user:
         group_class: Easy\UtilisateurBundle\Entity\Groupe
         
 ornicar_gravatar: ~
+
+services:
+  controller.pre_execute_listener:
+    class: Easy\SiteBundle\Listener\ControllerListener
+    tags:
+      -  { name: kernel.event_listener, event: kernel.controller, method: onCoreController }

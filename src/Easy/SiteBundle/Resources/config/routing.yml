@@ -5,3 +5,7 @@ easy_site_homepage:
 easy_site_page_dons:
     pattern:  /dons
     defaults: { _controller: EasySiteBundle:Accueil:pageDon }
+    
+easy_site_page_mentions:
+    pattern:  /mentions-legales
+    defaults: { _controller: EasySiteBundle:Accueil:pageMentions }

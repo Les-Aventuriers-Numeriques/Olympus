@@ -10,9 +10,9 @@
     <title><![CDATA[A French Multigaming Team since 2008]]></title>
 
     {% for soldier in soldiers %}
-    <member id="{{ soldier.steam }}" nick="{{ soldier.usernameCanonical }}">
+    <member id="{{ soldier.idSteam }}" nick="{{ soldier.pseudoSteam }}">
         <name><![CDATA[{{ soldier.username }}]]></name>
-        <email><![CDATA[{{ soldier.email }}]]></email>
+        <email><![CDATA[{% if soldier.estPublique %}{{ soldier.email }}{% else %}N/A{% endif %}]]></email>
         <icq><![CDATA[N/A]]></icq>
         <remark><![CDATA[{% if soldier.leitmotiv is not empty %}{{ soldier.leitmotiv }}{% else %}N/A{% endif %}]]></remark>
     </member>

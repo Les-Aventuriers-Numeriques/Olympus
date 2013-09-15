@@ -97,3 +97,5 @@ fos_user:
     user_class:    Easy\UtilisateurBundle\Entity\Utilisateur # La classe de l'entité User que nous utilisons
     group:
         group_class: Easy\UtilisateurBundle\Entity\Groupe
+        
+ornicar_gravatar: ~

@@ -50,16 +50,25 @@
                         <div class="panel-heading"><i class="icon-user"></i> Connexion</div>
                         <div class="panel-body">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                                <div class="text-center"">
+                                    <strong>{{ app.user.username }}</strong>
+                                    <br />
+                                    GRAVATAR
+                                    <br /><br />
+                                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger">Se déconnecter</a>
+                                </div>
                             {% else %}
-                                <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary">Connexion</a>
+                                <div class="text-center">
+                                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary">Connexion</a>
+                                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">Inscription</a>
+                                </div>
                             {% endif %}
                         </div>
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><i class="icon-signal"></i> Etats des Serveurs</div>
                         <div class="panel-body panel-list-group">
-                            {% include "EasySiteBundle::etats.html.twig" %}
+                            {#% include "EasySiteBundle::etats.html.twig" %#}
                         </div>
                     </div>
                     <div class="panel panel-primary">

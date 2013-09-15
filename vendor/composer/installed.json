@@ -925,12 +925,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-            "reference": "9269353beef9f686f0e5f186c3e05faef260f426"
+            "reference": "03a3a9f20fff6f43ff68d91bc752da4e4308b361"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/9269353beef9f686f0e5f186c3e05faef260f426",
-            "reference": "9269353beef9f686f0e5f186c3e05faef260f426",
+            "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/03a3a9f20fff6f43ff68d91bc752da4e4308b361",
+            "reference": "03a3a9f20fff6f43ff68d91bc752da4e4308b361",
             "shasum": ""
         },
         "require": {
@@ -951,7 +951,7 @@
             "doctrine/mongodb-odm": ">=1.0.0-BETA7",
             "doctrine/orm": ">=2.3.2"
         },
-        "time": "2013-09-11 18:26:09",
+        "time": "2013-09-13 14:37:16",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1683,6 +1683,64 @@
         ]
     },
     {
+        "name": "ornicar/gravatar-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Ornicar/GravatarBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ornicar/GravatarBundle.git",
+            "reference": "45a68e58c7dc7048e84f37babad6dc2661bb9f20"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ornicar/GravatarBundle/zipball/45a68e58c7dc7048e84f37babad6dc2661bb9f20",
+            "reference": "45a68e58c7dc7048e84f37babad6dc2661bb9f20",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "symfony/framework-bundle": ">=2.0"
+        },
+        "require-dev": {
+            "twig/extensions": "1.0.*"
+        },
+        "suggest": {
+            "twig/twig": ">=1.3.0"
+        },
+        "time": "2013-09-06 06:46:09",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Ornicar\\GravatarBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thibault Duplessis",
+                "email": "thibault.duplessis@gmail.com",
+                "homepage": "http://ornicar.github.com"
+            },
+            {
+                "name": "Henrik Bjørnskov",
+                "email": "henrik@bjrnskov.dk",
+                "homepage": "http://henrik.bjrnskov.dk"
+            }
+        ],
+        "description": "This bundles provides a Gravatar API various utilities to work with it in templates",
+        "keywords": [
+            "Symfony2",
+            "gravatar",
+            "templating",
+            "twig"
+        ]
+    },
+    {
         "name": "friendsofsymfony/user-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1690,12 +1748,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-            "reference": "a19e42c454b76ac4816208eae4d94ed47cb3ebab"
+            "reference": "a6c12cc2b60176d2afad924f23031accfad9a384"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a19e42c454b76ac4816208eae4d94ed47cb3ebab",
-            "reference": "a19e42c454b76ac4816208eae4d94ed47cb3ebab",
+            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a6c12cc2b60176d2afad924f23031accfad9a384",
+            "reference": "a6c12cc2b60176d2afad924f23031accfad9a384",
             "shasum": ""
         },
         "require": {
@@ -1715,7 +1773,7 @@
         "suggest": {
             "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
         },
-        "time": "2013-09-11 00:20:12",
+        "time": "2013-09-13 03:06:49",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {

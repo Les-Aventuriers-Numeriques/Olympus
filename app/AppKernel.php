@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Easy\FormationBundle\EasyFormationBundle(),
             new Easy\TicketBundle\EasyTicketBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

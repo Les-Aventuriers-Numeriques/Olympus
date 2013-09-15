@@ -11,9 +11,9 @@ class AccueilController extends Controller
     {
         // Informations serveurs
         $infos_mc1 = new MinecraftQuery();
-        $infos_mc1->Connect( '37.59.47.34', 25565 , 1 );
+        $infos_mc1->Connect( '188.165.37.162', 25565 , 1 );
         $infos_mc2 = new MinecraftQuery();
-        $infos_mc2->Connect( '37.59.47.34', 25566 , 1 );
+        $infos_mc2->Connect( '188.165.37.162', 25565 , 1 );
         
         // Evènements
         

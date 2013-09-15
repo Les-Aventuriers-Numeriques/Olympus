@@ -4,6 +4,7 @@ namespace Easy\UtilisateurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
 
 /**
  * Utilisateur
@@ -58,16 +59,16 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="text", nullable=true)
+     * @ORM\Column(name="pseudo_steam", type="string", length=45, nullable=true)
      */
-    private $avatar;
-
+    private $pseudo_steam;
+    
     /**
      * @var string
      *
-     * @ORM\Column(name="steam", type="text", nullable=true)
+     * @ORM\Column(name="id_steam", type="string", length=45, nullable=true)
      */
-    private $steam;
+    private $id_steam;
 
     /**
      * @var string
@@ -75,8 +76,13 @@ class Utilisateur extends BaseUser
      * @ORM\Column(name="leitmotiv", type="text", nullable=true)
      */
     private $leitmotiv;
-
-
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="est_publique", type="boolean")
+     */
+    private $est_publique;
 
     /**
      * Get id
@@ -227,29 +233,6 @@ class Utilisateur extends BaseUser
     }
 
     /**
-     * Set steam
-     *
-     * @param string $steam
-     * @return Utilisateur
-     */
-    public function setSteam($steam)
-    {
-        $this->steam = $steam;
-    
-        return $this;
-    }
-
-    /**
-     * Get steam
-     *
-     * @return string 
-     */
-    public function getSteam()
-    {
-        return $this->steam;
-    }
-
-    /**
      * Set leitmotiv
      *
      * @param string $leitmotiv
@@ -346,5 +329,76 @@ class Utilisateur extends BaseUser
     public function getArticles()
     {
         return $this->articles;
+    }
+
+ 
+
+    /**
+     * Set pseudo_steam
+     *
+     * @param string $pseudoSteam
+     * @return Utilisateur
+     */
+    public function setPseudoSteam($pseudoSteam)
+    {
+        $this->pseudo_steam = $pseudoSteam;
+    
+        return $this;
+    }
+
+    /**
+     * Get pseudo_steam
+     *
+     * @return string 
+     */
+    public function getPseudoSteam()
+    {
+        return $this->pseudo_steam;
+    }
+
+    /**
+     * Set id_steam
+     *
+     * @param string $idSteam
+     * @return Utilisateur
+     */
+    public function setIdSteam($idSteam)
+    {
+        $this->id_steam = $idSteam;
+    
+        return $this;
+    }
+
+    /**
+     * Get id_steam
+     *
+     * @return string 
+     */
+    public function getIdSteam()
+    {
+        return $this->id_steam;
+    }
+
+    /**
+     * Set est_publique
+     *
+     * @param boolean $estPublique
+     * @return Utilisateur
+     */
+    public function setEstPublique($estPublique)
+    {
+        $this->est_publique = $estPublique;
+    
+        return $this;
+    }
+
+    /**
+     * Get est_publique
+     *
+     * @return boolean 
+     */
+    public function getEstPublique()
+    {
+        return $this->est_publique;
     }
 }

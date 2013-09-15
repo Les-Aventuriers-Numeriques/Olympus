@@ -1,3 +1,11 @@
-easy_utilisateur_homepage:
-    pattern:  /groupe/test
-    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:index }
+easy_utilisateur_profil:
+    pattern:  /espace-membre/profil/{username}
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:show }
+    
+easy_utilisateur_update:
+    pattern:  /espace-membre/profil/modifier
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:update }
+    
+easy_utilisateur_admin:
+    pattern:  /administration/utilisateurs
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:listAdmin }

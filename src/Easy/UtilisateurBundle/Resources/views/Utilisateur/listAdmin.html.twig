@@ -1,0 +1,33 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Utilisateurs{% endblock %}
+ 
+{% block body %}
+<a href=""><i class="icon-plus-sign"></i> Ajouter un Utilisateur</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Utilisateur</th>
+            <th>Email</th>
+            <th>Dernier Login</th>
+            <th><i class="icon-edit"></i></th>
+            <th><i class="icon-trash"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.username }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.lastLogin|date('d/m/Y H:i') }}</td>
+                <td><a href=""><i class="icon-edit"></a></i></td>
+                <td><a href=""><i class="icon-trash"></a></i></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

@@ -9,7 +9,7 @@
         <h3>{{ article.titre }}</h3>
         <h6>Le {{ article.date|date('d/m/Y H:i') }} par <a href="">{{ article.utilisateur.usernameCanonical }}</a></h6>
         <div>
-            <p>{{ article.contenu }}</p>
+            <p>{{ article.contenu|raw }}</p>
             {% if not loop.last %}
                 <hr />
             {% endif %}

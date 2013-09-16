@@ -23,7 +23,7 @@
                 <td>{{ utilisateur.email }}</td>
                 <td>{{ utilisateur.lastLogin|date('d/m/Y H:i') }}</td>
                 <td><a href=""><i class="icon-edit"></a></i></td>
-                <td><a href=""><i class="icon-trash"></a></i></td>
+                <td><a href="{{ path('easy_utilisateur_delete', { 'username' : utilisateur.username }) }}"><i class="icon-trash"></a></i></td>
             </tr>
         {% endfor %}
 

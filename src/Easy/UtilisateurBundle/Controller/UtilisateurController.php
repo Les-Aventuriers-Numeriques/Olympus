@@ -33,6 +33,8 @@ class UtilisateurController extends Controller
         $utilisateur->setEmail($this->getRequest()->request->get('email'));
         $utilisateur->setIdSteam($this->getRequest()->request->get('id_steam'));
         $utilisateur->setPseudoSteam($this->getRequest()->request->get('pseudo_steam'));
+        $utilisateur->setLeitmotiv($this->getRequest()->request->get('leitmotiv'));
+        $utilisateur->setEstPublique($this->getRequest()->request->get('est_publique'));
         if ($this->getRequest()->request->get('password')!="" || $this->getRequest()->request->get('password')==$this->getRequest()->request->get('password2')) $utilisateur->setPassword($this->getRequest()->request->get('password'));
         
         // On sauvegarde
@@ -47,10 +49,25 @@ class UtilisateurController extends Controller
         // UserManager de FosUserBundle
         $userManager = $this->container->get('fos_user.user_manager');
         
-        // Récupération de l'utilisateur à supprimer
+        // Récupération des utilisateurs
         $utilisateurs = $userManager->findUsers();
         
         // La vue
         return $this->render('EasyUtilisateurBundle:Utilisateur:listAdmin.html.twig', array('utilisateurs' => $utilisateurs));
+    }
+    
+    public function deleteAdminAction($username)
+    {
+        // UserManager de FosUserBundle
+        $userManager = $this->container->get('fos_user.user_manager');
+        
+        // Récupération de l'utilisateur à supprimer
+        $utilisateur = $userManager->findUserByUsername($username);
+        
+        // Supression
+        $userManager->deleteUser($utilisateur);
+        
+        // La vue
+        return $this->redirect($this->generateUrl('easy_utilisateur_admin'));
     }
 }

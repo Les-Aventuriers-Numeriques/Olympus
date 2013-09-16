@@ -39,8 +39,19 @@
             <label for="pseudo_steam">Pseudo Steam</label>
             <input type="text" class="form-control" name="pseudo_steam" placeholder="Peudo Steam" value="{{ utilisateur.pseudoSteam }}">
         </div>
+        <div class="form-group">
+            <label for="leitmotiv">Leitmotiv</label>
+            <input type="text" class="form-control" name="leitmotiv" placeholder="Leitmotiv" value="{{ utilisateur.leitmotiv }}">
+        </div>
+        <div class="form-group">
+            <label for="est_publique">Autorisez-vous la =EaSy= Company à afficher votre adresse email sur le squad.xml ?</label>
+            <br/>
+            <input type="radio" name="est_publique" value="1" {% if (utilisateur.estPublique==1) %}checked{% endif%}> Oui
+            <input type="radio" name="est_publique" value="0" {% if (utilisateur.estPublique==0) %}checked{% endif%}> Non
+        </div>
         <br />
         <button type="submit" class="btn btn-default">Envoyer</button>
+        <a href="{{ path('easy_site_homepage') }}" class="btn btn-danger">Annuler</a>
     </form>
 </div>
 

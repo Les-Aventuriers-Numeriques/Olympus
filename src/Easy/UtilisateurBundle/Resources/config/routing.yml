@@ -9,3 +9,7 @@ easy_utilisateur_profil:
 easy_utilisateur_admin:
     pattern:  /administration/utilisateurs
     defaults: { _controller: EasyUtilisateurBundle:Utilisateur:listAdmin }
+    
+easy_utilisateur_delete:
+    pattern:  /administration/utilisateurs/supprimer/{username}
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:deleteAdmin }

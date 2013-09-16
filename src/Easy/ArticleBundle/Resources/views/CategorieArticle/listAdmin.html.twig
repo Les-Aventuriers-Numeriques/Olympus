@@ -1,0 +1,31 @@
+{# src/Easy/ArticleBundle/Resources/views/CategorieArticle/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Catégories des Articles{% endblock %}
+ 
+{% block body %}
+<a href="{{ path('easy_categoriearticle_add') }}"><i class="icon-plus-sign"></i> Ajouter une Catégorie</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Catégorie</th>
+            <th>Description</th>
+            <th><i class="icon-edit"></i></th>
+            <th><i class="icon-trash"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.libelle }}</td>
+                <td>{{ categorie.description }}</td>
+                <td><a href="{{ path('easy_categoriearticle_show', { 'id' : categorie.id }) }}"><i class="icon-edit"></a></i></td>
+                <td><a href="{{ path('easy_categoriearticle_delete', { 'id' : categorie.id }) }}"><i class="icon-trash"></a></i></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

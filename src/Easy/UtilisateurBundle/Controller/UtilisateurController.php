@@ -35,7 +35,7 @@ class UtilisateurController extends Controller
         $utilisateur->setPseudoSteam($this->getRequest()->request->get('pseudo_steam'));
         $utilisateur->setLeitmotiv($this->getRequest()->request->get('leitmotiv'));
         $utilisateur->setEstPublique($this->getRequest()->request->get('est_publique'));
-        if ($this->getRequest()->request->get('password')!="" || $this->getRequest()->request->get('password')==$this->getRequest()->request->get('password2')) $utilisateur->setPassword($this->getRequest()->request->get('password'));
+        if ($this->getRequest()->request->get('password')!="" || $this->getRequest()->request->get('password')==$this->getRequest()->request->get('password2')) $utilisateur->setPlainPassword($this->getRequest()->request->get('password'));
         
         // On sauvegarde
         $userManager->updateUser($utilisateur);

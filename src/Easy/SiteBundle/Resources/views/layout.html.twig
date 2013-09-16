@@ -22,14 +22,7 @@
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading"><i class="icon-calendar"></i> Evènements</div>
-                        <div class="panel-body panel-list-group">
-                          <div class="list-group">
-                                <a class="list-group-item" href=""><span class="label label-default">Semaine prochaine</span> Réunion</a>
-                                <a class="list-group-item" href=""><span class="label label-warning">Demain</span> Entraînement ArmA</a>
-                                <a class="list-group-item" href=""><span class="label label-danger">30 minutes</span> Match LcG vs Easy</a>
-                                <a class="list-group-item" href=""><span class="label label-success">Hier</span> Fonds</a>
-                          </div>
-                        </div>
+                            {{ render(controller('EasyDispoBundle:Evenement:listAccueil')) }}
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><i class="icon-microphone"></i> Teamspeak</div>
@@ -74,7 +67,7 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading"><i class="icon-signal"></i> Etats des Serveurs</div>
                         <div class="panel-body panel-list-group">
-                            {#% include "EasySiteBundle::etats.html.twig" %#}
+                            {{ render(controller('EasySiteBundle:Accueil:loadEtats')) }}
                         </div>
                     </div>
                     <div class="panel panel-primary">

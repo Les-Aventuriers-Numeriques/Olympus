@@ -1,0 +1,25 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/showAdmin.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Catérgories des Articles{% endblock %}
+ 
+{% block body %}
+<div>
+    <form role="form" action="{{ path('easy_categoriearticle_update') }}" method="post">
+        <p>
+            <div class="form-group">
+                <label for="libelle">Libelle</label>
+                <input type="text" class="form-control" name="libelle" placeholder="Libelle" value="{% if (categorie) %}{{ categorie.libelle }}{% endif %}">
+                <input type="hidden" name="categorie" value="{% if (categorie) %}{{ categorie.id }}{% endif %}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" placeholder="Description" value="{% if (categorie) %}{{ categorie.description }}{% endif %}">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-default">Envoyer</button>
+        </p>
+    </form>
+</div>
+{% endblock %}

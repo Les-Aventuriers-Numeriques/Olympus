@@ -1,6 +1,6 @@
 <?php
 
-namespace Easy\SiteBundle\Entity;
+namespace Easy\DispoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Evenement
 {
+    /**
+    * @ORM\OneToMany(targetEntity="Easy\DispoBundle\Entity\Disponibilite", mappedBy="evenement")
+    */
+    private $disponibilites;
+    
     /**
      * @var integer
      *
@@ -151,5 +156,45 @@ class Evenement
     public function getDateFin()
     {
         return $this->dateFin;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->disponibilites = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add disponibilites
+     *
+     * @param \Easy\DispoBundle\Entity\Disponibilite $disponibilites
+     * @return Evenement
+     */
+    public function addDisponibilite(\Easy\DispoBundle\Entity\Disponibilite $disponibilites)
+    {
+        $this->disponibilites[] = $disponibilites;
+    
+        return $this;
+    }
+
+    /**
+     * Remove disponibilites
+     *
+     * @param \Easy\DispoBundle\Entity\Disponibilite $disponibilites
+     */
+    public function removeDisponibilite(\Easy\DispoBundle\Entity\Disponibilite $disponibilites)
+    {
+        $this->disponibilites->removeElement($disponibilites);
+    }
+
+    /**
+     * Get disponibilites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDisponibilites()
+    {
+        return $this->disponibilites;
     }
 }

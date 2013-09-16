@@ -17,3 +17,23 @@ easy_article_add:
 easy_article_update:
     pattern:  /administration/article/modifier
     defaults: { _controller: EasyArticleBundle:Article:updateAdmin }
+    
+easy_categoriearticle_admin:
+    pattern:  /administration/categories
+    defaults: { _controller: EasyArticleBundle:CategorieArticle:listAdmin }
+    
+easy_categoriearticle_delete:
+    pattern:  /administration/categorie/supprimer/{id}
+    defaults: { _controller: EasyArticleBundle:CategorieArticle:deleteAdmin }
+
+easy_categoriearticle_show:
+    pattern:  /administration/categorie/modifier/{id}
+    defaults: { _controller: EasyArticleBundle:CategorieArticle:showAdmin }
+    
+easy_categoriearticle_add:
+    pattern:  /administration/categorie/ajouter
+    defaults: { _controller: EasyArticleBundle:CategorieArticle:showAdmin }
+    
+easy_categoriearticle_update:
+    pattern:  /administration/categorie/modifier
+    defaults: { _controller: EasyArticleBundle:CategorieArticle:updateAdmin }

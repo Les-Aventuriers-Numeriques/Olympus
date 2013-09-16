@@ -25,6 +25,11 @@ class Utilisateur extends BaseUser
     private $articles;
     
     /**
+    * @ORM\OneToMany(targetEntity="Easy\DispoBundle\Entity\Disponibilite", mappedBy="utilisateur")
+    */
+    private $disponibilites;
+    
+    /**
      * @ORM\ManyToMany(targetEntity="Easy\UtilisateurBundle\Entity\Groupe")
      * @ORM\JoinTable(name="fos_user_user_group",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
@@ -82,7 +87,7 @@ class Utilisateur extends BaseUser
      *
      * @ORM\Column(name="est_publique", type="boolean")
      */
-    private $est_publique;
+    private $est_publique=0;
 
     /**
      * Get id
@@ -400,5 +405,38 @@ class Utilisateur extends BaseUser
         $this->est_publique = $estPublique;
     
         return $this;
+    }
+
+    /**
+     * Add disponibilites
+     *
+     * @param \Easy\DispoBundle\Entity\Disponibilite $disponibilites
+     * @return Utilisateur
+     */
+    public function addDisponibilite(\Easy\DispoBundle\Entity\Disponibilite $disponibilites)
+    {
+        $this->disponibilites[] = $disponibilites;
+    
+        return $this;
+    }
+
+    /**
+     * Remove disponibilites
+     *
+     * @param \Easy\DispoBundle\Entity\Disponibilite $disponibilites
+     */
+    public function removeDisponibilite(\Easy\DispoBundle\Entity\Disponibilite $disponibilites)
+    {
+        $this->disponibilites->removeElement($disponibilites);
+    }
+
+    /**
+     * Get disponibilites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDisponibilites()
+    {
+        return $this->disponibilites;
     }
 }

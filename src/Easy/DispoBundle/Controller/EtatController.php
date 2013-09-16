@@ -4,7 +4,7 @@ namespace Easy\DispoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class EtatController extends Controller
 {
     public function indexAction($name)
     {

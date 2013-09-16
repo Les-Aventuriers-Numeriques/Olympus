@@ -1,0 +1,33 @@
+{# src/Easy/EvenementBundle/Resources/views/Evenement/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Evènements{% endblock %}
+ 
+{% block body %}
+<a href="{{ path('easy_evenement_add') }}"><i class="icon-plus-sign"></i> Ajouter un Evènement</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Evènement</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th><i class="icon-edit"></i></th>
+            <th><i class="icon-trash"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.dateDebut|date('d/m/Y H:i') }}</td>
+                <td>{{ evenement.dateFin|date('d/m/Y H:i') }}</td>
+                <td><a href="{{ path('easy_evenement_show', { 'id' : evenement.id }) }}"><i class="icon-edit"></a></i></td>
+                <td><a href="{{ path('easy_evenement_delete', { 'id' : evenement.id }) }}"><i class="icon-trash"></a></i></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

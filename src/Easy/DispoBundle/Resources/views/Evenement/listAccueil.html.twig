@@ -1,0 +1,8 @@
+{# src/Easy/EvenementBundle/Resources/views/Evenement/listAccueil.html.twig #}
+{% for evenement in evenements %}
+    <div class="panel-body panel-list-group">
+        <div class="list-group">
+              <a class="list-group-item" href="{{ path('easy_evenement_show_utilisateur',  { 'id' : evenement.id }) }}"><span class="label label-default">{{ evenement.dateDebut|date('d/m/Y H:i') }}</span> {{ evenement.titre }}</a>
+        </div>
+    </div>
+{% endfor %}

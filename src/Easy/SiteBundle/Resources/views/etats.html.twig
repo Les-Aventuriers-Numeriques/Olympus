@@ -1,4 +1,4 @@
-{# src/Easy/SiteBundle/Resources/views/ts.html.twig #}
+{# src/Easy/SiteBundle/Resources/views/etats.html.twig #}
 <ul class="list-group">
   <li class="list-group-item"><span class="label label-warning">Bientôt</span> ArmA 3</li>
   <li class="list-group-item {% if infos_mc1.Info['Players'] > 0 %}tooltip-state{% endif %}" data-tooltip="{{ infos_mc1.Players|join('<br>') }}">{% if (infos_mc1) %}<span class="badge">{{ infos_mc1.Info['Players'] }}</span> <span class="label label-success"><i class="icon-thumbs-up"></i></span>{% else %}<span class="label label-danger"><i class="icon-thumbs-down"></i></span>{% endif %} Minecraft Survival</li>

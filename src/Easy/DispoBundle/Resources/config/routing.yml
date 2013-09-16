@@ -1,3 +1,23 @@
-easy_dispo_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: EasyDispoBundle:Default:index }
+easy_evenement_admin:
+    pattern:  /administration/evenements
+    defaults: { _controller: EasyDispoBundle:Evenement:listAdmin }
+    
+easy_evenement_delete:
+    pattern:  /administration/evenement/supprimer/{id}
+    defaults: { _controller: EasyDispoBundle:Evenement:deleteAdmin }
+
+easy_evenement_show:
+    pattern:  /administration/evenement/modifier/{id}
+    defaults: { _controller: EasyDispoBundle:Evenement:showAdmin }
+    
+easy_evenement_add:
+    pattern:  /administration/evenement/ajouter
+    defaults: { _controller: EasyDispoBundle:Evenement:showAdmin }
+    
+easy_evenement_update:
+    pattern:  /administration/evenement/modifier
+    defaults: { _controller: EasyDispoBundle:Evenement:updateAdmin }
+    
+easy_evenement_show_utilisateur:
+    pattern:  /evenement/consulter/{id}
+    defaults: { _controller: EasyDispoBundle:Evenement:show }

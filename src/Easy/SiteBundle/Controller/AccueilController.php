@@ -36,4 +36,25 @@ class AccueilController extends Controller
     {
         return $this->render('EasySiteBundle:Pages:mentions.html.twig');
     }
+    
+    public function pageWipAction()
+    {
+        return $this->render('EasySiteBundle:Pages:developpement.html.twig');
+    }
+    
+    public function pageServeursAction()
+    {
+        return $this->render('EasySiteBundle:Pages:serveurs.html.twig');
+    }
+    
+    public function pageMembresAction()
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+        
+        // Récupération des utilisateurs
+        // TODO Mettre un findByGroup
+        $utilisateurs = $userManager->findUsers();
+        
+        return $this->render('EasyUtilisateurBundle:Utilisateur:list.html.twig', array('utilisateurs' => $utilisateurs));
+    }
 }

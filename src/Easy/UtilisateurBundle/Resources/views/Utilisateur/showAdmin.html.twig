@@ -1,0 +1,76 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/showAdmin.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Utilisateurs{% endblock %}
+ 
+{% block body %}
+<div>
+    <form role="form" action="{{ path('easy_utilisateur_update_admin') }}" method="post">
+        <h3>Informations générales</h3>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" class="form-control" name="login" placeholder="Login" value="{% if utilisateur %}{{ utilisateur.username }}{% endif %}">
+            <input type="hidden" name="username" value="{% if utilisateur %}{{ utilisateur.usernameCanonical }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="groupe">Groupe</label>
+            <select name="groupe" class="form-control">
+                {% for groupe in groupes %}
+                    <option value="{{ groupe.id }}">{{ groupe.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" name="nom" placeholder="Nom" value="{% if utilisateur %}{{ utilisateur.nom }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" name="prenom" placeholder="Prénom" value="{% if utilisateur %}{{ utilisateur.prenom }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" placeholder="Email" value="{% if utilisateur %}{{ utilisateur.email }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="password">Nouveau mot de passe</label>
+            <input type="text" class="form-control" name="password" placeholder="Nouveau mot de passe">
+        </div>
+        <div class="form-group">
+            <label for="password2">Saisissez à nouveau votre mot de passe</label>
+            <input type="text" class="form-control" name="password2" placeholder="Saisissez à nouveau votre mot de passe">
+        </div>
+        <h3>ArmA 3</h3>
+        <hr />
+        <div class="form-group">
+            <label for="id_steam">Steam ID</label>
+            <input type="text" class="form-control" name="id_steam" placeholder="Steam ID" value="{% if utilisateur %}{{ utilisateur.idSteam }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="pseudo_steam">Pseudo Steam</label>
+            <input type="text" class="form-control" name="pseudo_steam" placeholder="Peudo Steam" value="{% if utilisateur %}{{ utilisateur.pseudoSteam }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="leitmotiv">Leitmotiv</label>
+            <input type="text" class="form-control" name="leitmotiv" placeholder="Leitmotiv" value="{% if utilisateur %}{{ utilisateur.leitmotiv }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="est_publique">Autorisez-vous la =EaSy= Company à afficher votre adresse email sur le squad.xml ?</label>
+            <br/>
+            <input type="radio" name="est_publique" value="1" {% if utilisateur %}{% if (utilisateur.estPublique==1) %}checked{% endif%}{% endif %}> Oui
+            <input type="radio" name="est_publique" value="0" {% if utilisateur %}{% if (utilisateur.estPublique==0) %}checked{% endif%}{% endif %}> Non
+        </div>
+        <br />
+        <button type="submit" class="btn btn-default">Envoyer</button>
+        <a href="{{ path('easy_site_homepage') }}" class="btn btn-danger">Annuler</a>
+    </form>
+</div>
+
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+        tinymce.init({selector:'textarea'});
+</script>
+
+
+{% endblock %}

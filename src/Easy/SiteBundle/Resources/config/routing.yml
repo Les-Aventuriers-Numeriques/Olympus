@@ -9,3 +9,15 @@ easy_site_page_dons:
 easy_site_page_mentions:
     pattern:  /mentions-legales
     defaults: { _controller: EasySiteBundle:Accueil:pageMentions }
+    
+easy_site_page_wip:
+    pattern:  /developpement-en-cours
+    defaults: { _controller: EasySiteBundle:Accueil:pageWip }
+    
+easy_site_page_serveurs:
+    pattern:  /nos-serveurs
+    defaults: { _controller: EasySiteBundle:Accueil:pageServeurs }
+    
+easy_site_page_membres:
+    pattern:  /les-membres
+    defaults: { _controller: EasySiteBundle:Accueil:pageMembres }

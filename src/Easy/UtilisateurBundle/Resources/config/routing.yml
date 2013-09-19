@@ -13,3 +13,15 @@ easy_utilisateur_admin:
 easy_utilisateur_delete:
     pattern:  /administration/utilisateurs/supprimer/{username}
     defaults: { _controller: EasyUtilisateurBundle:Utilisateur:deleteAdmin }
+
+easy_utilisateur_show_admin:
+    pattern:  /administration/utilisateur/modifier/{username}
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:showAdmin } 
+
+easy_utilisateur_add:
+    pattern:  /administration/utilisateur/ajouter
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:showAdmin }
+
+easy_utilisateur_update_admin:
+    pattern:  /administration/utilisateur/modifier
+    defaults: { _controller: EasyUtilisateurBundle:Utilisateur:updateAdmin }

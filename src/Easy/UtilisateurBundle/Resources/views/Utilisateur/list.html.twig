@@ -1,0 +1,28 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/index.html.twig #}
+ 
+{% extends "EasySiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}Les Membres de la =EaSy= Company{% endblock %}
+ 
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Utilisateur</th>
+            <th>Pseudo Steam</th>
+            <th>Leitmotiv</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>=EaSy= {{ utilisateur.username }}</td>
+                <td>{{ utilisateur.pseudoSteam }}</td>
+                <td>{{ utilisateur.leitmotiv }}</td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

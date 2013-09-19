@@ -13,12 +13,12 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
         <li><a href="{{ path('easy_site_homepage') }}">Accueil</a></li>
-        <li><a href="#">Forum</a></li>
-        <li><a href="#">Membres</a></li>
-        <li><a href="#">Nos Serveurs</a></li>
-        <li><a href="#">Recrutement</a></li>
+        <li><a href="{{ path('easy_site_page_wip') }}">Forum</a></li>
+        <li><a href="{{ path('easy_site_page_membres') }}">Membres</a></li>
+        <li><a href="{{ path('easy_site_page_serveurs') }}">Nos Serveurs</a></li>
+        <li><a href="{{ path('easy_site_page_wip') }}">Recrutement</a></li>
         <li><a href="{{ path('easy_site_page_dons') }}">Dons</a></li>
-        <li><a href="#">Nous Contacter</a></li>
+        <li><a href="{{ path('easy_site_page_wip') }}">Nous Contacter</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <li><a href="{{ path('espace_membre_accueil') }}">Espace Membre</a></li>
         {% endif %}

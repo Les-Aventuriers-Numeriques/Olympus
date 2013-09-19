@@ -5,7 +5,7 @@
 {% block title %}{{ parent() }} Administration des Utilisateurs{% endblock %}
  
 {% block body %}
-<a href=""><i class="icon-plus-sign"></i> Ajouter un Utilisateur</a>
+<a href="{{ path('easy_utilisateur_add') }}"><i class="icon-plus-sign"></i> Ajouter un Utilisateur</a>
 <table class="table">
     <thead>
         <tr>
@@ -22,7 +22,7 @@
                 <td>{{ utilisateur.username }}</td>
                 <td>{{ utilisateur.email }}</td>
                 <td>{{ utilisateur.lastLogin|date('d/m/Y H:i') }}</td>
-                <td><a href=""><i class="icon-edit"></a></i></td>
+                <td><a href="{{ path('easy_utilisateur_show_admin', { 'username' : utilisateur.username }) }}"><i class="icon-edit"></a></i></td>
                 <td><a href="{{ path('easy_utilisateur_delete', { 'username' : utilisateur.username }) }}"><i class="icon-trash"></a></i></td>
             </tr>
         {% endfor %}

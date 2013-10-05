@@ -2,12 +2,12 @@
 
 {% extends "EasyEspaceMembreBundle::layout.html.twig" %}
 
-{% block title %}{{ parent() }}Hello{% endblock %}
+{% block title %}{{ parent() }}Bienvenue{% endblock %}
 
 {% block body %}
-    <p>Bienvenue</p>
-
     <div>
-        {{ app.request.attributes.get('_controller') }}
+        <p>
+            Contenu
+        </p>
     </div>
 {% endblock %}

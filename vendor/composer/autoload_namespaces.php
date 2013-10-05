@@ -20,6 +20,7 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Ornicar\\GravatarBundle\\' => array($vendorDir . '/ornicar/gravatar-bundle'),
     'Monolog' => array($vendorDir . '/monolog/monolog/src'),
+    'Knp\\Bundle\\TimeBundle' => array($vendorDir . '/knplabs/knp-time-bundle'),
     'Incenteev\\ParameterHandler' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Gedmo\\' => array($vendorDir . '/gedmo/doctrine-extensions/lib'),
     'FOS\\UserBundle' => array($vendorDir . '/friendsofsymfony/user-bundle'),
@@ -32,6 +33,7 @@ return array(
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
     'Doctrine\\Bundle\\DoctrineBundle' => array($vendorDir . '/doctrine/doctrine-bundle'),
+    'Cunningsoft\\ChatBundle' => array($vendorDir . '/cunningsoft/chat-bundle'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
     '' => array($baseDir . '/src'),
 );

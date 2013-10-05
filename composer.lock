@@ -3,8 +3,61 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a609e399ee26543ab53642a9cb7577e0",
+    "hash": "38644876c76018fcc992390ba4cea649",
     "packages": [
+        {
+            "name": "cunningsoft/chat-bundle",
+            "version": "dev-gladi-dev",
+            "target-dir": "Cunningsoft/ChatBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmecke/ChatBundle.git",
+                "reference": "f8382844b2a681a545dda12e160f399ef0527ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmecke/ChatBundle/zipball/f8382844b2a681a545dda12e160f399ef0527ccd",
+                "reference": "f8382844b2a681a545dda12e160f399ef0527ccd",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": ">=2.2.0",
+                "knplabs/knp-time-bundle": "1.1.*",
+                "symfony/symfony": "2.3.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Cunningsoft\\ChatBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Mecke",
+                    "homepage": "https://github.com/dmecke"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/dmecke/ChatBundle/contributors"
+                }
+            ],
+            "description": "A chat bundle for Symfony2",
+            "homepage": "https://github.com/dmecke/ChatBundle",
+            "keywords": [
+                "chat",
+                "communication"
+            ],
+            "time": "2013-07-11 10:37:38"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -611,12 +664,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "a6c12cc2b60176d2afad924f23031accfad9a384"
+                "reference": "85ef11b6d68e640d306574b87302c9f335b80ef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a6c12cc2b60176d2afad924f23031accfad9a384",
-                "reference": "a6c12cc2b60176d2afad924f23031accfad9a384",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/85ef11b6d68e640d306574b87302c9f335b80ef2",
+                "reference": "85ef11b6d68e640d306574b87302c9f335b80ef2",
                 "shasum": ""
             },
             "require": {
@@ -671,7 +724,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-09-13 03:06:49"
+            "time": "2013-09-19 10:03:47"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -854,6 +907,65 @@
             "time": "2013-04-26 18:42:52"
         },
         {
+            "name": "knplabs/knp-time-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/TimeBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpTimeBundle.git",
+                "reference": "1e827fd499da31bf4db9e4e36c537bfe390eddba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpTimeBundle/zipball/1e827fd499da31bf4db9e4e36c537bfe390eddba",
+                "reference": "1e827fd499da31bf4db9e4e36c537bfe390eddba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "suggest": {
+                "symfony/twig-bundle": "to use the Twig time_diff function"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\TimeBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/KnpTimeBundle/contributors"
+                }
+            ],
+            "description": "Knplabs time bundle makes your dates look sensible and descriptive",
+            "homepage": "http://github.com/KnpLabs/KnpTimeBundle",
+            "keywords": [
+                "bundle",
+                "date",
+                "descriptive time",
+                "knp",
+                "knplabs",
+                "time"
+            ],
+            "time": "2013-08-26 08:38:38"
+        },
+        {
             "name": "kriswallsmith/assetic",
             "version": "v1.1.2",
             "source": {
@@ -993,12 +1105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ornicar/GravatarBundle.git",
-                "reference": "45a68e58c7dc7048e84f37babad6dc2661bb9f20"
+                "reference": "16ec60aab18a553c9a01e2cecc28f039c1b2c0f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ornicar/GravatarBundle/zipball/45a68e58c7dc7048e84f37babad6dc2661bb9f20",
-                "reference": "45a68e58c7dc7048e84f37babad6dc2661bb9f20",
+                "url": "https://api.github.com/repos/ornicar/GravatarBundle/zipball/16ec60aab18a553c9a01e2cecc28f039c1b2c0f3",
+                "reference": "16ec60aab18a553c9a01e2cecc28f039c1b2c0f3",
                 "shasum": ""
             },
             "require": {
@@ -1040,7 +1152,7 @@
                 "templating",
                 "twig"
             ],
-            "time": "2013-09-06 06:46:09"
+            "time": "2013-09-16 19:39:39"
         },
         {
             "name": "psr/log",
@@ -1228,16 +1340,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "fe3f6551a41d0bce874159fd4c46296fdd697d2b"
+                "reference": "6e8dc798687963ffc4e4e0dfa687b361699855a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/fe3f6551a41d0bce874159fd4c46296fdd697d2b",
-                "reference": "fe3f6551a41d0bce874159fd4c46296fdd697d2b",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/6e8dc798687963ffc4e4e0dfa687b361699855a9",
+                "reference": "6e8dc798687963ffc4e4e0dfa687b361699855a9",
                 "shasum": ""
             },
             "require": {
-                "gedmo/doctrine-extensions": "2.3.*",
+                "gedmo/doctrine-extensions": "~2.3.1",
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": "~2.1"
             },
@@ -1281,7 +1393,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2013-08-27 13:42:00"
+            "time": "2013-09-16 09:35:16"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1772,7 +1884,9 @@
         "gedmo/doctrine-extensions": 20,
         "stof/doctrine-extensions-bundle": 20,
         "symfony/filesystem": 20,
-        "ornicar/gravatar-bundle": 20
+        "ornicar/gravatar-bundle": 20,
+        "knplabs/knp-time-bundle": 20,
+        "cunningsoft/chat-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

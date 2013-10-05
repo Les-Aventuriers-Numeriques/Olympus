@@ -54,6 +54,8 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
+        resolve_target_entities:
+            Cunningsoft\ChatBundle\Entity\AuthorInterface: Easy\UtilisateurBundle\Entity\Utilisateur
         entity_managers:
             default:
                 auto_mapping: true
@@ -105,3 +107,9 @@ services:
     class: Easy\SiteBundle\Listener\ControllerListener
     tags:
       -  { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
+      
+cunningsoft_chat:
+    # refresh interval in milliseconds
+    update_interval: 5000
+    # messages to be shown in chat
+    number_of_messages: 10

@@ -23,7 +23,9 @@
         "gedmo/doctrine-extensions": "2.3.*@dev",
         "stof/doctrine-extensions-bundle": "1.1.*@dev",
         "symfony/filesystem": "2.3.*@dev",
-        "ornicar/gravatar-bundle" : "dev-master"
+        "ornicar/gravatar-bundle" : "dev-master",
+        "knplabs/knp-time-bundle": "1.1.*@dev",
+        "cunningsoft/chat-bundle": "dev-gladi-dev"
     },
     "scripts": {
         "post-install-cmd": [

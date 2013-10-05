@@ -10,8 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="categorieforum")
  * @ORM\Entity
  */
-class Categorieforum
+class CategorieForum
 {
+    /**
+    * @ORM\OneToMany(targetEntity="Easy\ForumBundle\Entity\Forum", mappedBy="categorie_forum")
+    */
+    private $forums;
+    
     /**
      * @var integer
      *

@@ -156,44 +156,4 @@ class Forum
     {
         return $this->categorie_forum;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->sujets = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add sujets
-     *
-     * @param \Easy\ForumBundle\Entity\Sujet $sujets
-     * @return Forum
-     */
-    public function addSujet(\Easy\ForumBundle\Entity\Sujet $sujets)
-    {
-        $this->sujets[] = $sujets;
-    
-        return $this;
-    }
-
-    /**
-     * Remove sujets
-     *
-     * @param \Easy\ForumBundle\Entity\Sujet $sujets
-     */
-    public function removeSujet(\Easy\ForumBundle\Entity\Sujet $sujets)
-    {
-        $this->sujets->removeElement($sujets);
-    }
-
-    /**
-     * Get sujets
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getSujets()
-    {
-        return $this->sujets;
-    }
 }

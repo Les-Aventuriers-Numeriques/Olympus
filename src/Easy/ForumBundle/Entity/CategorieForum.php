@@ -5,23 +5,17 @@ namespace Easy\ForumBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Forum
+ * Categorieforum
  *
- * @ORM\Table(name="forum")
+ * @ORM\Table(name="categorieforum")
  * @ORM\Entity
  */
-class Forum
+class CategorieForum
 {
     /**
-    * @ORM\ManyToOne(targetEntity="Easy\ForumBundle\Entity\CategorieForum")
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\OneToMany(targetEntity="Easy\ForumBundle\Entity\Forum", mappedBy="categorie_forum")
     */
-    private $categorie_forum;
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Easy\ForumBundle\Entity\Sujet", mappedBy="forum")
-    */
-    private $sujets;
+    private $forums;
     
     /**
      * @var integer
@@ -47,9 +41,9 @@ class Forum
     private $description;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="ordre", type="integer", nullable=true)
+     * @ORM\Column(name="ordre", type="string", length=45, nullable=true)
      */
     private $ordre;
 
@@ -69,7 +63,7 @@ class Forum
      * Set libelle
      *
      * @param string $libelle
-     * @return Forum
+     * @return Categorieforum
      */
     public function setLibelle($libelle)
     {
@@ -92,7 +86,7 @@ class Forum
      * Set description
      *
      * @param string $description
-     * @return Forum
+     * @return Categorieforum
      */
     public function setDescription($description)
     {
@@ -114,8 +108,8 @@ class Forum
     /**
      * Set ordre
      *
-     * @param integer $ordre
-     * @return Forum
+     * @param string $ordre
+     * @return Categorieforum
      */
     public function setOrdre($ordre)
     {
@@ -127,73 +121,50 @@ class Forum
     /**
      * Get ordre
      *
-     * @return integer 
+     * @return string 
      */
     public function getOrdre()
     {
         return $this->ordre;
-    }
-
-    /**
-     * Set categorie_forum
-     *
-     * @param \Easy\ForumBundle\Entity\CategorieForum $categorieForum
-     * @return Forum
-     */
-    public function setCategorieForum(\Easy\ForumBundle\Entity\CategorieForum $categorieForum)
-    {
-        $this->categorie_forum = $categorieForum;
-    
-        return $this;
-    }
-
-    /**
-     * Get categorie_forum
-     *
-     * @return \Easy\ForumBundle\Entity\CategorieForum 
-     */
-    public function getCategorieForum()
-    {
-        return $this->categorie_forum;
     }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->sujets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->forums = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
-     * Add sujets
+     * Add forums
      *
-     * @param \Easy\ForumBundle\Entity\Sujet $sujets
-     * @return Forum
+     * @param \Easy\ForumBundle\Entity\Forum $forums
+     * @return CategorieForum
      */
-    public function addSujet(\Easy\ForumBundle\Entity\Sujet $sujets)
+    public function addForum(\Easy\ForumBundle\Entity\Forum $forums)
     {
-        $this->sujets[] = $sujets;
+        $this->forums[] = $forums;
     
         return $this;
     }
 
     /**
-     * Remove sujets
+     * Remove forums
      *
-     * @param \Easy\ForumBundle\Entity\Sujet $sujets
+     * @param \Easy\ForumBundle\Entity\Forum $forums
      */
-    public function removeSujet(\Easy\ForumBundle\Entity\Sujet $sujets)
+    public function removeForum(\Easy\ForumBundle\Entity\Forum $forums)
     {
-        $this->sujets->removeElement($sujets);
+        $this->forums->removeElement($forums);
     }
 
     /**
-     * Get sujets
+     * Get forums
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getSujets()
+    public function getForums()
     {
-        return $this->sujets;
+        return $this->forums;
     }
 }

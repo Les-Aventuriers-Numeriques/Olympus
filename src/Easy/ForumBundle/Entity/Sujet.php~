@@ -126,44 +126,4 @@ class Sujet
     {
         return $this->forum;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add messages
-     *
-     * @param \Easy\ForumBundle\Entity\Message $messages
-     * @return Sujet
-     */
-    public function addMessage(\Easy\ForumBundle\Entity\Message $messages)
-    {
-        $this->messages[] = $messages;
-    
-        return $this;
-    }
-
-    /**
-     * Remove messages
-     *
-     * @param \Easy\ForumBundle\Entity\Message $messages
-     */
-    public function removeMessage(\Easy\ForumBundle\Entity\Message $messages)
-    {
-        $this->messages->removeElement($messages);
-    }
-
-    /**
-     * Get messages
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMessages()
-    {
-        return $this->messages;
-    }
 }

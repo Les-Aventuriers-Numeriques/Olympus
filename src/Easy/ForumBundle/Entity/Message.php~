@@ -98,27 +98,4 @@ class Message
     {
         return $this->date;
     }
-
-    /**
-     * Set sujet
-     *
-     * @param \Easy\ForumBundle\Entity\Sujet $sujet
-     * @return Message
-     */
-    public function setSujet(\Easy\ForumBundle\Entity\Sujet $sujet)
-    {
-        $this->sujet = $sujet;
-    
-        return $this;
-    }
-
-    /**
-     * Get sujet
-     *
-     * @return \Easy\ForumBundle\Entity\Sujet 
-     */
-    public function getSujet()
-    {
-        return $this->sujet;
-    }
 }

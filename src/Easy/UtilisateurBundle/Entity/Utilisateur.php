@@ -5,6 +5,7 @@ namespace Easy\UtilisateurBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
 use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
+use Cunningsoft\ChatBundle\Entity\AuthorInterface;
 
 /**
  * Utilisateur
@@ -12,8 +13,9 @@ use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity
  */
-class Utilisateur extends BaseUser
+class Utilisateur extends BaseUser implements AuthorInterface
 {
+    
     /**
     * @ORM\OneToMany(targetEntity="Easy\DonBundle\Entity\Don", mappedBy="utilisateur")
     */

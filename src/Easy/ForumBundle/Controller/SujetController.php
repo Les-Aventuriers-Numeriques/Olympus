@@ -4,7 +4,7 @@ namespace Easy\ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class SujetController extends Controller
 {
     public function indexAction($name)
     {

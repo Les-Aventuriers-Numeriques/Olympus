@@ -1,0 +1,29 @@
+{# src/Easy/SiteBundle/Resources/views/Pages/mentions.html.twig #}
+
+{% extends "EasySiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}Forum{% endblock %}
+
+{% block body %}
+    {% for categorie in categories_forums %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="4">{{ categorie.libelle }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for forum in categorie.forums %}
+                    <tr>
+                        <td style="width: 5%;">
+                            <span class="icon-star-empty"></span>
+                        </td>
+                        <td style="width: 45%;">{{ forum.libelle }}</td>
+                        <td style="width: 20%;">{{ forum.sujets|length }} <span class="icon-comment"></span> - x <span class="icon-envelope"></span></td>
+                        <td style="width: 30%;">date dernier</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}

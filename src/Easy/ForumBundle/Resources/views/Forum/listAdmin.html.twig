@@ -1,0 +1,43 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration du Forum{% endblock %}
+ 
+{% block body %}
+<a href="{{ path('easy_article_add') }}"><i class="icon-plus-sign"></i> Ajouter une Catégorie</a> 
+<a href="{{ path('easy_article_add') }}"><i class="icon-plus-sign"></i> Ajouter un Forum</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width: 80%;">Catégorie / Forum</th>
+            <th style="width: 10%;">Ordre</th>
+            <th style="width: 5%;"><i class="icon-edit"></i></th>
+            <th style="width: 5%;"><i class="icon-trash"></i></th>
+        </tr>
+    </thead>
+</table>
+{% for categorie in categories_forums %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 80%;">{{ categorie.libelle }}</th>
+                <th style="width: 10%;"><a href="{{ path('easy_article_show', { 'id' : categorie.id }) }}"><i class="icon-circle-arrow-up"></i></a> <a href="{{ path('easy_article_show', { 'id' : categorie.id }) }}"><i class="icon-circle-arrow-down"></i></a></th>
+                <th style="width: 5%;"><a href="{{ path('easy_article_show', { 'id' : categorie.id }) }}"><i class="icon-edit"></i></a></th>
+                <th style="width: 5%;"><a href="{{ path('easy_article_delete', { 'id' : categorie.id }) }}"><i class="icon-trash"></i></a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for forum in categorie.forums %}
+                <tr>
+                    <td style="width: 80%;">{{ forum.libelle }}</td>
+                    <td style="width: 10%;"><a href="{{ path('easy_article_show', { 'id' : categorie.id }) }}"><i class="icon-circle-arrow-up"></i></a> <a href="{{ path('easy_article_show', { 'id' : categorie.id }) }}"><i class="icon-circle-arrow-down"></i></a></td>
+                    <td style="width: 5%;"><a href="{{ path('easy_article_show', { 'id' : forum.id }) }}"><i class="icon-edit"></i></a></td>
+                    <td style="width: 5%;"><a href="{{ path('easy_article_delete', { 'id' : forum.id }) }}"><i class="icon-trash"></i></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endfor %}
+
+{% endblock %}

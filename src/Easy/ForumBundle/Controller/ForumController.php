@@ -13,4 +13,11 @@ class ForumController extends Controller
         
         return $this->render('EasyForumBundle:Forum:index.html.twig', array('categories_forums' => $categories_forums));
     }
+    
+    public function listAdminAction()
+    {
+        $categories_forums = $this->getDoctrine()->getManager()->getRepository('EasyForumBundle:CategorieForum')->findAll();
+        
+        return $this->render('EasyForumBundle:Forum:listAdmin.html.twig', array('categories_forums' => $categories_forums));
+    }
 }

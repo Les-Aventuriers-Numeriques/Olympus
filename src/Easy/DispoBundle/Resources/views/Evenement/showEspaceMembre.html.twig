@@ -15,20 +15,20 @@
 
         <div class="btn-group" data-toggle="buttons" style="margin-bottom: 10px">
             <label class="btn btn-success{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked="checked"{% endif %}> <i class="icon-ok"></i> Oui
+                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked="checked"{% endif %} autocomplete="off"> <i class="icon-ok"></i> Oui
             </label>
 
             <label class="btn btn-danger{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked="checked"{% endif %}> <i class="icon-remove"></i> Non
+                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked="checked"{% endif %} autocomplete="off"> <i class="icon-remove"></i> Non
             </label>
 
             <label class="btn btn-warning{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked="checked"{% endif %}> <i class="icon-time"></i> Peut-être
+                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked="checked"{% endif %} autocomplete="off"> <i class="icon-time"></i> Peut-être
             </label>
         </div>
 
         <div>
-            <input type="text" name="my_disponibility_comment" id="my_disponibility_comment" class="form-control input-sm" placeholder="Commentaire facultatif" style="width: 300px; display: inline" {% if dispo_current_utilisateur is not empty %}value="{{ dispo_current_utilisateur.commentaire }}"{% endif %}>
+            <input type="text" name="my_disponibility_comment" id="my_disponibility_comment" class="form-control input-sm" placeholder="Commentaire facultatif" style="width: 300px; display: inline" {% if dispo_current_utilisateur is not empty %}value="{{ dispo_current_utilisateur.commentaire }}"{% endif %} autocomplete="off">
         </div>
     </form>
 

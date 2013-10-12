@@ -75,8 +75,10 @@ class EvenementController extends Controller
         // Récupération de l'article à supprimer
         $evenement = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Evenement')->findOneById($id);
 
+        $dispos = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Disponibilite')->findBy(array('evenement' => $evenement->getId(), 'etat' => 1));
+
         // Retour sur l'administration des articles
-        return $this->render('EasyDispoBundle:Evenement:show.html.twig', array('evenement' => $evenement));
+        return $this->render('EasyDispoBundle:Evenement:show.html.twig', array('evenement' => $evenement, 'dispos' => $dispos));
     }
 
     // ---------------------------------------------------------------------- //

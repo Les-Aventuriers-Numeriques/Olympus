@@ -1,18 +1,23 @@
 {# src/Easy/EvenementBundle/Resources/views/Evenement/showAdmin.html.twig #}
- 
+
 {% extends "EasySiteBundle::layout.html.twig" %}
 
 {% block title %}{{ parent() }} {{ evenement.titre }}{% endblock %}
- 
+
 {% block body %}
+<p class="text-muted lead">Le {{ evenement.dateDebut|date('d/m/Y') }} de {{ evenement.dateDebut|date('H:i') }} à {{ evenement.dateFin|date('H:i') }}</p>
+
+<h3>Informations</h3>
+
 <div>
-    <h3>Informations</h3>
-    <div>
-        {{ evenement.description|raw }}
-    </div>
-    <h3>Participants</h3>
-    <div>
-        Liste des particpants
-    </div>
+    {{ evenement.description|raw }}
+</div>
+
+<h3>Participants ({{ dispos|length }})</h3>
+
+<div class="row disponibilities">
+    {% for dispo in dispos %}
+        <div class="col-xs-3">{{ dispo.getStylizedUtilisateur()|raw }}</div>
+    {% endfor %}
 </div>
 {% endblock %}

@@ -91,6 +91,10 @@
 
         <script>
         $(function() {
+            // Affichage des tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Tooltip des statuts des serveurs
             $('.tooltip-state').tooltip({
                 html: true,
                 placement: 'left',

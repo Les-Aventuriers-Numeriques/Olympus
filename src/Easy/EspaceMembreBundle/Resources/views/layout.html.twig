@@ -7,11 +7,14 @@
         <title>=EaSy= Company{% set _title = block('title') %}{% if _title is not empty %} | {{ _title|raw }}{% endif %}</title>
         <link href="{{ asset('bundles/easysite/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
+        <link href="{{ asset('bundles/easysite/css/datepicker.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
         <link rel="shortcut icon" href="/bundles/easysite/images/favicon.png" />
 
         <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/easysite/js/bootstrap-datepicker.js') }}"></script>
+        <script src="{{ asset('bundles/easysite/js/bootstrap-datepicker.fr.js') }}"></script>
     </head>
     <body>
         <div class="container">

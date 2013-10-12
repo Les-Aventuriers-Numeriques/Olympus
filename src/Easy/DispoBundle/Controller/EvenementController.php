@@ -59,8 +59,8 @@ class EvenementController extends Controller
         // Enregistrement des données
         $evenement->setTitre($this->getRequest()->request->get('titre'));
         $evenement->setDescription($this->getRequest()->request->get('description'));
-
-        // TODO Rajouter les dates
+        $evenement->setDateDebut(date_create($this->getRequest()->request->get('date_debut_date').' '.$this->getRequest()->request->get('date_debut_heure').':00'));
+        $evenement->setDateFin(date_create($this->getRequest()->request->get('date_fin_date').' '.$this->getRequest()->request->get('date_fin_heure').':00'));
 
         // On save
         $this->getDoctrine()->getManager()->persist($evenement);

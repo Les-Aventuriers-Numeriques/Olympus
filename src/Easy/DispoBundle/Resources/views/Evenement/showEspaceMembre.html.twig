@@ -10,37 +10,37 @@
     {% if evenement.description is not empty %}<hr> <p>{{ evenement.description }}</p>{% endif %}
 
 
-    <form id="form_disponibility" class="text-center well well-sm" method="post" action="{{ path('easy_evenement_dispo_update', {'id' : evenement.id}) }}">
+    <form id="form_disponibility" class="text-center well well-sm">
         <p><strong>Serez-vous présent ?</strong></p>
 
         <div class="btn-group" data-toggle="buttons" style="margin-bottom: 10px">
             <label class="btn btn-success{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked{% endif %}> <i class="icon-ok"></i> Oui
+                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked="checked"{% endif %}> <i class="icon-ok"></i> Oui
             </label>
 
             <label class="btn btn-danger{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked{% endif %}> <i class="icon-remove"></i> Non
+                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked="checked"{% endif %}> <i class="icon-remove"></i> Non
             </label>
 
             <label class="btn btn-warning{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked{% endif %}> <i class="icon-time"></i> Peut-être
+                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked="checked"{% endif %}> <i class="icon-time"></i> Peut-être
             </label>
         </div>
 
         <div>
-            <input type="text" name="my_disponibility_comment" id="my_disponibility_comment" class="form-control input-sm" placeholder="Joindre un commentaire ici avant de valider" style="width: 300px; display: inline" {% if dispo_current_utilisateur is not empty %}value="{{ dispo_current_utilisateur.commentaire }}"{% endif %}>
+            <input type="text" name="my_disponibility_comment" id="my_disponibility_comment" class="form-control input-sm" placeholder="Commentaire facultatif" style="width: 300px; display: inline" {% if dispo_current_utilisateur is not empty %}value="{{ dispo_current_utilisateur.commentaire }}"{% endif %}>
         </div>
     </form>
 
     <div class="row disponibilities">
-        {% for dispos_utilisateur in dispos_utilisateurs %}
-            <div class="col-xs-3">{{ dispos_utilisateur|raw }}</div>
+        {% for utilisateur_dispo in dispos_utilisateurs %}
+            <div class="col-xs-3">{{ utilisateur_dispo|raw }}</div>
         {% endfor %}
     </div>
 
     <hr>
 
-    <p class="text-center">Résumé : <span class="label label-success">1</span> disponible, <span class="label label-danger">1</span> indisponible, <span class="label label-default">1</span> pas encore prononcé(e), <span class="label label-warning">1</span> peut-être</p>
+    <p class="text-center"><strong>Résumé :</strong> <span class="label label-success">{{ totaux.disponible }}</span> disponible(s), <span class="label label-danger">{{ totaux.indisponible }}</span> indisponible(s), <span class="label label-default">{{ totaux.pas_encore_prononce }}</span> pas encore prononcé(s), <span class="label label-warning">{{ totaux.peut_etre }}</span> peut-être</p>
 
     <hr>
 
@@ -49,16 +49,45 @@
     <script>
     $(function() {
         var inputs_my_disponibility = $('input[name="my_disponibility"]');
+        var input_my_disponibility_comment = $('input#my_disponibility_comment');
         var form_disponibility = $('form#form_disponibility');
 
+        // Clic sur les boutons radio de la dispo
         inputs_my_disponibility.change(function() {
             form_disponibility.submit();
         });
 
+        // Lorsque le formulaire d'enregistre / MàJ de la dispo est soumis
         form_disponibility.submit(function(e) {
-            var data = $(this).serialize();
+            // On vérifie d'abord si l'utilisateur a sélectionné sa présence
+            if (inputs_my_disponibility.filter(':checked').length == 0) {
+                alert('T\'as pas sélectionné de présence.');
 
-            console.log(data);
+                e.preventDefault();
+                return false;
+            }
+
+            var data = $(this).serialize(); // On sérialise toutes les données du formulaire
+
+            // On envoie tout par Ajax pour enregistrement / mise à jour
+            $.ajax({
+                type: 'POST',
+                data: data,
+                url: '{{ path('easy_evenement_dispo_update', {'evenement_id' : evenement.id}) }}',
+                beforeSend: function(jqXHR, settings) {
+                    inputs_my_disponibility.prop('disabled', true).parent().addClass('disabled');
+                    input_my_disponibility_comment.prop('disabled', true);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    inputs_my_disponibility.prop('disabled', false).parent().removeClass('disabled');
+                    input_my_disponibility_comment.prop('disabled', false);
+
+                    alert('Erreur lors de l\'enregistrement de votre dispo');
+                },
+                success: function(data, textStatus, jqXHR) {
+                    location.reload();
+                }
+            });
 
             e.preventDefault();
         });

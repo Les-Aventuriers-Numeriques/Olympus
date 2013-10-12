@@ -80,7 +80,7 @@ class EvenementController extends Controller
     }
 
     // ---------------------------------------------------------------------- //
-    // Evènements dans l'espace membre
+    // Espace membre
 
     /**
      * Listage des évènements dans l'espace membre
@@ -105,18 +105,16 @@ class EvenementController extends Controller
         $current_utilisateur = $this->get('security.context')->getToken()->getUser();
         $dispo_current_utilisateur = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Disponibilite')->findOneBy(array('evenement' => $evenement->getId(), 'utilisateur' => $current_utilisateur->getId()));
 
-        // Utilisateurs
+        // Tous les utilisateurs
         $utilisateurs = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Utilisateur')->findAll();
-        $dispos_utilisateurs = array();
+        $dispos_utilisateurs = array(); // Utilisé sur la vue pour afficher les dispos de tout le monde
+        $total_pas_encore_prononces = 0; // Le total des utilisateurs qui se sont pas prononcés
 
         foreach ($utilisateurs as $utilisateur) {
-            if ($utilisateur->getId() == $current_utilisateur->getId()) {
-                continue;
-            }
-            
             $dispo = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Disponibilite')->findOneBy(array('evenement' => $evenement->getId(), 'utilisateur' => $utilisateur->getId()));
 
             if ($dispo === null) {
+                $total_pas_encore_prononces++;
                 $dispos_utilisateurs[] = '<span class="label label-default"><i class="icon-question-sign"></i></span> '.$utilisateur->getUsername();
             } else {
                 $dispos_utilisateurs[] = $dispo->getEtat()->getStylizedLibelle().' '.$dispo->getStylizedUtilisateur();
@@ -125,8 +123,15 @@ class EvenementController extends Controller
 
         return $this->render('EasyDispoBundle:Evenement:showEspaceMembre.html.twig', array(
             'evenement' => $evenement,
+            'current_utilisateur' => $current_utilisateur,
             'dispos_utilisateurs' => $dispos_utilisateurs,
-            'dispo_current_utilisateur' => $dispo_current_utilisateur
+            'dispo_current_utilisateur' => $dispo_current_utilisateur,
+            'totaux' => array(
+                'disponible' => count($this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Disponibilite')->findBy(array('evenement' => $evenement->getId(), 'etat' => 1))),
+                'indisponible' => count($this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Disponibilite')->findBy(array('evenement' => $evenement->getId(), 'etat' => 3))),
+                'pas_encore_prononce' => $total_pas_encore_prononces,
+                'peut_etre' => count($this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Disponibilite')->findBy(array('evenement' => $evenement->getId(), 'etat' => 2)))
+            )
         ));
     }
 }

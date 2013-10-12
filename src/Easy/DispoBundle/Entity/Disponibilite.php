@@ -105,10 +105,10 @@ class Disponibilite
     /**
      * Set evenement
      *
-     * @param \Easy\UtilisateurBundle\Entity\Evenement $evenement
+     * @param \Easy\DispoBundle\Entity\Evenement $evenement
      * @return Disponibilite
      */
-    public function setEvenement(\Easy\UtilisateurBundle\Entity\Evenement $evenement)
+    public function setEvenement(\Easy\DispoBundle\Entity\Evenement $evenement)
     {
         $this->evenement = $evenement;
 
@@ -118,7 +118,7 @@ class Disponibilite
     /**
      * Get evenement
      *
-     * @return \Easy\UtilisateurBundle\Entity\Evenement
+     * @return \Easy\DispoBundle\Entity\Evenement
      */
     public function getEvenement()
     {
@@ -128,10 +128,10 @@ class Disponibilite
     /**
      * Set etat
      *
-     * @param \Easy\UtilisateurBundle\Entity\Etat $etat
+     * @param \Easy\DispoBundle\Entity\Etat $etat
      * @return Disponibilite
      */
-    public function setEtat(\Easy\UtilisateurBundle\Entity\Etat $etat)
+    public function setEtat(\Easy\DispoBundle\Entity\Etat $etat)
     {
         $this->etat = $etat;
 
@@ -141,7 +141,7 @@ class Disponibilite
     /**
      * Get etat
      *
-     * @return \Easy\UtilisateurBundle\Entity\Etat
+     * @return \Easy\DispoBundle\Entity\Etat
      */
     public function getEtat()
     {

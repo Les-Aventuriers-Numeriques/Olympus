@@ -33,5 +33,5 @@ easy_evenement_espacemembre_show:
     defaults: { _controller: EasyDispoBundle:Evenement:showEspaceMembre }
 
 easy_evenement_dispo_update:
-    pattern:  /espace-membre/evenements/consulter/{id}/update_dispo
+    pattern:  /espace-membre/evenements/consulter/{evenement_id}/update_dispo
     defaults: { _controller: EasyDispoBundle:Disponibilite:update }

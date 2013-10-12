@@ -19,6 +19,16 @@ footer {
     text-align: center;
 }
 
+.disponibility-comment {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    cursor: help;
+}
+
+.disponibilities .col-xs-3 {
+    margin-bottom: 5px;
+}
+
 /***************************************************************
  * Panels */
 
@@ -57,10 +67,8 @@ footer {
 
 .panel-body.panel-list-group .list-group-item:first-child {
     border-top: none;
-    border-radius: 0;
 }
 
 .panel-body.panel-list-group .list-group-item:last-child {
-    border-radius: 0;
     border-bottom: none;
 }

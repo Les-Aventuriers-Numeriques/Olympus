@@ -6,8 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DisponibiliteController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * Créé / met à jour la dispo de l'utilisateur
+     */
+    public function updateAction($evenement_id)
     {
-        return $this->render('EasyDispoBundle:Default:index.html.twig', array('name' => $name));
+
     }
 }

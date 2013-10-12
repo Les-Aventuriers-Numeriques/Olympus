@@ -33,23 +33,23 @@ class Disponibilite
     * @ORM\JoinColumn(nullable=false)
     */
     private $utilisateur;
-    
+
     /**
     * @ORM\ManyToOne(targetEntity="Easy\DispoBundle\Entity\Evenement")
     * @ORM\JoinColumn(nullable=false)
     */
     private $evenement;
-    
+
     /**
     * @ORM\ManyToOne(targetEntity="Easy\DispoBundle\Entity\Etat")
     * @ORM\JoinColumn(nullable=false)
     */
     private $etat;
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -65,14 +65,14 @@ class Disponibilite
     public function setCommentaire($commentaire)
     {
         $this->commentaire = $commentaire;
-    
+
         return $this;
     }
 
     /**
      * Get commentaire
      *
-     * @return string 
+     * @return string
      */
     public function getCommentaire()
     {
@@ -88,14 +88,14 @@ class Disponibilite
     public function setUtilisateur(\Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur)
     {
         $this->utilisateur = $utilisateur;
-    
+
         return $this;
     }
 
     /**
      * Get utilisateur
      *
-     * @return \Easy\UtilisateurBundle\Entity\Utilisateur 
+     * @return \Easy\UtilisateurBundle\Entity\Utilisateur
      */
     public function getUtilisateur()
     {
@@ -111,14 +111,14 @@ class Disponibilite
     public function setEvenement(\Easy\UtilisateurBundle\Entity\Evenement $evenement)
     {
         $this->evenement = $evenement;
-    
+
         return $this;
     }
 
     /**
      * Get evenement
      *
-     * @return \Easy\UtilisateurBundle\Entity\Evenement 
+     * @return \Easy\UtilisateurBundle\Entity\Evenement
      */
     public function getEvenement()
     {
@@ -134,17 +134,31 @@ class Disponibilite
     public function setEtat(\Easy\UtilisateurBundle\Entity\Etat $etat)
     {
         $this->etat = $etat;
-    
+
         return $this;
     }
 
     /**
      * Get etat
      *
-     * @return \Easy\UtilisateurBundle\Entity\Etat 
+     * @return \Easy\UtilisateurBundle\Entity\Etat
      */
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+     * Retourne l'utilisateur de cette disponibilité sous forme HTML
+     *
+     * @return string
+     */
+    public function getStylizedUtilisateur()
+    {
+        if ($this->getCommentaire() !== null) {
+            return '<span class="disponibility-comment" data-toggle="tooltip" title="'.$this->getCommentaire().'">'.$this->getUtilisateur().'</span>';
+        } else {
+            return $this->getUtilisateur();
+        }
     }
 }

@@ -16,7 +16,7 @@ class Etat
     * @ORM\OneToMany(targetEntity="Easy\DispoBundle\Entity\Disponibilite", mappedBy="etat")
     */
     private $disponibilites;
-    
+
     /**
      * @var integer
      *
@@ -38,7 +38,7 @@ class Etat
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,14 +54,14 @@ class Etat
     public function setLibelle($libelle)
     {
         $this->libelle = $libelle;
-    
+
         return $this;
     }
 
     /**
      * Get libelle
      *
-     * @return string 
+     * @return string
      */
     public function getLibelle()
     {
@@ -74,7 +74,7 @@ class Etat
     {
         $this->disponibilites = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add disponibilites
      *
@@ -84,7 +84,7 @@ class Etat
     public function addDisponibilite(\Easy\DispoBundle\Entity\Disponibilite $disponibilites)
     {
         $this->disponibilites[] = $disponibilites;
-    
+
         return $this;
     }
 
@@ -101,10 +101,31 @@ class Etat
     /**
      * Get disponibilites
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDisponibilites()
     {
         return $this->disponibilites;
+    }
+
+    /**
+     * Retourne le libellé sous forme HTML
+     *
+     * @return string
+     */
+    public function getStylizedLibelle()
+    {
+        switch ($this->getId()) {
+            case 1:
+                return '<span class="label label-success"><i class="icon-ok"></i></span>';
+            break;
+            case 2:
+                return '<span class="label label-warning"><i class="icon-time"></i></span>';
+            break;
+            case 3:
+                return '<span class="label label-danger"><i class="icon-remove"></i></span>';
+            break;
+
+        }
     }
 }

@@ -1,7 +1,7 @@
 easy_evenement_admin:
     pattern:  /administration/evenements
     defaults: { _controller: EasyDispoBundle:Evenement:listAdmin }
-    
+
 easy_evenement_delete:
     pattern:  /administration/evenement/supprimer/{id}
     defaults: { _controller: EasyDispoBundle:Evenement:deleteAdmin }
@@ -9,15 +9,29 @@ easy_evenement_delete:
 easy_evenement_show:
     pattern:  /administration/evenement/modifier/{id}
     defaults: { _controller: EasyDispoBundle:Evenement:showAdmin }
-    
+
 easy_evenement_add:
     pattern:  /administration/evenement/ajouter
     defaults: { _controller: EasyDispoBundle:Evenement:showAdmin }
-    
+
 easy_evenement_update:
     pattern:  /administration/evenement/modifier
     defaults: { _controller: EasyDispoBundle:Evenement:updateAdmin }
-    
+
 easy_evenement_show_utilisateur:
     pattern:  /evenement/consulter/{id}
     defaults: { _controller: EasyDispoBundle:Evenement:show }
+
+# Evènements dans l'espace membre
+
+easy_evenement_espacemembre_list:
+    pattern:  /espace-membre/evenements
+    defaults: { _controller: EasyDispoBundle:Evenement:listEspaceMembre }
+
+easy_evenement_espacemembre_show:
+    pattern:  /espace-membre/evenements/consulter/{id}
+    defaults: { _controller: EasyDispoBundle:Evenement:showEspaceMembre }
+
+easy_evenement_dispo_update:
+    pattern:  /espace-membre/evenements/consulter/{id}/update_dispo
+    defaults: { _controller: EasyDispoBundle:Disponibilite:update }

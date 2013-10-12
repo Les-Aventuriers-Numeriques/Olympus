@@ -1,0 +1,67 @@
+{# src/Easy/EvenementBundle/Resources/views/Evenement/showEspaceMembre.html.twig #}
+
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Voir un évènement{% endblock %}
+
+{% block body %}
+    <h3>{{ evenement.titre }} <small>Le {{ evenement.dateDebut|date('d/m/Y') }} de {{ evenement.dateDebut|date('H:i') }} à {{ evenement.dateFin|date('H:i') }}</small></h3>
+
+    {% if evenement.description is not empty %}<hr> <p>{{ evenement.description }}</p>{% endif %}
+
+
+    <form id="form_disponibility" class="text-center well well-sm" method="post" action="{{ path('easy_evenement_dispo_update', {'id' : evenement.id}) }}">
+        <p><strong>Serez-vous présent ?</strong></p>
+
+        <div class="btn-group" data-toggle="buttons" style="margin-bottom: 10px">
+            <label class="btn btn-success{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} active{% endif %}">
+                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked{% endif %}> <i class="icon-ok"></i> Oui
+            </label>
+
+            <label class="btn btn-danger{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} active{% endif %}">
+                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked{% endif %}> <i class="icon-remove"></i> Non
+            </label>
+
+            <label class="btn btn-warning{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} active{% endif %}">
+                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked{% endif %}> <i class="icon-time"></i> Peut-être
+            </label>
+        </div>
+
+        <div>
+            <input type="text" name="my_disponibility_comment" id="my_disponibility_comment" class="form-control input-sm" placeholder="Joindre un commentaire ici avant de valider" style="width: 300px; display: inline" {% if dispo_current_utilisateur is not empty %}value="{{ dispo_current_utilisateur.commentaire }}"{% endif %}>
+        </div>
+    </form>
+
+    <div class="row disponibilities">
+        {% for dispos_utilisateur in dispos_utilisateurs %}
+            <div class="col-xs-3">{{ dispos_utilisateur|raw }}</div>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <p class="text-center">Résumé : <span class="label label-success">1</span> disponible, <span class="label label-danger">1</span> indisponible, <span class="label label-default">1</span> pas encore prononcé(e), <span class="label label-warning">1</span> peut-être</p>
+
+    <hr>
+
+    <p class="text-center"><a href="{{ path('easy_evenement_espacemembre_list') }}" class="btn btn-default btn-sm"><i class="icon-chevron-left"></i> Retour à la liste des évènements</a></p>
+
+    <script>
+    $(function() {
+        var inputs_my_disponibility = $('input[name="my_disponibility"]');
+        var form_disponibility = $('form#form_disponibility');
+
+        inputs_my_disponibility.change(function() {
+            form_disponibility.submit();
+        });
+
+        form_disponibility.submit(function(e) {
+            var data = $(this).serialize();
+
+            console.log(data);
+
+            e.preventDefault();
+        });
+    });
+    </script>
+{% endblock %}

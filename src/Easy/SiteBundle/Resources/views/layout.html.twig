@@ -9,6 +9,8 @@
         <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
         <link rel="shortcut icon" href="/bundles/easysite/images/favicon.png" />
+        <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
+        <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
     </head>
     <body>
         <div class="container">
@@ -46,13 +48,13 @@
                 </div>
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><i class="icon-user"></i> Connexion</div>
+                        <div class="panel-heading"><i class="icon-user"></i> {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}Connecté{% else %}Connexion{% endif %}</div>
                         <div class="panel-body">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <div class="text-center">
                                     <strong>{{ app.user.username }}</strong>
                                     <br />
-                                    GRAVATAR
+                                    <img src="{{ gravatar(app.user.email, 100) }}">
                                     <br /><br />
                                     <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger">Se déconnecter</a>
                                 </div>
@@ -87,8 +89,6 @@
             </footer>
         </div>
 
-        <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
-        <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
         <script>
         $(function() {
             $('.tooltip-state').tooltip({

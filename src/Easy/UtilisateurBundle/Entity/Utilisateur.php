@@ -15,22 +15,22 @@ use Cunningsoft\ChatBundle\Entity\AuthorInterface;
  */
 class Utilisateur extends BaseUser implements AuthorInterface
 {
-    
+
     /**
     * @ORM\OneToMany(targetEntity="Easy\DonBundle\Entity\Don", mappedBy="utilisateur")
     */
     private $dons;
-    
+
    /**
     * @ORM\OneToMany(targetEntity="Easy\ArticleBundle\Entity\Article", mappedBy="utilisateur")
     */
     private $articles;
-    
+
     /**
     * @ORM\OneToMany(targetEntity="Easy\DispoBundle\Entity\Disponibilite", mappedBy="utilisateur")
     */
     private $disponibilites;
-    
+
     /**
      * @ORM\ManyToMany(targetEntity="Easy\UtilisateurBundle\Entity\Groupe")
      * @ORM\JoinTable(name="fos_user_user_group",
@@ -39,7 +39,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
      * )
      */
     protected $groups;
-    
+
     /**
      * @var integer
      *
@@ -69,7 +69,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
      * @ORM\Column(name="pseudo_steam", type="string", length=45, nullable=true)
      */
     private $pseudo_steam;
-    
+
     /**
      * @var string
      *
@@ -83,7 +83,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
      * @ORM\Column(name="leitmotiv", type="text", nullable=true)
      */
     private $leitmotiv;
-    
+
     /**
      * @var boolean
      *
@@ -94,7 +94,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -110,14 +110,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setNom($nom)
     {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -133,14 +133,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
-    
+
         return $this;
     }
 
     /**
      * Get prenom
      *
-     * @return string 
+     * @return string
      */
     public function getPrenom()
     {
@@ -156,14 +156,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -179,14 +179,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setLogin($login)
     {
         $this->login = $login;
-    
+
         return $this;
     }
 
     /**
      * Get login
      *
-     * @return string 
+     * @return string
      */
     public function getLogin()
     {
@@ -202,14 +202,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -225,14 +225,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
-    
+
         return $this;
     }
 
     /**
      * Get avatar
      *
-     * @return string 
+     * @return string
      */
     public function getAvatar()
     {
@@ -248,14 +248,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setLeitmotiv($leitmotiv)
     {
         $this->leitmotiv = $leitmotiv;
-    
+
         return $this;
     }
 
     /**
      * Get leitmotiv
      *
-     * @return string 
+     * @return string
      */
     public function getLeitmotiv()
     {
@@ -268,10 +268,10 @@ class Utilisateur extends BaseUser implements AuthorInterface
     {
         parent::__construct();
         $this->dons = new \Doctrine\Common\Collections\ArrayCollection();
-        
+
         parent::__construct();
     }
-    
+
     /**
      * Add dons
      *
@@ -281,7 +281,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function addDon(\Easy\DonBundle\Entity\Don $dons)
     {
         $this->dons[] = $dons;
-    
+
         return $this;
     }
 
@@ -298,7 +298,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     /**
      * Get dons
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDons()
     {
@@ -314,7 +314,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function addArticle(\Easy\ArticleBundle\Entity\Article $articles)
     {
         $this->articles[] = $articles;
-    
+
         return $this;
     }
 
@@ -331,14 +331,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     /**
      * Get articles
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getArticles()
     {
         return $this->articles;
     }
 
- 
+
 
     /**
      * Set pseudo_steam
@@ -349,14 +349,14 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setPseudoSteam($pseudoSteam)
     {
         $this->pseudo_steam = $pseudoSteam;
-    
+
         return $this;
     }
 
     /**
      * Get pseudo_steam
      *
-     * @return string 
+     * @return string
      */
     public function getPseudoSteam()
     {
@@ -372,24 +372,24 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setIdSteam($idSteam)
     {
         $this->id_steam = $idSteam;
-    
+
         return $this;
     }
 
     /**
      * Get id_steam
      *
-     * @return string 
+     * @return string
      */
     public function getIdSteam()
     {
         return $this->id_steam;
     }
-    
+
     /**
      * Get est_publique
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEstPublique()
     {
@@ -405,7 +405,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function setEstPublique($estPublique)
     {
         $this->est_publique = $estPublique;
-    
+
         return $this;
     }
 
@@ -418,7 +418,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function addDisponibilite(\Easy\DispoBundle\Entity\Disponibilite $disponibilites)
     {
         $this->disponibilites[] = $disponibilites;
-    
+
         return $this;
     }
 
@@ -435,7 +435,7 @@ class Utilisateur extends BaseUser implements AuthorInterface
     /**
      * Get disponibilites
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDisponibilites()
     {

@@ -15,13 +15,13 @@ class DonRepository extends EntityRepository
     /*
      * Renvoie la moyenne des dons pour un utilisateur
      */
-    public function findMoyenneUtilisateur($utilisateur)
+    public function selectAvgCountUtilisateur($utilisateur)
     {
         $requete = $this->createQueryBuilder('d')
-                    ->select('AVG(d.montant)')
+                    ->select('AVG(d.montant) AS Montant')
                     ->where('d.utilisateur='.$utilisateur->getId())
                     ->getQuery()
-                    ->getSingleScalarResult();
+                    ->getSingleResult();
         
         return $requete;
     }

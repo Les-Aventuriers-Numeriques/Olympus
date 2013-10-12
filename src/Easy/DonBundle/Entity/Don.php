@@ -15,7 +15,7 @@ class Don
     /*
      * Prix du Serveur
      */
-    const PRIX_SERVEUR_PAR_MOIS = 29.89;
+    const PRIX_SERVEUR_PAR_MOIS = 49.99;
     public static $mois = array('01' => 'Janvier',
                         '02' => 'Février',
                         '03' => 'Mars',

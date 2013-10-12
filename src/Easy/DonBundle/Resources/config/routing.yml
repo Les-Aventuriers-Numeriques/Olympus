@@ -1,3 +1,23 @@
+easy_don_admin:
+    pattern:  /administration/dons
+    defaults: { _controller: EasyDonBundle:Don:listAdmin }
+
+easy_don_delete:
+    pattern:  /administration/dons/supprimer/{id}
+    defaults: { _controller: EasyDonBundle:Don:deleteAdmin }
+
+easy_don_show:
+    pattern:  /administration/dons/modifier/{id}
+    defaults: { _controller: EasyDonBundle:Don:showAdmin }
+    
+easy_don_add:
+    pattern:  /administration/don/ajouter
+    defaults: { _controller: EasyDonBundle:Don:showAdmin }
+    
+easy_don_update:
+    pattern:  /administration/don/modifier
+    defaults: { _controller: EasyDonBundle:Don:updateAdmin }
+
 easy_don_accueil:
     pattern:  /espace-membre/dons
     defaults: { _controller: EasyDonBundle:Don:index }
@@ -5,7 +25,3 @@ easy_don_accueil:
 easy_don_tableau:
     pattern:  /espace-membre/dons/tableau-recapitulatif
     defaults: { _controller: EasyDonBundle:Don:list }
-
-easy_don_ajouter:
-    pattern:  /espace-membre/dons/ajouter
-    defaults: { _controller: EasyDonBundle:Don:add }

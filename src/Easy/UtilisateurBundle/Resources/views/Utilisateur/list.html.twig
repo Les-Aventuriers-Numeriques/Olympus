@@ -8,6 +8,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>Utilisateur</th>
             <th>Pseudo Steam</th>
             <th>Leitmotiv</th>
@@ -16,6 +17,7 @@
     <tbody>
         {% for utilisateur in utilisateurs %}
             <tr>
+                <td><img src="{{ gravatar(utilisateur.email, 50) }}"></td>
                 <td>=EaSy= {{ utilisateur.username }}</td>
                 <td>{{ utilisateur.pseudoSteam }}</td>
                 <td>{{ utilisateur.leitmotiv }}</td>

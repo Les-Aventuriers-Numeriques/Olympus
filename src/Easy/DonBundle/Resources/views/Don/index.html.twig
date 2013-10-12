@@ -25,13 +25,14 @@
                     Objectif : {{ constant('Easy\\DonBundle\\Entity\\Don::PRIX_SERVEUR_PAR_MOIS')|number_format(2, ',', ' ') }} €<br/>
                     Montant récolté : <br/>
                     Date du dernier don : <br/>
-                    Montant moyen : <br/>
                 </p>
             </div>
             <div class="tab-pane" id="tab2">
+                <h3>Mes Statistiques</h3>
                 <p>
                     Nombre de Dons : {{ dons_utilisateur|length }}<br/>
-                    Montant moyen : {{ don_moyen|number_format(2, ' ', ',') }} €<br/>
+                    Montant moyen : {{ don_moyen['Montant']|number_format(2, ',', ' ') }} €
+                    <br/><br/>
                     {% for don in dons_utilisateur %}
                         {{ don.date|date('d/m/Y') }} : {{ don.montant|number_format(2, ',', ' ') }} € par {{ don.moyenPaiement.libelle }}<br/>
                     {% endfor %}

@@ -1,0 +1,37 @@
+{# src/Easy/ArticleBundle/Resources/views/Dons/showAdmin.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Dons{% endblock %}
+ 
+{% block body %}
+<div>
+    <form role="form" action="{{ path('easy_don_update') }}" method="post">
+        <p>
+            <div class="form-group">
+                <label for="utilisateur">Utilisateur</label>
+                <select name="utilisateur" class="form-control">
+                    {% for utilisateur in utilisateurs %}
+                        <option {% if (don and utilisateur.id==don.utilisateur.id) %}selected="selected"{% endif %} value="{{ utilisateur.id }}">{{ utilisateur.username }}</option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" name="don" value="{% if (don) %}{{ don.id }}{% endif %}">
+            </div>
+            <div class="form-group">
+                <label for="moyen">Moyen de Paiement</label>
+                <select name="moyen" class="form-control">
+                    {% for moyen in moyens_paiements %}
+                        <option {% if (don and moyen.id==don.moyenPaiement.id) %}selected="selected"{% endif %} value="{{ moyen.id }}">{{ moyen.libelle }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="montant">Montant</label>
+                <input type="text" class="form-control" name="montant" placeholder="Montant" value="{% if (don) %}{{ don.montant }}{% endif %}">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-default">Envoyer</button>
+        </p>
+    </form>
+</div>
+{% endblock %}

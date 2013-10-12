@@ -1,0 +1,35 @@
+{# src/Easy/ArticleBundle/Resources/views/Article/index.html.twig #}
+ 
+{% extends "EasyEspaceMembreBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Administration des Dons{% endblock %}
+ 
+{% block body %}
+<a href="{{ path('easy_don_add') }}"><i class="icon-plus-sign"></i> Ajouter un Don</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Utilisateur</th>
+            <th>Date</th>
+            <th>Montant</th>
+            <th>Moyen de Paiement</th>
+            <th><i class="icon-edit"></i></th>
+            <th><i class="icon-trash"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for don in dons %}
+            <tr>
+                <td>{{ don.utilisateur.username }}</td>
+                <td>{{ don.date|date('d/m/Y') }}</td>
+                <td>{{ don.montant|number_format(2, ',', ' ') }} €</td>
+                <td>{{ don.moyenPaiement.libelle }}</td>
+                <td><a href="{{ path('easy_don_show', { 'id' : don.id }) }}"><i class="icon-edit"></a></i></td>
+                <td><a href="{{ path('easy_don_delete', { 'id' : don.id }) }}"><i class="icon-trash"></a></i></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

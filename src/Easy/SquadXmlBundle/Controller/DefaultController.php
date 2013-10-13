@@ -11,6 +11,10 @@ class DefaultController extends Controller
 {
     public function generateAction()
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR')) {
+            throw new AccessDeniedException();
+        }
+
         // TODO vérifier que l'utilisateur est bien un admin
         // On interdit les requêtes non-Ajax
         if (!$this->getRequest()->isXmlHttpRequest()) {

@@ -39,6 +39,7 @@
                           </div>
                         </div>
                     </div>
+                    {% if app.security.isGranted('ROLE_ADMINISTRATEUR') %}
                     <div class="panel panel-danger">
                         <div class="panel-heading"><i class="icon-cogs"></i> Administration</div>
                         <div class="panel-body panel-list-group">
@@ -54,6 +55,7 @@
                           </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="col-xs-8 col-md-9">
                   <div class="panel panel-primary">
@@ -72,8 +74,7 @@
 
         <script>
         $(function() {
-            // TODO Afficher ce script uniquement si l'utilisateur est admin
-
+            {% if app.security.isGranted('ROLE_ADMINISTRATEUR') %}
             var GENERATING_SQUAD_XML = false; // Variable globale permettant de savoir si le fichier squald.xml est en cours de génération
 
             // Clic sur l'élément du menu "Générer le squad.xml"
@@ -116,6 +117,7 @@
                     }
                 });
             });
+            {% endif %}
 
             // Affichage des tooltips
             $('[data-toggle="tooltip"]').tooltip();

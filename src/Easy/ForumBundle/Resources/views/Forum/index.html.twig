@@ -20,7 +20,7 @@
                         </td>
                         <td style="width: 45%;">{{ forum.libelle }}</td>
                         <td style="width: 20%;">{{ forum.sujets|length }} <span class="icon-comment"></span> - x <span class="icon-envelope"></span></td>
-                        <td style="width: 30%;">date dernier</td>
+                        <td style="width: 30%;"><a href="{{ path('easy_forum_forum', { 'id' : forum.id }) }}">TEST</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

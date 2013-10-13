@@ -28,10 +28,14 @@
     {% endfor %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Statistiques</h3>
+            <h3 class="panel-title"><span class="icon-dashboard"></span> Statistiques du Forum</h3>
         </div>
         <div class="panel-body">
-            Des statistiques ici
+            <p>
+                <span class="icon-user"></span> {{ nb_utilisateurs }} membres enregistrés<br />
+                <span class="icon-comment"></span> {{ nb_sujets }} sujets<br />
+                <span class="icon-envelope"></span> x messages<br />
+            </p>
         </div>
     </div>
 {% endblock %}

@@ -10,8 +10,10 @@ class ForumController extends Controller
     {
         // Récupération des catégories
         $categories_forums = $this->getDoctrine()->getManager()->getRepository('EasyForumBundle:CategorieForum')->findAll();
+        $nb_utilisateurs = count($this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Utilisateur')->findAll());
+        $nb_sujets = count($this->getDoctrine()->getManager()->getRepository('EasyForumBundle:Sujet')->findAll());
         
-        return $this->render('EasyForumBundle:Forum:index.html.twig', array('categories_forums' => $categories_forums));
+        return $this->render('EasyForumBundle:Forum:index.html.twig', array('categories_forums' => $categories_forums, 'nb_sujets' => $nb_sujets, 'nb_utilisateurs' => $nb_utilisateurs));
     }
     
     public function listAdminAction()

@@ -163,10 +163,12 @@ pip-log.txt
 .DS_Store
 
 web/squad.xml
-web/bundles/
-app/bootstrap*
-app/cache/*
-app/logs/*
-vendor/*
 
-nbproject/*
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+
+nbproject/
+composer.lock

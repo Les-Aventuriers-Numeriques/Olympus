@@ -47,6 +47,12 @@ class AccueilController extends Controller
         return $this->render('EasySiteBundle:Pages:serveurs.html.twig');
     }
     
+    public function pageRecrutementAction()
+    {
+        return $this->render('EasySiteBundle:Pages:recrutement.html.twig');
+    }
+    
+    
     public function pageMembresAction()
     {
         $userManager = $this->container->get('fos_user.user_manager');

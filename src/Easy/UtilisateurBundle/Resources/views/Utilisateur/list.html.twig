@@ -6,6 +6,7 @@
  
 {% block body %}
 <table class="table">
+    <h3>Staff</h3>
     <thead>
         <tr>
             <th></th>
@@ -15,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for utilisateur in utilisateurs %}
+        {% for utilisateur in utilisateurs if utilisateur.hasGroup('Administrateur') %}
             <tr>
                 <td><img src="{{ gravatar(utilisateur.email, 50) }}"></td>
                 <td>=EaSy= {{ utilisateur.username }}</td>
@@ -23,7 +24,27 @@
                 <td>{{ utilisateur.leitmotiv }}</td>
             </tr>
         {% endfor %}
-
+    </tbody>
+</table>
+<table class="table">
+    <h3>Membres</h3>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Utilisateur</th>
+            <th>Pseudo Steam</th>
+            <th>Leitmotiv</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for utilisateur in utilisateurs if utilisateur.hasGroup('=EaSy= Company') %}
+            <tr>
+                <td><img src="{{ gravatar(utilisateur.email, 50) }}"></td>
+                <td>=EaSy= {{ utilisateur.username }}</td>
+                <td>{{ utilisateur.pseudoSteam }}</td>
+                <td>{{ utilisateur.leitmotiv }}</td>
+            </tr>
+        {% endfor %}
     </tbody>
 </table>
 

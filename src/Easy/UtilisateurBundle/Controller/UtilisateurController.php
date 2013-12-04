@@ -86,8 +86,7 @@ class UtilisateurController extends Controller
             // Récupération de l'utilisateur à supprimer
             $utilisateur = $userManager->findUserByUsername($username);
         }
-        //$groupes = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Groupe')->findAll();
-        $groupes = array();
+        $groupes = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Groupe')->findAll();
         
         // La vue
         return $this->render('EasyUtilisateurBundle:Utilisateur:showAdmin.html.twig', array('utilisateur' => $utilisateur, 'groupes' => $groupes));
@@ -101,6 +100,15 @@ class UtilisateurController extends Controller
         // Récupération de l'utilisateur
         $utilisateur = $userManager->findUserByUsername($this->getRequest()->request->get('username'));
         if (!$utilisateur) $utilisateur = $userManager->createUser();
+        
+        // Récupération du groupe
+        /*$groupe = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Groupe')->findOneById($this->getRequest()->request->get('groupe'));
+        
+        foreach($utilisateur->getGroups() as $g)
+        {
+            $utilisateur->removeGroup($g);
+        }
+        $utilisateur->addGroup($this->getRequest()->request->get('groupe'));*/
         
         // Enregistrement des données
         $utilisateur->setUsername($this->getRequest()->request->get('login'));

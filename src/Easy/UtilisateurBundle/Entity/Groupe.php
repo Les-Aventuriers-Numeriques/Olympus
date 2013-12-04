@@ -10,7 +10,7 @@ use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
  * Groupe
  *
  * @ORM\Table(name="groupe")
- * @ORM\Entity(repositoryClass="Easy\SiteBundle\Repository\GroupeRepository")
+ * @ORM\Entity()
  * 
  */
 class Groupe extends BaseGroup

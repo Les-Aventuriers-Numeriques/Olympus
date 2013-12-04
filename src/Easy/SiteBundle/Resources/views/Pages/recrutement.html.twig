@@ -1,0 +1,58 @@
+{# src/Easy/SiteBundle/Resources/views/Pages/dons.html.twig #}
+
+{% extends "EasySiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}Recrutement{% endblock %}
+
+{% block body %}
+    <h3>Introduction</h3>
+    <p>
+        La =EaSy= Company est un regroupement de joueurs partageant les mêmes passions. 
+        Actuellement, nous possédons une dizaine de joueurs et nous sommes présents sur de nombreux jeux tels que Battlefield 4, Minecraft, ArmA 3, 
+        Project Reality, Company of Heroes et bien d'autres encore...
+    </p>
+    <h3>Historique</h3>
+    <p>
+        Créée en 2008, par deux jeunes joueurs, elle a su s'adapter et évoluer au fil des années, tout en gardant un esprit convivial et familial.
+    </p>
+    <h3>La Communauté</h3>
+    <p>
+        Au grès des rencontres sur les différents jeux, nous avons noué de nombreux contacts avec d'autres équipes.
+        Ceci nous permet d'organiser et de participer à des évènements plus importants et d'avoir une communauté de joueurs encore plus vaste.
+    </p>
+    <h3>Jeux de la Team</h3>
+    <div>
+        <ul>
+            <li>Battlefield 4</li>
+            <li>ArmA 3</li>
+            <li>Minecraft</li>
+            <li>Battlefield 2 : Project Reality</li>
+            <li>Company of Heroes : Blitzkrieg Mod</li>
+            <li>Jeux Paradox</li>
+            <li>Star Citizen (2014)</li>
+            <li>...</li>
+        </ul>
+    </div>
+    <h3>Nous recherchons</h3>
+    <p>
+        Nous recherchons des joueurs partageant le même état d'esprit que nous, afin de partager de bons moments sur nos jeux favoris.
+    </p>
+    <h3>Conditions d'entrée</h3>
+    <h4>Obligatoires :</h4>
+    <div>
+        <ul>
+            <li>Etre majeur et vacciné</li>
+            <li>Posséder un micro en état de marche</li>
+            <li>Etre présent au moins une fois par semaine</li>
+        </ul>
+    </div>
+    <h4>Optionnelles :</h4>
+    <div>
+        <ul>
+            <li>Aimer la bière</li>
+        </ul>
+    </div>
+    <div class="text-center">
+        <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary" disabled="disabled">Nous Rejoindre</a>
+    </div>
+{% endblock %}

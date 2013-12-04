@@ -21,3 +21,7 @@ easy_site_page_serveurs:
 easy_site_page_membres:
     pattern:  /les-membres
     defaults: { _controller: EasySiteBundle:Accueil:pageMembres }
+    
+easy_site_page_recrutement:
+    pattern:  /recrutement
+    defaults: { _controller: EasySiteBundle:Accueil:pageRecrutement }

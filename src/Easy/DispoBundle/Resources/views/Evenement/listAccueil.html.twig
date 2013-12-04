@@ -6,6 +6,10 @@
             <h4 class="list-group-item-heading">{{ evenement.titre }}</h4>
             <p class="list-group-item-text">Le {{ evenement.dateDebut|date('d/m/Y') }} de {{ evenement.dateDebut|date('H:i') }} à {{ evenement.dateFin|date('H:i') }}</p>
         </a>
+        {% else %}
+            <div class="panel-body">
+                Aucun évènement n'est prévu
+            </div>
         {% endfor %}
     </div>
 </div>

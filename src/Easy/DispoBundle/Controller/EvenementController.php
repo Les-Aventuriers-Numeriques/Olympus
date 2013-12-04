@@ -8,8 +8,8 @@ class EvenementController extends Controller
 {
     public function listAccueilAction()
     {
-        // TODO En lister 5 au max ?
-        $evenements = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Evenement')->findAll();
+        // Liste les 3 prochains evènements
+        $evenements = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Evenement')->selectProchainsEvenements();
 
         return $this->render('EasyDispoBundle:Evenement:listAccueil.html.twig', array('evenements' => $evenements));
     }
@@ -54,7 +54,7 @@ class EvenementController extends Controller
     {
         // Récupération de l'article à supprimer
         $evenement = $this->getDoctrine()->getManager()->getRepository('EasyDispoBundle:Evenement')->findOneById($this->getRequest()->request->get('evenement'));
-        if (!$evenement) $evenement = new Evenement();
+        if (!$evenement) $evenement = new \Easy\DispoBundle\Entity\Evenement;
 
         // Enregistrement des données
         $evenement->setTitre($this->getRequest()->request->get('titre'));

@@ -5,8 +5,61 @@
 {% block title %}{{ parent() }}Nos Serveurs{% endblock %}
 
 {% block body %}
+    <div class="text-center">
+        <img src="{{ asset('bundles/easysite/images/server.jpg') }}" alt="Oncle Sam">
+    </div>
+    <h3>Notre serveur dédié</h3
+    <p>
+        Actuellement, la =EaSy= Company possède un serveur physique hébergé chez OVH.
+        Nous utilisons les serveurs OVH depuis près de deux ans et nous n'avons pas été déçus. Les performances sont au rendez-vous !
+    <p/>
     <div>
-        TEST
+        <ul>
+            <li>Processeur : Intel Xeon E3</li>
+            <li>RAM : 32 Go</li>
+            <li>Disques durs : 2 x 2 To</li>
+            <li>Bande passante : 200 Mbps</li>
+            <li>Solution de virtualisation : XenServer</li>
+        </ul>
+    </div>
+    <h3>Les machines virtuelles</h3>
+    <p>
+        Afin de séparer les différentes activités du seveur dédié, nous avons opté pour la virtualisation.
+        La virtualisation consiste à faire fonctionner un ou plusieurs systèmes d'exploitation comme un simple logiciel, sur un ou plusieurs serveurs, au lieu de ne pouvoir en installer qu'un seul par machine.
+    <h4>Le premier serveur de jeux</h4>
+    <div>
+        <ul>
+            <li>VCPU : 4</li>
+            <li>RAM : 12 Go</li>
+            <li>Disque dur : 500 Go</li>
+            <li>Bande passante : 200 Mbps</li>
+            <li>Système d'exploitation : Debian 7</li>
+            <li>But : Héberge la majorité des serveurs de jeux (Minecraft, Project Reality, ...)</li>
+        </ul>
+    </div>
+    <h4>Le deuxième serveur de jeux</h4>
+    <div>
+        <ul>
+            <li>VCPU : 3</li>
+            <li>RAM : 12 Go</li>
+            <li>Disque dur : 500 Go</li>
+            <li>Bande passante : 200 Mbps</li>
+            <li>Système d'exploitation : Windows Server 2012</li>
+            <lI>But : Pour le moment, seul le serveur ArmA 3 est présent sur cette VM</lI>
+        </ul>
+    </div>
+    <h4>Le serveur d'hébergement</h4>
+    <div>
+        <ul>
+            <li>VCPU : 1</li>
+            <li>RAM : 6.5 Go</li>
+            <li>Disque dur : 500 Go</li>
+            <li>Bande passante : 200 Mbps</li>
+            <li>Système d'exploitation : Debian 7</li>
+            <li>But : Assure l'hébergement de www.easy-company.fr et d'autres projets</li>
+        </ul>
     </div>
     
+    
+        
 {% endblock %}

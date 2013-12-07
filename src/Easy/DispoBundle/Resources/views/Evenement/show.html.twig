@@ -17,7 +17,7 @@
 
 <div class="row disponibilities">
     {% for dispo in dispos %}
-        <div class="col-xs-3">{{ dispo.getStylizedUtilisateur()|raw }}</div>
+        <div class="col-xs-3"><img src="{{ gravatar(dispo.utilisateur.email, 20) }}"> {{ dispo.getStylizedUtilisateur()|raw }}</div>
     {% endfor %}
 </div>
 {% endblock %}

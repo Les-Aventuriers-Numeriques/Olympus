@@ -3,13 +3,14 @@
 {% extends "EasySiteBundle::layout.html.twig" %}
 
 {% block title %}{{ parent() }}Accueil{% endblock %}
+{% block description %}La =EaSy= Company est un regroupement de joueurs partageant les mêmes passions. Actuellement, nous possédons une dizaine de joueurs et nous sommes présents sur de nombreux jeux tels que Battlefield 4, Minecraft, ArmA 3, Project Reality, Company of Heroes et bien d'autres encore... {% endblock %}
 
 {% block body %}
     {% for article in articles %}
         <h3>{{ article.titre }}</h3>
         <h6>Le {{ article.date|date('d/m/Y H:i') }} par <a href="">{{ article.utilisateur.usernameCanonical }}</a></h6>
         <div>
-            <p>{{ article.contenu|raw }}</p>
+            <div>{{ article.contenu|raw }}</div>
             {% if not loop.last %}
                 <hr />
             {% endif %}

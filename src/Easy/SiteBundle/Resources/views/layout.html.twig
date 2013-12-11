@@ -4,7 +4,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>=EaSy= Company{% set _title = block('title') %}{% if _title is not empty %} | {{ _title|raw }}{% endif %}</title>
+        <meta name="description" content="{% set _description = block('description') %}{% if _description is not empty %}{{ _description|raw }}{% endif %}" />
+        <title>=EaSy= Company - A French Multigaming Team since 2008 {% set _title = block('title') %}{% if _title is not empty %} | {{ _title|raw }}{% endif %}</title>
         <link href="{{ asset('bundles/easysite/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
@@ -15,7 +16,7 @@
     <body>
         <div class="container">
             <header>
-                <a href="{{ path('easy_site_homepage') }}"><img src="/bundles/easysite/images/banniere_{{ random(4) }}.png" class="img-responsive"></a>
+                <a href="{{ path('easy_site_homepage') }}"><img src="/bundles/easysite/images/banniere_{{ random(4) }}.png" class="img-responsive" alt="=EaSy= Company"></a>
             </header>
 
             {% include "EasySiteBundle::menu.html.twig" %}
@@ -80,6 +81,12 @@
                             {% else %}
                                 Tchat désactivé en mode dev
                             {% endif %}
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><i class="fa fa-users"></i> Nos Partenaires</div>
+                        <div class="panel-body">
+                            {% include "EasySiteBundle::partenaires.html.twig" %}
                         </div>
                     </div>
                 </div>

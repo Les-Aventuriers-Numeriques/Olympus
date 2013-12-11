@@ -19,6 +19,11 @@ footer {
     text-align: center;
 }
 
+frame {
+    frameborder: 0;
+    allowfullscreen: 1;
+}
+
 .disponibility-comment {
     border-bottom-width: 1px;
     border-bottom-style: dotted;

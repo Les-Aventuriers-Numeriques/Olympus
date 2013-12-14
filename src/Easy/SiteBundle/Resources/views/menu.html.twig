@@ -20,7 +20,7 @@
         <li><a href="{{ path('easy_site_page_dons') }}"><i class="fa fa-euro"></i> Dons</a></li>
         <li><a href="{{ path('easy_site_page_wip') }}"><i class="fa fa-envelope"></i> Nous Contacter</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <li><a href="{{ path('espace_membre_accueil') }}">Espace Membre</a></li>
+            <li><a href="{{ path('espace_membre_accueil') }}"><i class="fa fa-user"></i> Espace Membre</a></li>
         {% endif %}
       </ul>
     </div>

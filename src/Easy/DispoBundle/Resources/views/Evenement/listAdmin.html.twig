@@ -5,15 +5,15 @@
 {% block title %}{{ parent() }} Administration des Evènements{% endblock %}
  
 {% block body %}
-<a href="{{ path('easy_evenement_add') }}"><i class="icon-plus-sign"></i> Ajouter un Evènement</a>
+<a href="{{ path('easy_evenement_add') }}"><i class="fa fa-plus"></i> Ajouter un Evènement</a>
 <table class="table">
     <thead>
         <tr>
             <th>Evènement</th>
             <th>Date Début</th>
             <th>Date Fin</th>
-            <th><i class="icon-edit"></i></th>
-            <th><i class="icon-trash"></i></th>
+            <th><i class="fa fa-plus"></i></th>
+            <th><i class="fa fa-trash-o"></i></th>
         </tr>
     </thead>
     <tbody>
@@ -22,8 +22,8 @@
                 <td>{{ evenement.titre }}</td>
                 <td>{{ evenement.dateDebut|date('d/m/Y H:i') }}</td>
                 <td>{{ evenement.dateFin|date('d/m/Y H:i') }}</td>
-                <td><a href="{{ path('easy_evenement_show', { 'id' : evenement.id }) }}"><i class="icon-edit"></a></i></td>
-                <td><a href="{{ path('easy_evenement_delete', { 'id' : evenement.id }) }}"><i class="icon-trash"></a></i></td>
+                <td><a href="{{ path('easy_evenement_show', { 'id' : evenement.id }) }}"><i class="fa fa-plus"></a></i></td>
+                <td><a href="{{ path('easy_evenement_delete', { 'id' : evenement.id }) }}"><i class="fa fa-trash-o"></a></i></td>
             </tr>
         {% endfor %}
 

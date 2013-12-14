@@ -117,7 +117,7 @@ class EvenementController extends Controller
 
             if ($dispo === null) {
                 $total_pas_encore_prononces++;
-                $dispos_utilisateurs[] = '<span class="label label-default"><i class="icon-question-sign"></i></span> '.$utilisateur->getUsername();
+                $dispos_utilisateurs[] = '<span class="label label-default"><i class="fa fa-question-circle"></i></span> '.$utilisateur->getUsername();
             } else {
                 $dispos_utilisateurs[] = $dispo->getEtat()->getStylizedLibelle().' '.$dispo->getStylizedUtilisateur();
             }

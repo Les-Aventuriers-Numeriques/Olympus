@@ -117,13 +117,13 @@ class Etat
     {
         switch ($this->getId()) {
             case 1:
-                return '<span class="label label-success"><i class="icon-ok"></i></span>';
+                return '<span class="label label-success"><i class="fa fa-check-circle"></i></span>';
             break;
             case 2:
-                return '<span class="label label-warning"><i class="icon-time"></i></span>';
+                return '<span class="label label-warning"><i class="fa fa-clock-o"></i></span>';
             break;
             case 3:
-                return '<span class="label label-danger"><i class="icon-remove"></i></span>';
+                return '<span class="label label-danger"><i class="fa fa-times-circle"></i></span>';
             break;
 
         }

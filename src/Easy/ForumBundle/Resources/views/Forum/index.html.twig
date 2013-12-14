@@ -16,10 +16,10 @@
                 {% for forum in categorie.forums %}
                     <tr>
                         <td style="width: 5%;">
-                            <span class="icon-star-empty"></span>
+                            <span class="fa fa-star-o"></span>
                         </td>
                         <td style="width: 45%;">{{ forum.libelle }}</td>
-                        <td style="width: 20%;">{{ forum.sujets|length }} <span class="icon-comment"></span> - x <span class="icon-envelope"></span></td>
+                        <td style="width: 20%;">{{ forum.sujets|length }} <span class="fa fa-comment"></span> - x <span class="fa fa-envelope"></span></td>
                         <td style="width: 30%;"><a href="{{ path('easy_forum_forum', { 'id' : forum.id }) }}">TEST</a></td>
                     </tr>
                 {% endfor %}
@@ -28,13 +28,13 @@
     {% endfor %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><span class="icon-dashboard"></span> Statistiques du Forum</h3>
+            <span class="fa fa-dashboard"></span> Statistiques du Forum
         </div>
         <div class="panel-body">
             <p>
-                <span class="icon-user"></span> {{ nb_utilisateurs }} membres enregistrés<br />
-                <span class="icon-comment"></span> {{ nb_sujets }} sujets<br />
-                <span class="icon-envelope"></span> x messages<br />
+                <span class="fa fa-user"></span> {{ nb_utilisateurs }} membres enregistrés<br />
+                <span class="fa fa-comment"></span> {{ nb_sujets }} sujets<br />
+                <span class="fa fa-envelope"></span> x messages<br />
             </p>
         </div>
     </div>

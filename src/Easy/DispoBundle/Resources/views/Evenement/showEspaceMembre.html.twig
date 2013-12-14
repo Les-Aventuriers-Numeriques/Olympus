@@ -15,15 +15,15 @@
 
         <div class="btn-group" data-toggle="buttons" style="margin-bottom: 10px">
             <label class="btn btn-success{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked="checked"{% endif %} autocomplete="off"> <i class="icon-ok"></i> Oui
+                <input type="radio" name="my_disponibility" value="1" id="my_disponibility_1"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 1 %} checked="checked"{% endif %} autocomplete="off"> <i class="fa fa-check-circle"></i> Oui
             </label>
 
             <label class="btn btn-danger{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked="checked"{% endif %} autocomplete="off"> <i class="icon-remove"></i> Non
+                <input type="radio" name="my_disponibility" value="3" id="my_disponibility_3"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 3 %} checked="checked"{% endif %} autocomplete="off"> <i class="fa fa-times-circle"></i> Non
             </label>
 
             <label class="btn btn-warning{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} active{% endif %}">
-                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked="checked"{% endif %} autocomplete="off"> <i class="icon-time"></i> Peut-être
+                <input type="radio" name="my_disponibility" value="2" id="my_disponibility_2"{% if dispo_current_utilisateur is not empty and dispo_current_utilisateur.etat.id == 2 %} checked="checked"{% endif %} autocomplete="off"> <i class="fa fa-clock-o"></i> Peut-être
             </label>
         </div>
 
@@ -44,7 +44,7 @@
 
     <hr>
 
-    <p class="text-center"><a href="{{ path('easy_evenement_espacemembre_list') }}" class="btn btn-default btn-sm"><i class="icon-chevron-left"></i> Retour à la liste des évènements</a></p>
+    <p class="text-center"><a href="{{ path('easy_evenement_espacemembre_list') }}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i> Retour à la liste des évènements</a></p>
 
     <script>
     $(function() {

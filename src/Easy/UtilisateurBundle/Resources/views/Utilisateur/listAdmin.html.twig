@@ -5,15 +5,15 @@
 {% block title %}{{ parent() }} Administration des Utilisateurs{% endblock %}
  
 {% block body %}
-<a href="{{ path('easy_utilisateur_add') }}"><i class="icon-plus-sign"></i> Ajouter un Utilisateur</a>
+<a href="{{ path('easy_utilisateur_add') }}"><i class="fa fa-plus"></i> Ajouter un Utilisateur</a>
 <table class="table">
     <thead>
         <tr>
             <th>Utilisateur</th>
             <th>Email</th>
             <th>Dernier Login</th>
-            <th><i class="icon-edit"></i></th>
-            <th><i class="icon-trash"></i></th>
+            <th><i class="fa fa-plus"></i></th>
+            <th><i class="fa fa-trash-o"></i></th>
         </tr>
     </thead>
     <tbody>
@@ -22,8 +22,8 @@
                 <td>{{ utilisateur.username }}</td>
                 <td>{{ utilisateur.email }}</td>
                 <td>{{ utilisateur.lastLogin|date('d/m/Y H:i') }}</td>
-                <td><a href="{{ path('easy_utilisateur_show_admin', { 'username' : utilisateur.username }) }}"><i class="icon-edit"></a></i></td>
-                <td><a href="{{ path('easy_utilisateur_delete', { 'username' : utilisateur.username }) }}"><i class="icon-trash"></a></i></td>
+                <td><a href="{{ path('easy_utilisateur_show_admin', { 'username' : utilisateur.username }) }}"><i class="fa fa-plus"></a></i></td>
+                <td><a href="{{ path('easy_utilisateur_delete', { 'username' : utilisateur.username }) }}"><i class="fa fa-trash-o"></a></i></td>
             </tr>
         {% endfor %}
 

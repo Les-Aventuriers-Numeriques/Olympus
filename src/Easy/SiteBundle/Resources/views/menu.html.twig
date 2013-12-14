@@ -4,21 +4,21 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
         <span class="sr-only">Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="fa fa-bar"></span>
+        <span class="fa fa-bar"></span>
+        <span class="fa fa-bar"></span>
       </button>
     </div>
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="{{ path('easy_site_homepage') }}">Accueil</a></li>
-        <li><a href="{{ path('easy_forum_index') }}">Forum</a></li>
-        <li><a href="{{ path('easy_site_page_membres') }}">Membres</a></li>
-        <li><a href="{{ path('easy_site_page_serveurs') }}">Nos Serveurs</a></li>
-        <li><a href="{{ path('easy_site_page_recrutement') }}">Recrutement</a></li>
-        <li><a href="{{ path('easy_site_page_dons') }}">Dons</a></li>
-        <li><a href="{{ path('easy_site_page_wip') }}">Nous Contacter</a></li>
+        <li><a href="{{ path('easy_site_homepage') }}"><i class="fa fa-home"></i> Accueil</a> </li>
+        <li><a href="{{ path('easy_forum_index') }}"><i class="fa fa-comments"></i> Forum</a></li>
+        <li><a href="{{ path('easy_site_page_membres') }}"><i class="fa fa-users"></i> Membres</a></li>
+        <li><a href="{{ path('easy_site_page_serveurs') }}"><i class="fa fa-hdd-o"></i> Nos Serveurs</a></li>
+        <li><a href="{{ path('easy_site_page_recrutement') }}"><i class="fa fa-list"></i> Recrutement</a></li>
+        <li><a href="{{ path('easy_site_page_dons') }}"><i class="fa fa-euro"></i> Dons</a></li>
+        <li><a href="{{ path('easy_site_page_wip') }}"><i class="fa fa-envelope"></i> Nous Contacter</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <li><a href="{{ path('espace_membre_accueil') }}">Espace Membre</a></li>
         {% endif %}

@@ -10,7 +10,7 @@
         <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
         <link rel="shortcut icon" href="/bundles/easysite/images/favicon.png" />
-        <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
+        <script src="{{ asset('bundles/easysite/js/jquery-2.0.3.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -33,11 +33,11 @@
             <div class="row">
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><i class="icon-calendar"></i> Evènements</div>
+                        <div class="panel-heading"><i class="fa fa-calendar"></i> Evènements</div>
                             {{ render(controller('EasyDispoBundle:Evenement:listAccueil')) }}
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><i class="icon-microphone"></i> Teamspeak</div>
+                        <div class="panel-heading"><i class="fa fa-microphone"></i> Teamspeak</div>
                         <div class="panel-body">
                             {% if not app.debug %}
                                 {% include "EasySiteBundle::ts.html.twig" %}
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><i class="icon-user"></i> {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}Connecté{% else %}Connexion{% endif %}</div>
+                        <div class="panel-heading"><i class="fa fa-user"></i> {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}Connecté{% else %}Connexion{% endif %}</div>
                         <div class="panel-body">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <div class="text-center">
@@ -66,24 +66,24 @@
                                     <br />
                                     <img src="{{ gravatar(app.user.email, 100) }}">
                                     <br /><br />
-                                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger">Se déconnecter</a>
+                                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger">Se déconnecter <i class="fa fa-sign-out"></i></a>
                                 </div>
                             {% else %}
                                 <div class="text-center">
-                                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary">Connexion</a>
-                                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary" disabled="disabled">Inscription</a>
+                                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary"><i class="fa fa-sign-in"></i> Connexion</a>
+                                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary" disabled="disabled"><i class="fa fa-list"></i> Inscription</a>
                                 </div>
                             {% endif %}
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><i class="icon-signal"></i> Etats des Serveurs</div>
+                        <div class="panel-heading"><i class="fa fa-signal"></i> Etats des Serveurs</div>
                         <div class="panel-body panel-list-group">
                             {{ render(controller('EasySiteBundle:Accueil:loadEtats')) }}
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><i class="icon-beer"></i> Tchat</div>
+                        <div class="panel-heading"><i class="fa fa-beer"></i> Tchat</div>
                         <div class="panel-body">
                             {% if not app.debug %}
                                 {% include "EasySiteBundle::tchat.html.twig" %}

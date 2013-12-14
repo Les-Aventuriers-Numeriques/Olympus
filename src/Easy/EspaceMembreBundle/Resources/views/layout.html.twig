@@ -11,7 +11,7 @@
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
         <link rel="shortcut icon" href="/bundles/easysite/images/favicon.png" />
 
-        <script src="{{ asset('bundles/easysite/js/jquery-2.0.0.min.js') }}"></script>
+        <script src="{{ asset('bundles/easysite/js/jquery-2.0.3.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap-datepicker.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap-datepicker.fr.js') }}"></script>
@@ -27,31 +27,31 @@
             <div class="row">
                 <div class="col-xs-4 col-md-3">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Menu</div>
+                        <div class="panel-heading"><i class="fa fa-arrow-right"></i> Menu</div>
                         <div class="panel-body panel-list-group">
                           <div class="list-group">
-                                <a class="list-group-item" href="{{ path('easy_utilisateur_profil', { 'username' : app.user.username }) }}"><i class="icon-fixed-width icon-user"></i> Gérer mon Profil</a>
-                                <a class="list-group-item" href="{{ path('easy_don_accueil') }}"><i class="icon-fixed-width icon-euro"></i> Consulter les Dons</a>
-                                <a class="list-group-item" href="{{ path('easy_evenement_espacemembre_list') }}"><i class="icon-fixed-width icon-calendar"></i> Consulter les Evènements</a>
-                                <a class="list-group-item" href=""><i class="icon-fixed-width icon-laptop"></i> Formations</a>
-                                <a class="list-group-item" href=""><i class="icon-fixed-width icon-meh"></i> Tu veux une médaille ?</a>
-                                <a class="list-group-item" href=""><i class="icon-fixed-width icon-envelope"></i> Ecrire un Ticket</a>
+                                <a class="list-group-item" href="{{ path('easy_utilisateur_profil', { 'username' : app.user.username }) }}"><i class="fa fa-fw fa-user"></i> Gérer mon Profil</a>
+                                <a class="list-group-item" href="{{ path('easy_don_accueil') }}"><i class="fa fa-fw fa-euro"></i> Consulter les Dons</a>
+                                <a class="list-group-item" href="{{ path('easy_evenement_espacemembre_list') }}"><i class="fa fa-fw fa-calendar"></i> Consulter les Evènements</a>
+                                <a class="list-group-item" href=""><i class="fa fa-fw fa-laptop"></i> Formations</a>
+                                <a class="list-group-item" href=""><i class="fa fa-fw fa-meh-o"></i> Tu veux une médaille ?</a>
+                                <a class="list-group-item" href=""><i class="fa fa-fw fa-envelope"></i> Ecrire un Ticket</a>
                           </div>
                         </div>
                     </div>
                     {% if app.security.isGranted('ROLE_ADMINISTRATEUR') %}
                     <div class="panel panel-danger">
-                        <div class="panel-heading"><i class="icon-cogs"></i> Administration</div>
+                        <div class="panel-heading"><i class="fa fa-cogs"></i> Administration</div>
                         <div class="panel-body panel-list-group">
                           <div class="list-group">
-                                <a class="list-group-item" href="{{ path('easy_categoriearticle_admin') }}"><i class="icon-fixed-width icon-font"></i> Catégories des Articles</a>
-                                <a class="list-group-item" href="{{ path('easy_article_admin') }}"><i class="icon-fixed-width icon-font"></i> Articles</a>
-                                <a class="list-group-item" href="{{ path('easy_utilisateur_admin') }}"><i class="icon-fixed-width icon-user"></i> Utilisateurs</a>
-                                <a class="list-group-item" href="{{ path('easy_evenement_admin') }}"><i class="icon-fixed-width icon-calendar"></i> Evènements</a>
-                                <a class="list-group-item" href="{{ path('easy_forum_admin') }}"><i class="icon-fixed-width icon-comment"></i> Forum</a>
-                                <a class="list-group-item" href="{{ path('easy_don_admin') }}"><i class="icon-fixed-width icon-euro"></i> Dons</a>
-                                <a class="list-group-item" href=""><i class="icon-fixed-width icon-envelope"></i> Tickets</a>
-                                <a class="list-group-item" href="" id="generate_squad_xml"><i class="icon-fixed-width icon-refresh"></i> Générer le squad.xml</a>
+                                <a class="list-group-item" href="{{ path('easy_categoriearticle_admin') }}"><i class="fa fa-fw fa-folder-open-o"></i> Catégories des Articles</a>
+                                <a class="list-group-item" href="{{ path('easy_article_admin') }}"><i class="fa fa-fw fa-font"></i> Articles</a>
+                                <a class="list-group-item" href="{{ path('easy_utilisateur_admin') }}"><i class="fa fa-fw fa-user"></i> Utilisateurs</a>
+                                <a class="list-group-item" href="{{ path('easy_evenement_admin') }}"><i class="fa fa-fw fa-calendar"></i> Evènements</a>
+                                <a class="list-group-item" href="{{ path('easy_forum_admin') }}"><i class="fa fa-fw fa-comment"></i> Forum</a>
+                                <a class="list-group-item" href="{{ path('easy_don_admin') }}"><i class="fa fa-fw fa-euro"></i> Dons</a>
+                                <a class="list-group-item" href=""><i class="fa fa-fw fa-envelope"></i> Tickets</a>
+                                <a class="list-group-item" href="" id="generate_squad_xml"><i class="fa fa-fw fa-refresh"></i> Générer le squad.xml</a>
                           </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         GENERATING_SQUAD_XML = true; // On indique que la génération a commencée
 
                         // On désactive le lien sur lequel on vient de cliquer
-                        self.html('<i class="icon-spin icon-refresh"></i> Génération...');
+                        self.html('<i class="fa fa-fw fa-refresh fa-spin"></i> Génération...');
                         self.css('color', '#999');
                     },
                     complete: function(jqXHR, textStatus) {

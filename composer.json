@@ -25,7 +25,8 @@
         "symfony/filesystem": "2.3.*@dev",
         "ornicar/gravatar-bundle" : "dev-master",
         "knplabs/knp-time-bundle": "1.1.*@dev",
-        "cunningsoft/chat-bundle": "dev-gladi-dev"
+        "cunningsoft/chat-bundle": "dev-gladi-dev",
+        "beberlei/DoctrineExtensions": "*"
     },
     "scripts": {
         "post-install-cmd": [

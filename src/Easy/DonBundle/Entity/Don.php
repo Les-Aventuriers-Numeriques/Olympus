@@ -169,4 +169,15 @@ class Don
     {
         return $this->moyen_paiement;
     }
+    
+    /**
+     * 
+     */
+    public static function getPourcentDons($totalDons) {
+        $pourcent = ($totalDons/Don::PRIX_SERVEUR_PAR_MOIS)*100;
+        if ($pourcent > 100) {
+            $pourcent = 100;
+        }
+        return $pourcent;
+    }
 }

@@ -17,23 +17,23 @@
             <div class="tab-pane active" id="tab1">
                 <h2>Objectif {{ mois["now"|date("m")] }} {{ "now"|date("Y") }}</h2>
                 <div class="progress progress-striped active">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                        <span class="sr-only">60% Complete</span>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ statistiquesGlobales.pourcentage }}%;">
+                        <span class="sr-only">{{ statistiquesGlobales.pourcentage }}% Complete</span>
                     </div>
                  </div
                 <p>
                     Objectif : {{ constant('Easy\\DonBundle\\Entity\\Don::PRIX_SERVEUR_PAR_MOIS')|number_format(2, ',', ' ') }} €<br/>
-                    Montant récolté : <br/>
-                    Date du dernier don : <br/>
+                    Montant récolté : {{ statistiquesGlobales.montantMois|number_format(2, ',', ' ') }} €<br/>
+                    Date du dernier don : {{ statistiquesGlobales.dernierDon.date | date ("d/m/Y") }} par {{ statistiquesGlobales.dernierDon.utilisateur.username }}<br/>
                 </p>
             </div>
             <div class="tab-pane" id="tab2">
-                <h3>Mes Statistiques</h3>
+                <h2>Mes Statistiques</h2>
                 <p>
-                    Nombre de Dons : {{ dons_utilisateur|length }}<br/>
-                    Montant moyen : {{ don_moyen['Montant']|number_format(2, ',', ' ') }} €
+                    Nombre de Dons : {{ statistiquesUtilisateur.dons|length }}<br/>
+                    Montant moyen : {{ statistiquesUtilisateur.montantMoyen|number_format(2, ',', ' ') }} €
                     <br/><br/>
-                    {% for don in dons_utilisateur %}
+                    {% for don in statistiquesUtilisateur.dons %}
                         {{ don.date|date('d/m/Y') }} : {{ don.montant|number_format(2, ',', ' ') }} € par {{ don.moyenPaiement.libelle }}<br/>
                     {% endfor %}
                 </p>

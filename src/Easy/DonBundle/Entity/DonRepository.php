@@ -11,26 +11,36 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class DonRepository extends EntityRepository {
-
     /*
      * 
      */
 
     public function findTotalDonsMois() {
-        /* $req_mois = '';
-          foreach (Don::$mois as $key => $mois)
-          {
-          $req_mois .= 'SUM(CASE WHEN month(d.date)='.$key.' THEN d.montant ELSE 0 END) AS '.$mois;
-          }
-          $requete = $this->createQueryBuilder('d')
-          ->select('u.username,'.$req_mois)
-          ->join('Utilisateur', 'u')
-          ->groupBy('u.id')
-          ->getQuery()
-          ->getResult();
+        $requete = $this->createQueryBuilder('d')
+                ->select('u.username')
+                ->join('d.utilisateur', 'u')
+                ->groupBy('u.id');
 
-          print_r($requete);
-          exit(0); */
+        for ($i = 1; $i <= 12; $i++) {
+            $requete->addSelect('SUM(CASE WHEN month(d.date)='.$i.' THEN d.montant ELSE 0 END)');
+        }
+        
+        $donsAnneeParUtilisateurs = $requete->getQuery()
+                ->getResult();
+
+        $temp = $this->createQueryBuilder('d')
+                ->select('MONTH(d.date) AS m')
+                ->addSelect('COALESCE(SUM(d.montant), 0)')
+                ->groupBy('m')
+                ->getQuery()
+                ->getResult();
+                
+        $totalDonsMois = array(0,0,0,0,0,0,0,0,0,0,0);
+        foreach ($temp as $key => $value) {
+            $totalDonsMois[intval($value['m'])-1] = intval($value[1]);
+        }
+        
+        return array_merge(array('donsAnneeParUtilisateurs' => $donsAnneeParUtilisateurs), array('totalDonsMois' => $totalDonsMois));
     }
 
     /*
@@ -44,7 +54,7 @@ class DonRepository extends EntityRepository {
                 ->setParameter('now', new \DateTime('now'))
                 ->getQuery()
                 ->getSingleScalarResult();
-        
+
         $dernierDon = $this->createQueryBuilder('d')
                 ->select('d')
                 ->addSelect('u')
@@ -59,15 +69,15 @@ class DonRepository extends EntityRepository {
 
         return array_merge(array('montantMois' => $montantMois), array('dernierDon' => $dernierDon[0]), array('pourcentage' => Don::getPourcentDons($montantMois)));
     }
-    
+
     public function selectStatistiquesUtilisateur($utilisateur) {
-        
+
         $montantMoyen = $this->createQueryBuilder('d')
                 ->select('AVG(d.montant) AS montantMoyen')
                 ->where('d.utilisateur=' . $utilisateur->getId())
                 ->getQuery()
                 ->getSingleScalarResult();
-        
+
         $dons = $this->createQueryBuilder('d')
                 ->select('d')
                 ->addSelect('m')

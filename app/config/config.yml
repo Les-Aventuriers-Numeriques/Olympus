@@ -107,10 +107,14 @@ fos_user:
 ornicar_gravatar: ~
 
 services:
-  controller.pre_execute_listener:
-    class: Easy\SiteBundle\Listener\ControllerListener
-    tags:
-      -  { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
+    controller.pre_execute_listener:
+        class: Easy\SiteBundle\Listener\ControllerListener
+        tags:
+            -  { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+            - { name: twig.extension }
       
 cunningsoft_chat:
     # refresh interval in milliseconds

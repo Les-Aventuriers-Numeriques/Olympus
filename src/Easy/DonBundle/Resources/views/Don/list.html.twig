@@ -2,7 +2,7 @@
  
 {% extends "EasyEspaceMembreBundle::layout.html.twig" %}
 
-{% block title %}{{ parent() }} - Dons{% endblock %}
+{% block title %}Dons{% endblock %}
  
 {% block body %}
     <div class="page-header">
@@ -17,26 +17,26 @@
                     </th>
                 </tr>
                 <tr>
-                    <th>Utilisateurs</th>
-                    {% for unMois in mois|keys %}
-                        <th>{{ unMois }}</th>
+                    <th></th>
+                    {% for unMois in mois %}
+                        <th>{{ unMois | truncate(1, false, '') }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                {% for utilisateur in utilisateurs %}
+                {% for utilisateur in dons.donsAnneeParUtilisateurs %}
                     <tr>
-                        <td>{{ utilisateur.username }}</td>
-                        {% for unMois in mois|keys %}
-                            <th>Test</th>
+                        {% for value in utilisateur %}
+                            <td>{{ value }}</td>
                         {% endfor %}
                     </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
-                    {% for unMois in mois|keys %}
-                        <th>Total</th>
+                    <th>Total</th>
+                    {% for value in dons.totalDonsMois %}
+                        <th>{{ value }}</th>
                     {% endfor %}
                 </tr>
             </tfoot>

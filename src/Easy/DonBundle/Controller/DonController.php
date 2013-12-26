@@ -89,6 +89,8 @@ class DonController extends Controller {
 
         $utilisateur = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Utilisateur')->findOneById($this->getRequest()->request->get('utilisateur'));
         $don->setUtilisateur($utilisateur);
+        
+        $don->setDate(new \DateTime($this->getRequest()->request->get('date')));
 
         // On save
         $this->getDoctrine()->getManager()->persist($don);

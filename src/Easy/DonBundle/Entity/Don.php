@@ -66,7 +66,7 @@ class Don {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
 

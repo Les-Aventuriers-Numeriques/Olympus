@@ -10,39 +10,43 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="don")
  * @ORM\Entity(repositoryClass="Easy\DonBundle\Entity\DonRepository")
  */
-class Don
-{
+class Don {
     /*
      * Prix du Serveur
      */
+
     const PRIX_SERVEUR_PAR_MOIS = 49.99;
+
     public static $mois = array('01' => 'Janvier',
-                        '02' => 'Février',
-                        '03' => 'Mars',
-                        '04' => 'Avril',
-                        '05' => 'Mai',
-                        '06' => 'Juin',
-                        '07' => 'Juillet',
-                        '08' => 'Août',
-                        '09' => 'Septembre',
-                        '10' => 'Octobre',
-                        '11' => 'Novembre',
-                        '12' => 'Décembre',
-        );
+        '02' => 'Février',
+        '03' => 'Mars',
+        '04' => 'Avril',
+        '05' => 'Mai',
+        '06' => 'Juin',
+        '07' => 'Juillet',
+        '08' => 'Août',
+        '09' => 'Septembre',
+        '10' => 'Octobre',
+        '11' => 'Novembre',
+        '12' => 'Décembre',
+    );
     
+    public function __construct() {
+        $this->date = new \DateTime();
+    }
+
     /**
-    * @ORM\ManyToOne(targetEntity="Easy\UtilisateurBundle\Entity\Utilisateur")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="Easy\UtilisateurBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $utilisateur;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="Easy\DonBundle\Entity\MoyenPaiement")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="Easy\DonBundle\Entity\MoyenPaiement")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $moyen_paiement;
-    
-    
+
     /**
      * @var integer
      *
@@ -66,15 +70,12 @@ class Don
      */
     private $date;
 
-
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -84,10 +85,9 @@ class Don
      * @param float $montant
      * @return Don
      */
-    public function setMontant($montant)
-    {
+    public function setMontant($montant) {
         $this->montant = $montant;
-    
+
         return $this;
     }
 
@@ -96,8 +96,7 @@ class Don
      *
      * @return float 
      */
-    public function getMontant()
-    {
+    public function getMontant() {
         return $this->montant;
     }
 
@@ -107,10 +106,9 @@ class Don
      * @param \DateTime $date
      * @return Don
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
-    
+
         return $this;
     }
 
@@ -119,8 +117,7 @@ class Don
      *
      * @return \DateTime 
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -130,10 +127,9 @@ class Don
      * @param \Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur
      * @return Don
      */
-    public function setUtilisateur(\Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur)
-    {
+    public function setUtilisateur(\Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur) {
         $this->utilisateur = $utilisateur;
-    
+
         return $this;
     }
 
@@ -142,8 +138,7 @@ class Don
      *
      * @return \Easy\UtilisateurBundle\Entity\Utilisateur 
      */
-    public function getUtilisateur()
-    {
+    public function getUtilisateur() {
         return $this->utilisateur;
     }
 
@@ -153,10 +148,9 @@ class Don
      * @param \Easy\DonBundle\Entity\MoyenPaiement $moyenPaiement
      * @return Don
      */
-    public function setMoyenPaiement(\Easy\DonBundle\Entity\MoyenPaiement $moyenPaiement)
-    {
+    public function setMoyenPaiement(\Easy\DonBundle\Entity\MoyenPaiement $moyenPaiement) {
         $this->moyen_paiement = $moyenPaiement;
-    
+
         return $this;
     }
 
@@ -165,19 +159,19 @@ class Don
      *
      * @return \Easy\DonBundle\Entity\MoyenPaiement 
      */
-    public function getMoyenPaiement()
-    {
+    public function getMoyenPaiement() {
         return $this->moyen_paiement;
     }
-    
+
     /**
      * 
      */
     public static function getPourcentDons($totalDons) {
-        $pourcent = ($totalDons/Don::PRIX_SERVEUR_PAR_MOIS)*100;
+        $pourcent = ($totalDons / Don::PRIX_SERVEUR_PAR_MOIS) * 100;
         if ($pourcent > 100) {
             $pourcent = 100;
         }
         return $pourcent;
     }
+
 }

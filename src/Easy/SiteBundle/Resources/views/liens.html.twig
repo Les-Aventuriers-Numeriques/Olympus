@@ -2,4 +2,6 @@
 
 <div><a href="http://steamcommunity.com/groups/easy-company-fr" target=_blank" title="Notre groupe Steam"><img src="/bundles/easysite/images/lien_steam.png"></a></div>
 <div><a href="https://robertsspaceindustries.com/orgs/EASYCOMP" target=_blank" title="Notre organisation sur Star Citizen"><img src="/bundles/easysite/images/lien_starcitizen.png"></a></div>
-<div><a href="https://www.facebook.com/groups/106085798119/" target=_blank" title="Notre page Facebook"><img src="/bundles/easysite/images/lien_facebook.png"></a></div>
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <div><a href="https://www.facebook.com/groups/106085798119/" target=_blank" title="Notre page Facebook"><img src="/bundles/easysite/images/lien_facebook.png"></a></div>
+{% endif%}

@@ -1,3 +1,7 @@
+easy_ws:
+    resource: "@EasyWSBundle/Resources/config/routing.yml"
+    prefix:   /
+
 easy_ticket:
     resource: "@EasyTicketBundle/Resources/config/routing.yml"
     prefix:   /
@@ -36,7 +40,7 @@ easy_utilisateur:
 
 easy_site:
     resource: "@EasySiteBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /    
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

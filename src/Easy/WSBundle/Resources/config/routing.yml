@@ -1,0 +1,3 @@
+easy_ws_etats_load:
+    pattern:  /ws/etats/load
+    defaults: { _controller: EasyWSBundle:Etats:load }

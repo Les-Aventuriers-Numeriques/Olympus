@@ -1,6 +1,6 @@
 <?php
 
-namespace Easy\SiteBundle\Extension;
+namespace Easy\WSBundle\Extension;
 
 class MinecraftQuery
 {

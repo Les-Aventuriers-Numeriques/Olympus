@@ -1,0 +1,7 @@
+parameters:
+#    easy_ws.example.class: Easy\WSBundle\Example
+
+services:
+#    easy_ws.example:
+#        class: %easy_ws.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Cunningsoft\ChatBundle\CunningsoftChatBundle(),
+            new Easy\WSBundle\EasyWSBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

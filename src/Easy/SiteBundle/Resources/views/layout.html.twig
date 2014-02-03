@@ -21,6 +21,11 @@
             ga('create', 'UA-37507672-1', 'easy-company.fr');
             ga('send', 'pageview');
         </script>
+        
+        <script>
+            linkLoadEtats = "{{ path('easy_ws_etats_load') }}";
+        </script>
+        <script src="{{ asset('bundles/easysite/js/loadEtats.js') }}"></script>
     </head>
     <body>
         <div class="container">
@@ -76,10 +81,10 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary" id="etats">
                         <div class="panel-heading"><i class="fa fa-signal"></i> Etats des Serveurs</div>
-                        <div class="panel-body panel-list-group">
-                            {{ render(controller('EasySiteBundle:Accueil:loadEtats')) }}
+                        <div class="panel-body">
+                            Chargement en cour...
                         </div>
                     </div>
                     <div class="panel panel-primary">

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DefaultController extends Controller
 {
@@ -14,7 +15,7 @@ class DefaultController extends Controller
         if (false === $this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR')) {
             throw new AccessDeniedException();
         }
-
+        
         // TODO vérifier que l'utilisateur est bien un admin
         // On interdit les requêtes non-Ajax
         if (!$this->getRequest()->isXmlHttpRequest()) {

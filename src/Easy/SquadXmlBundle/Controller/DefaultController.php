@@ -28,7 +28,7 @@ class DefaultController extends Controller
         $fs = new Filesystem();
 
         try {
-            $fs->dumpFile('squad.xml', $squad_xml_content); // TODO fichier config avec chemin vers le fichier
+            $fs->dumpFile('/bundles/easysite/xml/squad.xml', $squad_xml_content); // TODO fichier config avec chemin vers le fichier
         } catch (IOException $e) {
             throw new Exception($e->getMessage(), 500);
         }

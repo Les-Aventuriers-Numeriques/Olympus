@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\HttpException;
+//use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DefaultController extends Controller
 {
@@ -18,9 +18,9 @@ class DefaultController extends Controller
         
         // TODO vérifier que l'utilisateur est bien un admin
         // On interdit les requêtes non-Ajax
-        if (!$this->getRequest()->isXmlHttpRequest()) {
-            throw new HttpException('Accès interdit', 401);
-        }
+        //if (!$this->getRequest()->isXmlHttpRequest()) {
+        //    throw new HttpException('Accès interdit', 401);
+        //}
 
         $soldiers = $this->getDoctrine()->getManager()->getRepository('EasyUtilisateurBundle:Utilisateur')->findAll();
 
@@ -28,11 +28,11 @@ class DefaultController extends Controller
 
         $fs = new Filesystem();
 
-        try {
+        //try {
             $fs->dumpFile('/bundles/easysite/xml/squad.xml', $squad_xml_content); // TODO fichier config avec chemin vers le fichier
-        } catch (IOException $e) {
-            throw new HttpException($e->getMessage(), 500);
-        }
+        //} catch (IOException $e) {
+            //throw new HttpException($e->getMessage(), 500);
+        //}
 
         return new Response();
     }

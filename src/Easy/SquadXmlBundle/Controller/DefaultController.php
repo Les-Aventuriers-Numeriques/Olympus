@@ -30,7 +30,7 @@ class DefaultController extends Controller
         try {
             $fs->dumpFile('/bundles/easysite/xml/squad.xml', $squad_xml_content); // TODO fichier config avec chemin vers le fichier
         } catch (IOException $e) {
-            throw new \Exception($e->getMessage(), 500);
+            throw new HttpException($e->getMessage(), 500);
         }
 
         return new Response();

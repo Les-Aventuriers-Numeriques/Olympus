@@ -51,6 +51,20 @@ class Sujet
      * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
+    
+    /**
+     * @var boolean $estImportant
+     *
+     * @ORM\Column(name="estImportant", type="boolean")
+     */
+    private $estImportant = 0;
+    
+    /**
+     * @var boolean $estFerme
+     *
+     * @ORM\Column(name="estFerme", type="boolean")
+     */
+    private $estFerme = 0;
 
 
 
@@ -194,5 +208,51 @@ class Sujet
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    /**
+     * Set estImportant
+     *
+     * @param boolean $estImportant
+     * @return Sujet
+     */
+    public function setEstImportant($estImportant)
+    {
+        $this->estImportant = $estImportant;
+    
+        return $this;
+    }
+
+    /**
+     * Get estImportant
+     *
+     * @return boolean 
+     */
+    public function getEstImportant()
+    {
+        return $this->estImportant;
+    }
+
+    /**
+     * Set estFerme
+     *
+     * @param boolean $estFerme
+     * @return Sujet
+     */
+    public function setEstFerme($estFerme)
+    {
+        $this->estFerme = $estFerme;
+    
+        return $this;
+    }
+
+    /**
+     * Get estFerme
+     *
+     * @return boolean 
+     */
+    public function getEstFerme()
+    {
+        return $this->estFerme;
     }
 }

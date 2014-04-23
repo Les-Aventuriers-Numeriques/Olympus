@@ -11,17 +11,18 @@
             <tr>
                 <th colspan="4">
                     <a type="button" class="btn btn-primary btn-sm" href="{{ path('easy_forum_sujet_add', { 'id' : forum.id }) }}"><i class="fa fa-comments"></i> Ecrire un sujet</a>
-                    <a type="button" class="btn btn-primary btn-sm" href="{{ path('easy_forum_index') }}"><i class="fa fa-comments"></i> Retour</a>
+                    <a type="button" class="btn btn-default btn-sm" href="{{ path('easy_forum_index') }}"><i class="fa fa-arrow-circle-left"></i> Retour</a>
                 </th>
             </tr>
         </thead>
         <tbody>
             {% for sujet in sujets %}
                 <tr>
-                    <td style="width: 15%;">
-                        <span class="icon-star-empty"></span> <span class="icon-bullhorn"></span> <span class="icon-lock"></span>
+                    <td style="width: 5%;">
+                        {% if sujet.estImportant %}<i class="fa fa-exclamation-circle"></i>{% endif %} 
+                        {% if sujet.estFerme %}<i class="fa fa-lock"></i>{% endif %}
                     </td>
-                    <td style="width: 40%;">{{ sujet.titre }}</td>
+                    <td style="width: 50%;">{{ sujet.titre }}</td>
                     <td style="width: 20%;"><a href=""><img src="{{ gravatar(app.user.email, 16) }}"> {{ sujet.utilisateur }}</a></td>
                     <td style="width: 5%;">nb</td>
                     <td style="width: 20%;"><a href="{{ path('easy_forum_sujet', { 'id' : sujet.id }) }}"><i class="fa fa-share-square-o"></i></a></td>

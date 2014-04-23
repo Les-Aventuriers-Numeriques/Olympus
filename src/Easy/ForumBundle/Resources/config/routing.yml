@@ -5,7 +5,27 @@ easy_forum_index:
 easy_forum_forum:
     pattern:  /forum/{id}
     defaults: { _controller: EasyForumBundle:Sujet:list }
+    
+easy_forum_sujet_add:
+    pattern:  /forum/sujet/nouveau/{id}
+    defaults: { _controller: EasyForumBundle:Sujet:add }
+    
+easy_forum_sujet_save:
+    pattern:  /forum/sujet/enregistrer
+    defaults: { _controller: EasyForumBundle:Sujet:update }
 
 easy_forum_admin:
     pattern:  /administration/forum
     defaults: { _controller: EasyForumBundle:Forum:listAdmin }
+
+easy_forum_sujet:
+    pattern:  /forum/sujet/{id}
+    defaults: { _controller: EasyForumBundle:Message:list }
+
+easy_forum_message_add:
+    pattern:  /forum/message/nouveau/{id}
+    defaults: { _controller: EasyForumBundle:Message:add }
+    
+easy_forum_message_save:
+    pattern:  /forum/message/enregistrer
+    defaults: { _controller: EasyForumBundle:Message:update }

@@ -19,6 +19,12 @@ class Sujet
     private $forum;
     
     /**
+    * @ORM\ManyToOne(targetEntity="Easy\UtilisateurBundle\Entity\Utilisateur")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $utilisateur;
+    
+    /**
     * @ORM\OneToMany(targetEntity="Easy\ForumBundle\Entity\Message", mappedBy="sujet")
     */
     private $messages;
@@ -165,5 +171,28 @@ class Sujet
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur
+     * @return Sujet
+     */
+    public function setUtilisateur(\Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur = $utilisateur;
+    
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Easy\UtilisateurBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

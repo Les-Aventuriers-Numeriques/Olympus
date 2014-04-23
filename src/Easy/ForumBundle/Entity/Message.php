@@ -19,6 +19,12 @@ class Message
     private $sujet;
     
     /**
+    * @ORM\ManyToOne(targetEntity="Easy\UtilisateurBundle\Entity\Utilisateur")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $utilisateur;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
@@ -120,5 +126,28 @@ class Message
     public function getSujet()
     {
         return $this->sujet;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur
+     * @return Message
+     */
+    public function setUtilisateur(\Easy\UtilisateurBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur = $utilisateur;
+    
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Easy\UtilisateurBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

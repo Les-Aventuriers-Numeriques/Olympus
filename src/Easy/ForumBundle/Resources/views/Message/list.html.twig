@@ -1,0 +1,24 @@
+{# src/Easy/SiteBundle/Resources/views/Pages/mentions.html.twig #}
+
+{% extends "EasySiteBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}Forum{% endblock %}
+
+{% block body %}
+    <h2>{{ sujet.titre }}</h2>
+    <a type="button" class="btn btn-primary btn-sm" href="{{ path('easy_forum_message_add', { 'id' : sujet.id }) }}"><i class="fa fa-comments"></i> Répondre</a> 
+    <a type="button" class="btn btn-primary btn-sm" href="{{ path('easy_forum_forum', { 'id' : sujet.forum.id }) }}"><i class="fa fa-comments"></i> Retour</a>
+    <hr>
+    {% set num_messsage_sujet = 1 %}
+    {% for message in messages %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">#{{ num_messsage_sujet }} - <img src="{{ gravatar(app.user.email, 20) }}"> {{ message.utilisateur.username }} - </h3>
+            </div>
+            <div class="panel-body">
+                {{ message.contenu|raw }}
+            </div>
+        </div>
+        {% set num_messsage_sujet = num_messsage_sujet + 1 %}
+    {% endfor %} 
+{% endblock %}

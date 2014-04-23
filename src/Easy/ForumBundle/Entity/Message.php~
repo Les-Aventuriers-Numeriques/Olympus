@@ -19,6 +19,12 @@ class Message
     private $sujet;
     
     /**
+    * @ORM\ManyToOne(targetEntity="Easy\UtilisateurBundle\Entity\Utilisateur")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $utilisateur;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
@@ -97,5 +103,28 @@ class Message
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set sujet
+     *
+     * @param \Easy\ForumBundle\Entity\Sujet $sujet
+     * @return Message
+     */
+    public function setSujet(\Easy\ForumBundle\Entity\Sujet $sujet)
+    {
+        $this->sujet = $sujet;
+    
+        return $this;
+    }
+
+    /**
+     * Get sujet
+     *
+     * @return \Easy\ForumBundle\Entity\Sujet 
+     */
+    public function getSujet()
+    {
+        return $this->sujet;
     }
 }

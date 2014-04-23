@@ -15,7 +15,16 @@ use Cunningsoft\ChatBundle\Entity\AuthorInterface;
  */
 class Utilisateur extends BaseUser implements AuthorInterface
 {
-
+    /**
+    * @ORM\OneToMany(targetEntity="Easy\ForumBundle\Entity\Sujet", mappedBy="utilisateur")
+    */
+    private $sujets;
+    
+    /**
+    * @ORM\OneToMany(targetEntity="Easy\ForumBundle\Entity\Message", mappedBy="utilisateur")
+    */
+    private $messages;
+    
     /**
     * @ORM\OneToMany(targetEntity="Easy\DonBundle\Entity\Don", mappedBy="utilisateur")
     */
@@ -440,5 +449,71 @@ class Utilisateur extends BaseUser implements AuthorInterface
     public function getDisponibilites()
     {
         return $this->disponibilites;
+    }
+
+    /**
+     * Add sujets
+     *
+     * @param \Easy\ForumBundle\Entity\Sujet $sujets
+     * @return Utilisateur
+     */
+    public function addSujet(\Easy\ForumBundle\Entity\Sujet $sujets)
+    {
+        $this->sujets[] = $sujets;
+    
+        return $this;
+    }
+
+    /**
+     * Remove sujets
+     *
+     * @param \Easy\ForumBundle\Entity\Sujet $sujets
+     */
+    public function removeSujet(\Easy\ForumBundle\Entity\Sujet $sujets)
+    {
+        $this->sujets->removeElement($sujets);
+    }
+
+    /**
+     * Get sujets
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSujets()
+    {
+        return $this->sujets;
+    }
+
+    /**
+     * Add messages
+     *
+     * @param \Easy\ForumBundle\Entity\Message $messages
+     * @return Utilisateur
+     */
+    public function addMessage(\Easy\ForumBundle\Entity\Message $messages)
+    {
+        $this->messages[] = $messages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove messages
+     *
+     * @param \Easy\ForumBundle\Entity\Message $messages
+     */
+    public function removeMessage(\Easy\ForumBundle\Entity\Message $messages)
+    {
+        $this->messages->removeElement($messages);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }

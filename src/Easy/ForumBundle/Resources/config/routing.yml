@@ -21,6 +21,14 @@ easy_forum_admin:
 easy_forum_sujet:
     pattern:  /forum/sujet/{id}
     defaults: { _controller: EasyForumBundle:Message:list }
+    
+easy_forum_sujet_estFerme:
+    pattern:  /forum/sujet/fermer/{id}
+    defaults: { _controller: EasyForumBundle:Sujet:estFerme }
+    
+easy_forum_sujet_estImportant:
+    pattern:  /forum/sujet/important/{id}
+    defaults: { _controller: EasyForumBundle:Sujet:estImportant }
 
 easy_forum_message_add:
     pattern:  /forum/message/nouveau/{id}

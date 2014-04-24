@@ -5,10 +5,24 @@
 {% block title %}{{ parent() }}Forum{% endblock %}
 
 {% block body %}
-    <h2>{{ sujet.titre }}</h2>
-    <a type="button" class="btn btn-primary btn-sm" href="{{ path('easy_forum_message_add', { 'id' : sujet.id }) }}"><i class="fa fa-comments"></i> Répondre</a> 
-    <a type="button" class="btn btn-default btn-sm" href="{{ path('easy_forum_forum', { 'id' : sujet.forum.id }) }}"><i class="fa fa-arrow-circle-left"></i> Retour</a>
+    <h2>
+        {% if sujet.estImportant %}<i class="fa fa-exclamation-circle"></i>{% endif %} 
+        {% if sujet.estFerme %}<i class="fa fa-lock"></i>{% endif %}
+        {{ sujet.titre }}
+    </h2>
+    <p>
+        {% if not sujet.estFerme %}<a type="button" class="btn btn-primary btn-sm" href="{{ path('easy_forum_message_add', { 'id' : sujet.id }) }}"><i class="fa fa-comments"></i> Répondre</a>{% endif %}  
+        <a type="button" class="btn btn-default btn-sm" href="{{ path('easy_forum_forum', { 'id' : sujet.forum.id }) }}"><i class="fa fa-arrow-circle-left"></i> Retour</a>
+    </p>
+    
+    {% if is_granted('ROLE_ADMINISTRATEUR') %}
+        <p>
+            <a type="button" class="btn btn-danger btn-xs" href="{{ path('easy_forum_sujet_estFerme', { 'id' : sujet.id }) }}"><i class="fa fa-exclamation-circle"></i> {% if sujet.estFerme %}Déverrouiller{% else %}Verrouiller{% endif %}</a>
+            <a type="button" class="btn btn-danger btn-xs" href="{{ path('easy_forum_sujet_estImportant', { 'id' : sujet.id }) }}"><i class="fa fa-exclamation-circle"></i> {% if sujet.estImportant %}Repasser en message{% else %}Mettre en Post-It{% endif %}</a>
+        </p>
+    {% endif %}
     <hr>
+    
     {% set num_messsage_sujet = 1 %}
     {% for message in messages %}
         <div class="panel panel-primary">

@@ -5,8 +5,13 @@
 {% block title %}{{ parent() }}Forum{% endblock %}
 
 {% block body %}
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Attention !</strong> Le forum est en cours de construction et de développement...
+    </div>
+
     {% for categorie in categories_forums %}
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
                 <tr>
                     <th colspan="4">{{ categorie.libelle }}</th>
@@ -14,12 +19,12 @@
             </thead>
             <tbody>
                 {% for forum in categorie.forums %}
-                    <tr>
+                    <tr onclick="document.location='{{ path('easy_forum_forum', { 'id' : forum.id }) }}'">
                         <td style="width: 5%;">
                             <span class="fa fa-star-o"></span>
                         </td>
                         <td style="width: 45%;">{{ forum.libelle }}</td>
-                        <td style="width: 20%;">{{ forum.sujets|length }} <span class="fa fa-comment"></span> - x <span class="fa fa-envelope"></span></td>
+                        <td style="width: 20%;">{{ forum.sujets|length }} <span class="fa fa-comment"></span> - {% for nb in nb_messages_forum %}{% if nb['forum'] == forum.id %}{{ nb['nbMessages'] }}{% endif %}{% endfor %} <span class="fa fa-envelope"></span></td>
                         <td style="width: 30%;"><a href="{{ path('easy_forum_forum', { 'id' : forum.id }) }}"><i class="fa fa-share-square-o"></i></a></td>
                     </tr>
                 {% endfor %}
@@ -34,7 +39,7 @@
             <p>
                 <span class="fa fa-user"></span> {{ nb_utilisateurs }} membres enregistrés<br />
                 <span class="fa fa-comment"></span> {{ nb_sujets }} sujets<br />
-                <span class="fa fa-envelope"></span> x messages<br />
+                <span class="fa fa-envelope"></span> {{ nb_messages }} messages<br />
             </p>
         </div>
     </div>

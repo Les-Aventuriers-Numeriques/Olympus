@@ -5,6 +5,7 @@ namespace Easy\ForumBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Easy\ForumBundle\Entity\Message;
 use Easy\ForumBundle\Entity\Sujet;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class MessageController extends Controller
 {
@@ -19,6 +20,8 @@ class MessageController extends Controller
     public function addAction($id)
     {
         $sujet = $this->getDoctrine()->getManager()->getRepository('EasyForumBundle:Sujet')->findOneById($id);
+        
+        if ($sujet->getEstFerme()) return $this->redirect($this->generateUrl('easy_forum_sujet', array('id' => $id)));
         
         return $this->render('EasyForumBundle:Message:add.html.twig', array('sujet' => $sujet));
     }

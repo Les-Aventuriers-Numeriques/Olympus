@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class MessageRepository extends EntityRepository 
 {
+    // TODO : A recoder en DQL
     public function selectNbMessagesSujet() 
     {
         $stmt = $this->getEntityManager()  
@@ -19,5 +20,22 @@ class MessageRepository extends EntityRepository
                ->prepare('SELECT sujet_id AS sujet, COUNT(*) AS nbMessages FROM message GROUP BY sujet_id');  
         $stmt->execute();  
         return $stmt->fetchAll(); 
+    }
+    
+    // TODO : A recoder en DQL
+    public function selectNbMessagesForum() 
+    {
+        $stmt = $this->getEntityManager()  
+               ->getConnection()  
+               ->prepare('SELECT s.forum_id AS forum, COUNT(*) AS nbMessages FROM message m '
+                       . 'INNER JOIN sujet s ON m.sujet_id = s.id '
+                       . 'GROUP BY s.forum_id');  
+        $stmt->execute();  
+        return $stmt->fetchAll(); 
+    }
+    
+    public function getDernierMessageForum()
+    {
+        
     }
 }

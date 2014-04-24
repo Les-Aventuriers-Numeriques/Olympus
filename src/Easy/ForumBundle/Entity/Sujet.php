@@ -186,6 +186,26 @@ class Sujet
     {
         return $this->messages;
     }
+    
+    /*
+     * Get dernierMessage
+     */
+    public function getNbMessages()
+    {
+        return count($this->messages);
+    }
+    
+    /*
+     * Get dernierMessage
+     */
+    public function getDernierMessage()
+    {
+        if ($this->messages)
+        {
+            $nb = count($this->messages) - 1;
+            return $this->messages[$nb];
+        }
+    }
 
     /**
      * Set utilisateur

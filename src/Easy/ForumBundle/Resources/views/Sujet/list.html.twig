@@ -6,7 +6,7 @@
 
 {% block body %}
     <h3>{{ forum.libelle }}</h3>
-    <table class="table">
+    <table class="table table-hover table-responsive">
         <thead>
             <tr>
                 <th colspan="4">
@@ -17,15 +17,20 @@
         </thead>
         <tbody>
             {% for sujet in sujets %}
-                <tr>
-                    <td style="width: 5%;">
+                <tr onclick="document.location='{{ path('easy_forum_sujet', { 'id' : sujet.id }) }}'" {% if sujet.estImportant %}class="warning"{% endif %}>
+                    <td style="width: 40%;">
                         {% if sujet.estImportant %}<i class="fa fa-exclamation-circle"></i>{% endif %} 
                         {% if sujet.estFerme %}<i class="fa fa-lock"></i>{% endif %}
+                        {% if sujet.estImportant %}<strong>{{ sujet.titre }}</strong>{% else %}{{ sujet.titre }}{% endif %}
                     </td>
-                    <td style="width: 45%;">{{ sujet.titre }}</td>
-                    <td style="width: 20%;"><a href=""><img src="{{ gravatar(app.user.email, 16) }}"> {{ sujet.utilisateur }}</a></td>
-                    <td style="width: 10%;">{% for nb in nb_messages_sujet %}{% if nb['sujet'] == sujet.id %}{{ nb['nbMessages'] }} <i class="fa fa-envelope"></span>{% endif %}{% endfor %}</td>
-                    <td style="width: 20%;"><a href="{{ path('easy_forum_sujet', { 'id' : sujet.id }) }}"><i class="fa fa-share-square-o"></i></a></td>
+                    <td style="width: 30%;"><a href=""><img src="{{ gravatar(app.user.email, 16) }}"> {{ sujet.utilisateur }}</a></td>
+                    <td style="width: 10%;">
+                        {{ sujet.getNbMessages() }} <i class="fa fa-envelope"></span>
+                    </td>
+                    <td style="width: 10%;">
+                        {{ sujet.getDernierMessage().date|date('d/m/Y H:i') }}
+                    </td>
+                    <td style="width: 5%;"><a href="{{ path('easy_forum_sujet', { 'id' : sujet.id }) }}"><i class="fa fa-share-square-o"></i></a></td>
                 </tr>
             {% endfor %}
         </tbody>

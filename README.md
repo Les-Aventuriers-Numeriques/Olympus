@@ -5,7 +5,11 @@ Le projet Olympus regroupe l'ensemble du site de la =EaSy= Company.
 
 Changelog
 ------------------------
-1.1 - Mise en ligne prévue le 01/01/2014 :
+1.2 - Mise en ligne prévue le 01/09/2014 :
+- Module Récompenses
+
+
+1.1 - Mise en ligne prévue le 01/05/2014 :
 - Module Forum
 - Module Dons
 - Module Tickets

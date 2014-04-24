@@ -27,7 +27,7 @@
     {% for message in messages %}
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">#{{ num_messsage_sujet }} - <img src="{{ gravatar(app.user.email, 20) }}"> {{ message.utilisateur.username }} <small>{{ message.date|date("d/m/Y H:i") }}</small></h3>
+                <h3 class="panel-title">#{{ num_messsage_sujet }} - <img src="{{ gravatar(message.utilisateur.email, 20) }}"> {{ message.utilisateur.username }} <small>{{ message.date|date("d/m/Y H:i") }}</small></h3>
             </div>
             <div class="panel-body">
                 {% if message.utilisateur.username == 'sCreami' %}

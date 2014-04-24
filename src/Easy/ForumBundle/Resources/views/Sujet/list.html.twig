@@ -23,7 +23,7 @@
                         {% if sujet.estFerme %}<i class="fa fa-lock"></i>{% endif %}
                         {% if sujet.estImportant %}<strong>{{ sujet.titre }}</strong>{% else %}{{ sujet.titre }}{% endif %}
                     </td>
-                    <td style="width: 30%;"><a href=""><img src="{{ gravatar(app.user.email, 16) }}"> {{ sujet.utilisateur }}</a></td>
+                    <td style="width: 30%;"><a href=""><img src="{{ gravatar(sujet.utilisateur.email, 16) }}"> {{ sujet.utilisateur }}</a></td>
                     <td style="width: 10%;">
                         {{ sujet.getNbMessages() }} <i class="fa fa-envelope"></span>
                     </td>

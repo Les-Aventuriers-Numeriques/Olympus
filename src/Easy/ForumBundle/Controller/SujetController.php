@@ -11,10 +11,10 @@ class SujetController extends Controller
     public function listAction($id)
     {
         $forum = $this->getDoctrine()->getManager()->getRepository('EasyForumBundle:Forum')->findOneById($id);
-        
         $sujets = $this->getDoctrine()->getManager()->getRepository('EasyForumBundle:Sujet')->findByForum($forum);
+        $nb_messages_sujet = $this->getDoctrine()->getManager()->getRepository('EasyForumBundle:Message')->selectNbMessagesSujet();
         
-        return $this->render('EasyForumBundle:Sujet:list.html.twig', array('sujets' => $sujets, 'forum' => $forum));
+        return $this->render('EasyForumBundle:Sujet:list.html.twig', array('sujets' => $sujets, 'forum' => $forum, 'nb_messages_sujet' => $nb_messages_sujet));
     }
     
     public function addAction($id)

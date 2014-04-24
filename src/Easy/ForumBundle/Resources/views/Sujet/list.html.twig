@@ -22,9 +22,9 @@
                         {% if sujet.estImportant %}<i class="fa fa-exclamation-circle"></i>{% endif %} 
                         {% if sujet.estFerme %}<i class="fa fa-lock"></i>{% endif %}
                     </td>
-                    <td style="width: 50%;">{{ sujet.titre }}</td>
+                    <td style="width: 45%;">{{ sujet.titre }}</td>
                     <td style="width: 20%;"><a href=""><img src="{{ gravatar(app.user.email, 16) }}"> {{ sujet.utilisateur }}</a></td>
-                    <td style="width: 5%;">nb</td>
+                    <td style="width: 10%;">{% for nb in nb_messages_sujet %}{% if nb['sujet'] == sujet.id %}{{ nb['nbMessages'] }} <i class="fa fa-envelope"></span>{% endif %}{% endfor %}</td>
                     <td style="width: 20%;"><a href="{{ path('easy_forum_sujet', { 'id' : sujet.id }) }}"><i class="fa fa-share-square-o"></i></a></td>
                 </tr>
             {% endfor %}

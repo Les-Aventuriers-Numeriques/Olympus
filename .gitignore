@@ -169,6 +169,8 @@ pip-log.txt
 /app/logs/*
 /vendor/
 
+/app/config/parameters.yml
+
 nbproject/
 composer.lock
 .idea

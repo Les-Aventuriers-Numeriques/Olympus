@@ -163,6 +163,7 @@ pip-log.txt
 .DS_Store
 
 /web/bundles/
+/web/squad.xml
 /app/bootstrap*
 /app/cache/*
 /app/logs/*

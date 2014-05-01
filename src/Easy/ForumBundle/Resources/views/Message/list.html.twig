@@ -30,13 +30,13 @@
                 <h3 class="panel-title">#{{ num_messsage_sujet }} - <img src="{{ gravatar(message.utilisateur.email, 20) }}"> {{ message.utilisateur.username }} <small>{{ message.date|date("d/m/Y H:i") }}</small></h3>
             </div>
             <div class="panel-body">
-                {% if message.utilisateur.username == 'sCreami' %}
+                {# if message.utilisateur.username == 'sCreami' %}
                     <div class="alert alert-danger alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <strong>Attention !</strong> Ce message a été posté par sCreami... Du Troll pourrait se cacher dans ses propos...
                     </div>
                     <br/>
-                {% endif %}
+                {% endif #}
                 <div>
                     {{ message.contenu|raw }}
                 </div>

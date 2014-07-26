@@ -53,52 +53,17 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    {% if app.request.attributes.get('_route') == 'easy_site_homepage' %}
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-info-circle"></i> Informations</h3></div>
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img src="http://www.arma3.com/images/screenshots/large/arma3_screenshot_03.jpg" alt="...">
-                                    <div class="carousel-caption">
-                                    Serveur Teamspeak 3
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="http://www.arma3.com/images/screenshots/large/arma3_screenshot_01.jpg" alt="...">
-                                    <div class="carousel-caption">
-                                    Test2
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="http://www.arma3.com/images/screenshots/large/arma3_screenshot_02.jpg" alt="...">
-                                    <div class="carousel-caption">
-                                    Serveur Minecraft DNS Techpack 6.3.0
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-                    
                     <div class="panel panel-primary">
                         {% if _title is not empty %}
                             <div class="panel-heading">
                                 <h1 class="panel-title">{% set _icone = block('icone') %}{% if _icone is not empty %}{{ _icone|raw }}{% endif %} {{ _title|raw }}</h1>
                             </div>
                         {% endif %}
-                        <div class="panel-body">
-                            {% block body %}
-                                
-                            {% endblock %}
-                        </div>
+                        {% if app.request.attributes.get('_route') != 'easy_site_homepage' %}<div class="panel-body">{% endif %}
+                                {% block body %}
+
+                                {% endblock %}
+                        {% if app.request.attributes.get('_route') != 'easy_site_homepage' %}</div>{% endif %}
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-3">

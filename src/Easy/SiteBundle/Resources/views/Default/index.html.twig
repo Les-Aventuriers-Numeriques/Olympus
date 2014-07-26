@@ -7,14 +7,33 @@
 {% block description %}La =EaSy= Company est un regroupement de joueurs partageant les mêmes passions. Actuellement, nous possédons une dizaine de joueurs et nous sommes présents sur de nombreux jeux tels que Battlefield 4, Minecraft, ArmA 3, Project Reality, Company of Heroes et bien d'autres encore... {% endblock %}
 
 {% block body %}
-    {% for article in articles %}
-        <div class="page-header">
-            <h2>{{ article.titre }} <small>{{ article.date|date('d/m/Y H:i') }}</small></h2>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="http://arma3.com/assets/img/screenshots/large/arma3_screenshot_03.jpg" alt="...">
+                <div class="carousel-caption">
+                Serveur Teamspeak 3
+                </div>
+            </div>
+            <div class="item">
+                <img src="http://arma3.com/assets/img/screenshots/large/arma3_screenshot_02.jpg" alt="...">
+                <div class="carousel-caption">
+                Test2
+                </div>
+            </div>
+            <div class="item">
+                <img src="http://arma3.com/assets/img/screenshots/large/arma3_screenshot_01.jpg" alt="...">
+                <div class="carousel-caption">
+                Serveur Minecraft DNS Techpack 6.3.0
+                </div>
+            </div>
         </div>
-        <div>
-            <div>{{ article.contenu|raw }}</div>
-        </div>
-    {% else %}
-        <p>Aucun article n'a été trouvé</p>
-    {% endfor %}
+    </div>
 {% endblock %}

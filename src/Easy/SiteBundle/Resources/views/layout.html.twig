@@ -36,23 +36,7 @@
             {% include "EasySiteBundle::menu.html.twig" %}
 
             <div class="row">
-                <div class="col-xs-12 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-calendar"></i> Evènements</h3></div>
-                            {{ render(controller('EasyDispoBundle:Evenement:listAccueil')) }}
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-microphone"></i> Teamspeak</h3></div>
-                        <div class="panel-body">
-                            {% if not app.debug %}
-                                {% include "EasySiteBundle::ts.html.twig" %}
-                            {% else %}
-                                TS Viewer désactivé en mode dev
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6">
+                <div class="col-xs-12 col-md-9">
                     <div class="panel panel-primary">
                         {% if _title is not empty %}
                             <div class="panel-heading">
@@ -86,27 +70,17 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="panel panel-primary" id="etats">
-                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-signal"></i> Etats des Serveurs</h3></div>
-                        <div class="panel-body">
-                            <i class="fa fa-spinner fa-spin"></i> Chargement en cours...
-                        </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-calendar"></i> Evènements</h3></div>
+                            {{ render(controller('EasyDispoBundle:Evenement:listAccueil')) }}
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-microphone"></i> Teamspeak</h3></div>
+                        {{ render(controller('EasyTeamspeakBundle:Teamspeak:index')) }}
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-beer"></i> Tchat</h3></div>
                         {% include "ChatBundle::chat.html.twig" %}
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-link"></i> Liens</h3></div>
-                        <div class="panel-body">
-                            {% include "EasySiteBundle::liens.html.twig" %}
-                        </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-users"></i> Nos Partenaires</h3></div>
-                        <div class="panel-body">
-                            {% include "EasySiteBundle::partenaires.html.twig" %}
-                        </div>
                     </div>
                 </div>
             </div>

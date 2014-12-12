@@ -1,57 +1,5 @@
 <div class="list-group messages">
   {% for message in messages %}
-    <div class="list-group-item">
-      <div class="message">
-        <span class="username admin">{{ message.utilisateur }}:</span> {{ message.texte }}
-      </div>
-      <div class="text-muted">
-        <div class="pull-left">
-          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and (is_granted('ROLE_ADMINISTRATEUR') or app.user.id == message.utilisateur.id) %}
-            <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a> 
-            
-            {% if message.isDeleted and is_granted('ROLE_ADMINISTRATEUR') %}
-              <a href="#" data-toggle="tooltip" title="Annuler la suppression"><i class="fa fa-undo"></i></a>
-            {% endif %}
-
-            {% if not message.isDeleted %}
-              <a href="#" data-toggle="tooltip" title="Supprimer"><i class="fa fa-remove"></i></a>
-            {% endif %}
-          {% endif %}
-        </div>
-        <div class="pull-right timestamp">
-          Il y a 2 heures
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
+    {% include "ChatBundle::message.html.twig" %}
   {% endfor %}
-  
-  <div class="list-group-item">
-    <div class="message">
-      <span class="username">Epoc:</span> aahahhahahh
-    </div>
-    <div class="text-muted">
-      <div class="pull-left">
-        <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a> <a href="#" data-toggle="tooltip" title="Supprimer"><i class="fa fa-remove"></i></a>
-      </div>
-      <div class="pull-right timestamp">
-        Il y a 2 heures, modifié
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="list-group-item list-group-item-danger">
-    <div class="message">
-      <span class="username">Generalgui:</span> Ceci est un long message supprimé oh mon dieu
-    </div>
-    <div class="text-muted">
-      <div class="pull-left">
-        <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a> <a href="#" data-toggle="tooltip" title="Annuler la suppression"><i class="fa fa-undo"></i></a>
-      </div>
-      <div class="pull-right timestamp">
-        Il y a 2 heures
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
 </div>

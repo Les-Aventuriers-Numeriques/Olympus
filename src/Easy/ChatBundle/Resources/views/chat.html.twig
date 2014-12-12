@@ -1,9 +1,13 @@
 <div class="panel-body panel-list-group list-group-chat">
   {{ render(controller('ChatBundle:Messages:getMessages')) }}
-  
-  <form class="form-chat">
-    <input type="text" class="form-control send-message" autocomplete="off" required="true" placeholder="Tapez ici">
-  </form>
+
+  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    <form class="form-chat">
+      <input type="text" class="form-control send-message" autocomplete="off" required="true" placeholder="Tapez ici">
+    </form>
+  {% else %}
+    <p class="text-muted text-center no-connected">Vous devez être connecté pour envoyer des messages.</p>
+  {% endif %}
 </div>
 
 {% include "ChatBundle::javascript.html.twig" %}

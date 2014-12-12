@@ -1,1 +1,24 @@
-message
+<div class="list-group-item {% if message.isDeleted %}list-group-item-danger{% endif %}">
+  <div class="message">
+    <span class="username admin">{{ message.utilisateur }}:</span> {{ message.texte }}
+  </div>
+  <div class="text-muted">
+    <div class="pull-left">
+      {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and (is_granted('ROLE_ADMINISTRATEUR') or app.user.id == message.utilisateur.id) %}
+        <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a>
+
+        {% if message.isDeleted and is_granted('ROLE_ADMINISTRATEUR') %}
+          <a href="#" data-toggle="tooltip" title="Annuler la suppression"><i class="fa fa-undo"></i></a>
+        {% endif %}
+
+        {% if not message.isDeleted %}
+          <a href="#" data-toggle="tooltip" title="Supprimer"><i class="fa fa-remove"></i></a>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="pull-right timestamp">
+      Il y a 2 heures{% if message.isModified %}, modifié{% endif %}
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

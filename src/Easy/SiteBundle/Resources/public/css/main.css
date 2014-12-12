@@ -84,7 +84,8 @@ frame {
 }
 
 .list-group-chat .message,
-.list-group-chat .timestamp {
+.list-group-chat .timestamp,
+.list-group-chat .no-connected {
     font-size: 12px;
 }
 

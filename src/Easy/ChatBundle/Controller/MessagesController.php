@@ -12,7 +12,7 @@ class MessagesController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $messages = $em->getRepository('ChatBundle:Message')->findAll();
-
+    
         return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages));
     }
     

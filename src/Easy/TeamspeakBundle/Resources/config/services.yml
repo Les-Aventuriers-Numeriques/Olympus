@@ -1,0 +1,7 @@
+parameters:
+#    easy_teamspeak.example.class: Easy\TeamspeakBundle\Example
+
+services:
+#    easy_teamspeak.example:
+#        class: %easy_teamspeak.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

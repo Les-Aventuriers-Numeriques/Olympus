@@ -1,0 +1,3 @@
+easy_teamspeak_homepage:
+    path:     /teamspeak
+    defaults: { _controller: EasyTeamspeakBundle:Teamspeak:index }

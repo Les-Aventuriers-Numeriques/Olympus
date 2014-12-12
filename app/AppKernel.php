@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Cunningsoft\ChatBundle\CunningsoftChatBundle(),
             new Easy\WSBundle\EasyWSBundle(),
             new Easy\ChatBundle\ChatBundle(),
+            new Easy\TeamspeakBundle\EasyTeamspeakBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

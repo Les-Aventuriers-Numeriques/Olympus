@@ -1,27 +1,19 @@
 {# src/Easy/TeamspeakBundle/Resources/views/Teamspeak/index.html.twig #}
-<table class="table table-condensed table-hover">
-    <thead>
-        <tr>
-            <th>Etat</th>
-            <th>Utilisateur</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for client in clients if client.getIcon() != 'client_query' %}
-            <tr>
-                <td>
-                    {% if client.getIcon() == 'client_talk' or client.getIcon() == 'client_idle' %}
-                        <i class="fa fa-microphone"></i>
-                    {% elseif client.getIcon() == 'client_snd_muted' or client.getIcon() == 'client_snd_disabled' or client.getIcon() == 'client_away' or client.getIcon() == 'client_mic_disabled' or client.getIcon() == 'client_mic_muted' %}
-                        <i class="fa fa-microphone-slash"></i>
-                    {% elseif client.getIcon() == 'client_cc_talk' or client.getIcon() == 'client_cc_idle' %}
-                        <i class="fa fa-certificate"></i>
-                    {% else %}
-                        {{ client.getIcon() }}
-                    {% endif %}
-                </td>
-                <td>{{ client }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<ul class="fa-ul">
+    {% for client in clients if client.getIcon() != 'client_query' %}
+        <li>
+            {% if client.getIcon() == 'client_talk' or client.getIcon() == 'client_idle' %}
+                <i class="fa-li fa fa-microphone"></i>
+            {% elseif client.getIcon() == 'client_away' %}
+                <i class="fa-li fa fa-clock-o"></i>
+            {% elseif client.getIcon() == 'client_snd_muted' or client.getIcon() == 'client_snd_disabled' or client.getIcon() == 'client_mic_disabled' or client.getIcon() == 'client_mic_muted' %}
+                <i class="fa-li fa fa-microphone-slash"></i>
+            {% elseif client.getIcon() == 'client_cc_talk' or client.getIcon() == 'client_cc_idle' %}
+                <i class="fa-li fa fa-certificate"></i>
+            {% else %}
+                {{ client.getIcon() }}
+            {% endif %}
+            {{ client }}
+        </li>
+    {% endfor %}
+</ul>

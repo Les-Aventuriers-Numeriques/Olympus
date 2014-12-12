@@ -1,0 +1,17 @@
+{# src/Easy/TeamspeakBundle/Resources/views/Teamspeak/index.html.twig #}
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <td></td>
+            <td>Utilisateur</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for client in clients if client.getIcon() != 'client_query' %}
+            <tr>
+                <td>{{ client.getIcon() }}</td>
+                <td>{{ client }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

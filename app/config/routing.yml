@@ -1,3 +1,7 @@
+easy_teamspeak:
+    resource: "@EasyTeamspeakBundle/Resources/config/routing.yml"
+    prefix:   /
+
 chat:
     resource: "@ChatBundle/Resources/config/routing.yml"
     prefix:   /

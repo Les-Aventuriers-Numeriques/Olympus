@@ -1,3 +1,7 @@
+chat:
+    resource: "@ChatBundle/Resources/config/routing.yml"
+    prefix:   /
+
 easy_ws:
     resource: "@EasyWSBundle/Resources/config/routing.yml"
     prefix:   /

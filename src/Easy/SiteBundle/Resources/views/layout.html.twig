@@ -10,7 +10,7 @@
         <link href="{{ asset('bundles/easysite/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
         <link href="{{ asset('bundles/easysite/css/main.css') }}" rel="stylesheet" media="screen">
         <link rel="shortcut icon" href="/bundles/easysite/images/favicon.png" />
-        <script src="{{ asset('bundles/easysite/js/jquery-2.0.3.min.js') }}"></script>
+        <script src="{{ asset('bundles/easysite/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -94,13 +94,7 @@
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-beer"></i> Tchat</h3></div>
-                        <div class="panel-body">
-                            {% if not app.debug %}
-                                {% include "EasySiteBundle::tchat.html.twig" %}
-                            {% else %}
-                                Tchat désactivé en mode dev
-                            {% endif %}
-                        </div>
+                        {% include "ChatBundle::chat.html.twig" %}
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-link"></i> Liens</h3></div>
@@ -124,7 +118,9 @@
         <script>
         $(function() {
             // Affichage des tooltips
-            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="tooltip"]').tooltip({
+                container: 'body'
+            });
 
             // Tooltip des statuts des serveurs
             $('.tooltip-state').tooltip({

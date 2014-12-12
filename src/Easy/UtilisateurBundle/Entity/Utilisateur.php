@@ -3,8 +3,7 @@
 namespace Easy\UtilisateurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Entity\User as BaseUser;
-use FOS\UserBundle\Model\GroupableInterface as GroupableInterface;
+use FOS\UserBundle\Model\User as BaseUser;
 use Cunningsoft\ChatBundle\Entity\AuthorInterface;
 
 /**

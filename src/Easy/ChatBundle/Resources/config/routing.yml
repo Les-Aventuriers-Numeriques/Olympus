@@ -1,0 +1,20 @@
+chat_messages_get:
+    path:     /chat/messages
+    defaults: { _controller: ChatBundle:Default:get }
+    requirements:
+        _method: GET
+chat_message_new:
+    path:     /chat/message
+    defaults: { _controller: ChatBundle:Default:new }
+    requirements:
+        _method: POST
+chat_message_delete:
+    path:     /chat/message/{id}
+    defaults: { _controller: ChatBundle:Default:delete }
+    requirements:
+        _method: DELETE
+chat_message_update:
+    path:     /chat/message/{id}
+    defaults: { _controller: ChatBundle:Default:update }
+    requirements:
+        _method: PUT

@@ -77,3 +77,35 @@ frame {
 .panel-body.panel-list-group .list-group-item:last-child {
     border-bottom: none;
 }
+
+.list-group-chat .messages {
+    min-height: 300px;
+    overflow-y: scroll;
+}
+
+.list-group-chat .message,
+.list-group-chat .timestamp {
+    font-size: 12px;
+}
+
+.list-group-chat .username {
+    font-weight: bold;
+}
+
+.list-group-chat .username.admin {
+    text-decoration: underline;
+}
+
+.list-group-chat .list-group-item {
+    padding: 3px;
+}
+
+.list-group-chat .send-message {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    font-size: 12px;
+    padding: 4px 8px;
+}

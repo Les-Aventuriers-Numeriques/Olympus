@@ -1,0 +1,38 @@
+<script>
+  $(function() {
+    var $form_chat = $('form.form-chat');
+    var $input_send_message = $('input.send-message', $form_chat);
+
+    // Nouveau message
+    $form_chat.on('submit', function(e) {
+      e.preventDefault();
+      
+      var $self = $(this);
+
+      var data = $self.serialize();
+
+      $input_send_message.prop('disabled', true);
+
+      $.ajax({
+        url: '{{ path('chat_message_new') }}',
+        method: 'POST',
+        data: data,
+        success: function(response) {
+          if (response.result == 'success') {
+            // TODO
+            
+            $input_send_message.val('');
+          } else {
+            alert(response.data.message);
+          }
+        },
+        error: function() {
+          alert('Oups, impossible d\'envoyer votre message.');
+        },
+        complete: function() {
+          $input_send_message.prop('disabled', false);
+        }
+      });
+    });
+  });
+</script>

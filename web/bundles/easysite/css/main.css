@@ -89,6 +89,10 @@ frame {
     font-size: 12px;
 }
 
+.list-group-chat .no-connected {
+    margin-bottom: 5px;
+}
+
 .list-group-chat .username {
     font-weight: bold;
 }

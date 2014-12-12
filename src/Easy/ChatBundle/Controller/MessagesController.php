@@ -9,7 +9,11 @@ class MessagesController extends Controller
 {
     public function getMessagesAction()
     {
-        return $this->render('ChatBundle:messages.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        
+        $messages = $em->getRepository('ChatBundle:Message')->findAll();
+
+        return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages));
     }
     
     public function newMessageAction()

@@ -1,18 +1,31 @@
 <div class="list-group messages">
-  <div class="list-group-item">
-    <div class="message">
-      <span class="username admin">Guitouzid:</span> j'aime windev
-    </div>
-    <div class="text-muted">
-      <div class="pull-left">
-        <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a> <a href="#" data-toggle="tooltip" title="Supprimer"><i class="fa fa-remove"></i></a>
+  {% for message in messages %}
+    <div class="list-group-item">
+      <div class="message">
+        <span class="username admin">{{ message.utilisateur }}:</span> {{ message.texte }}
       </div>
-      <div class="pull-right timestamp">
-        Il y a 2 heures
+      <div class="text-muted">
+        <div class="pull-left">
+          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and (is_granted('ROLE_ADMINISTRATEUR') or app.user.id == message.utilisateur.id) %}
+            <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a> 
+            
+            {% if message.isDeleted and is_granted('ROLE_ADMINISTRATEUR') %}
+              <a href="#" data-toggle="tooltip" title="Annuler la suppression"><i class="fa fa-undo"></i></a>
+            {% endif %}
+
+            {% if not message.isDeleted %}
+              <a href="#" data-toggle="tooltip" title="Supprimer"><i class="fa fa-remove"></i></a>
+            {% endif %}
+          {% endif %}
+        </div>
+        <div class="pull-right timestamp">
+          Il y a 2 heures
+        </div>
       </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
-  </div>
+  {% endfor %}
+  
   <div class="list-group-item">
     <div class="message">
       <span class="username">Epoc:</span> aahahhahahh

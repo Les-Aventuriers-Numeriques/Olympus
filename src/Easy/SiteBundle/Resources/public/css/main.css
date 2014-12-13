@@ -103,10 +103,6 @@ frame {
     font-weight: bold;
 }
 
-.list-group-chat .username.admin {
-    border-bottom: 1px dotted;
-}
-
 .list-group-chat .list-group-item .actions > a {
     color: #DDD;
 }

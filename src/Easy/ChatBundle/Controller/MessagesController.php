@@ -17,7 +17,7 @@ class MessagesController extends Controller
         $this->em = $this->getDoctrine()->getManager();
         $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
         
-        $messages = $this->messageRepository->findAll();
+        $messages = $this->messageRepository->findAllFiltered($this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR'));
     
         return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages));
     }
@@ -44,31 +44,47 @@ class MessagesController extends Controller
 
     public function deleteMessageAction(Request $request)
     {
-        $this->em = $this->getDoctrine()->getManager();
-        $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
+        try {
+            $this->em = $this->getDoctrine()->getManager();
+            $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
 
-        $message = $this->messageRepository->find($request->get('id'));
+            $message = $this->messageRepository->find($request->get('id'));
 
-        $message->setIsDeleted(true);
+            if (!$message) {
+                throw new \Exception('Message introuvable.');
+            }
 
-        $this->em->persist($message);
-        $this->em->flush();
+            $message->setIsDeleted(true);
 
-        return $this->render('ChatBundle::message.html.twig', array('message' => $message));
+            $this->em->persist($message);
+            $this->em->flush();
+
+            return $this->render('ChatBundle::message.html.twig', array('message' => $message));
+        } catch (\Exception $e) {
+            return new JsonResponse(array('message' => $e->getMessage()));
+        }
     }
 
     public function cancelDeleteMessageAction(Request $request)
     {
-        $this->em = $this->getDoctrine()->getManager();
-        $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
+        try {
+            $this->em = $this->getDoctrine()->getManager();
+            $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
 
-        $message = $this->messageRepository->find($request->get('id'));
+            $message = $this->messageRepository->find($request->get('id'));
 
-        $message->setIsDeleted(false);
+            if (!$message) {
+                throw new \Exception('Message introuvable.');
+            }
 
-        $this->em->persist($message);
-        $this->em->flush();
+            $message->setIsDeleted(false);
 
-        return $this->render('ChatBundle::message.html.twig', array('message' => $message));
+            $this->em->persist($message);
+            $this->em->flush();
+
+            return $this->render('ChatBundle::message.html.twig', array('message' => $message));
+        } catch (\Exception $e) {
+            return new JsonResponse(array('message' => $e->getMessage()));
+        }
     }
 }

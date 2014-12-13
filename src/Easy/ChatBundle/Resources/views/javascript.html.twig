@@ -6,6 +6,30 @@
 
     $list_messages.scrollTop($list_messages.get(0).scrollHeight);
     
+    // Mise à jour du chat toutes les 15 secondes
+    setInterval(function() {
+      $.ajax({
+        url: '{{ path('chat_messages_get') }}',
+        method: 'GET',
+        success: function(response) {
+          if (typeof response == 'string') {
+            var $list_messages = $('.list-group.messages', '.list-group-chat');
+
+            $list_messages.replaceWith(response);
+
+            $list_messages = $('.list-group.messages', '.list-group-chat');
+
+            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+          } else {
+            alert(response.message);
+          }
+        },
+        error: function() {
+          alert('Oups, impossible de récupérer les messages.');
+        }
+      });
+    }, 15000);
+    
     // Nouveau message
     $form_chat.on('submit', function(e) {
       e.preventDefault();
@@ -22,8 +46,12 @@
         data: data,
         success: function(response) {
           if (typeof response == 'string') {
+            var $list_messages = $('.list-group.messages', '.list-group-chat');
+
             $list_messages.append(response);
-            
+
+            $list_messages = $('.list-group.messages', '.list-group-chat');
+
             $list_messages.scrollTop($list_messages.get(0).scrollHeight);
 
             $input_send_message.val('');
@@ -41,7 +69,7 @@
     });
     
     // Suppression d'un message
-    $('a.delete', $list_messages).on('click', function(e) {
+    $('a.delete', '.list-group-chat .list-group.messages').on('click', function(e) {
       e.preventDefault();
       
       var $self = $(this);
@@ -51,23 +79,21 @@
         method: 'DELETE',
         success: function(response) {
           if (typeof response == 'string') {
-            $('.list-group-item[data-chat-message-id="'+$self.attr('data-chat-message-id')+'"]', $list_messages).replaceWith(response);
-            
-            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+            var $list_messages = $('.list-group.messages', '.list-group-chat');
 
-            $input_send_message.val('');
+            $('.list-group-item[data-chat-message-id="'+$self.attr('data-chat-message-id')+'"]', $list_messages).replaceWith(response);
           } else {
             alert(response.message);
           }
         },
         error: function() {
-          alert('Oups, impossible de supprimer votre message.');
+          alert('Oups, impossible de supprimer ce message.');
         }
       });
     });
 
     // Annulation de la suppression d'un message
-    $('a.cancel-delete', $list_messages).on('click', function(e) {
+    $('a.cancel-delete', '.list-group-chat .list-group.messages').on('click', function(e) {
       e.preventDefault();
 
       var $self = $(this);
@@ -77,17 +103,15 @@
         method: 'POST',
         success: function(response) {
           if (typeof response == 'string') {
+            var $list_messages = $('.list-group.messages', '.list-group-chat');
+
             $('.list-group-item[data-chat-message-id="'+$self.attr('data-chat-message-id')+'"]', $list_messages).replaceWith(response);
-
-            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
-
-            $input_send_message.val('');
           } else {
             alert(response.message);
           }
         },
         error: function() {
-          alert('Oups, impossible de supprimer votre message.');
+          alert('Oups, impossible d\'annuler la suppression de ce message.');
         }
       });
     });

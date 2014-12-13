@@ -23,6 +23,7 @@
         success: function(response) {
           if (typeof response == 'string') {
             $list_messages.append(response);
+            
             $list_messages.scrollTop($list_messages.get(0).scrollHeight);
 
             $input_send_message.val('');
@@ -35,6 +36,32 @@
         },
         complete: function() {
           $input_send_message.prop('disabled', false).focus();
+        }
+      });
+    });
+    
+    // Suppression d'un message
+    $('a.delete', $list_messages).on('click', function(e) {
+      e.preventDefault();
+      
+      var $self = $(this);
+      
+      $.ajax({
+        url: $self.attr('href'),
+        method: 'DELETE',
+        success: function(response) {
+          if (typeof response == 'string') {
+            $('.list-group-item[data-chat-message-id="'+$self.attr('data-chat-message-id')+'"]', $list_messages).replaceWith(response);
+            
+            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+
+            $input_send_message.val('');
+          } else {
+            alert(response.message);
+          }
+        },
+        error: function() {
+          alert('Oups, impossible de supprimer votre message.');
         }
       });
     });

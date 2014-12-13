@@ -41,4 +41,19 @@ class MessagesController extends Controller
             return new JsonResponse(array('message' => $e->getMessage()));
         }
     }
+
+    public function deleteMessageAction(Request $request)
+    {
+        $this->em = $this->getDoctrine()->getManager();
+        $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
+
+        $message = $this->messageRepository->find($request->get('id'));
+
+        $message->setIsDeleted(true);
+
+        $this->em->persist($message);
+        $this->em->flush();
+
+        return $this->render('ChatBundle::message.html.twig', array('message' => $message));
+    }
 }

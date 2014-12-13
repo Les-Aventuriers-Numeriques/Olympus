@@ -1,18 +1,18 @@
-<div class="list-group-item {% if message.isDeleted %}list-group-item-danger{% endif %}">
+<div class="list-group-item {% if message.isDeleted %}list-group-item-danger{% endif %}" data-chat-message-id="{{ message.id }}">
   <div class="message">
     <span class="username admin">{{ message.utilisateur }}:</span> {{ message.texte }}
   </div>
   <div class="text-muted">
     <div class="pull-left actions">
       {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and (is_granted('ROLE_ADMINISTRATEUR') or app.user.id == message.utilisateur.id) %}
-        <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a>
+        <a href="#" class="edit" data-chat-message-id="{{ message.id }}"><i class="fa fa-pencil"></i></a>
 
         {% if message.isDeleted and is_granted('ROLE_ADMINISTRATEUR') %}
-          <a href="#" data-toggle="tooltip" title="Annuler la suppression"><i class="fa fa-undo"></i></a>
+          <a href="#" class="cancel-delete" data-chat-message-id="{{ message.id }}"><i class="fa fa-undo"></i></a>
         {% endif %}
 
         {% if not message.isDeleted %}
-          <a href="#" data-toggle="tooltip" title="Supprimer"><i class="fa fa-remove"></i></a>
+          <a href="{{ path('chat_message_delete', {id: message.id}) }}" class="delete" data-chat-message-id="{{ message.id }}"><i class="fa fa-remove"></i></a>
         {% endif %}
       {% endif %}
     </div>

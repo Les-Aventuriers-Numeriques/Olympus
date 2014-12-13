@@ -9,7 +9,7 @@
           <a href="#" class="edit" data-chat-message-id="{{ message.id }}"><i class="fa fa-pencil"></i></a>
   
           {% if message.isDeleted and is_granted('ROLE_ADMINISTRATEUR') %}
-            <a href="#" class="cancel-delete" data-chat-message-id="{{ message.id }}"><i class="fa fa-undo"></i></a>
+            <a href="{{ path('chat_message_cancel_delete', {id: message.id}) }}" class="cancel-delete" data-chat-message-id="{{ message.id }}"><i class="fa fa-undo"></i></a>
           {% endif %}
   
           {% if not message.isDeleted %}
@@ -18,7 +18,7 @@
         {% endif %}
       </div>
       <div class="pull-right timestamp">
-        Il y a 2 heures{% if message.isModified %}, modifié{% endif %}
+        {{ time_diff(message.timestamp) }}{% if message.isModified %}, modifié{% endif %}
       </div>
     </div>
     <div class="clearfix"></div>

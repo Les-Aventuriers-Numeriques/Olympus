@@ -13,6 +13,11 @@ chat_message_delete:
     defaults: { _controller: ChatBundle:Messages:deleteMessage }
     requirements:
         _method: DELETE
+chat_message_cancel_delete:
+    path:     /chat/message/cancel-delete/{id}
+    defaults: { _controller: ChatBundle:Messages:cancelDeleteMessage }
+    requirements:
+        _method: POST
 chat_message_update:
     path:     /chat/message/{id}
     defaults: { _controller: ChatBundle:Messages:updateMessage }

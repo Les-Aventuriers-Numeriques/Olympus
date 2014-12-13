@@ -6,7 +6,7 @@
       <input type="text" name="chat-message" class="form-control send-message" autocomplete="off" required="true" placeholder="Tapez ici">
     </form>
   {% else %}
-    <div class="text-muted text-center no-connected">Vous devez être connecté pour envoyer des messages.</div>
+    <div class="text-muted text-center no-connected">Vous devez être <a href="{{ path('fos_user_security_login') }}">connecté</a> pour envoyer des messages.</div>
   {% endif %}
 </div>
 

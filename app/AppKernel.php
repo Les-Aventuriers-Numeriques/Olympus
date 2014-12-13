@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Easy\WSBundle\EasyWSBundle(),
             new Easy\ChatBundle\ChatBundle(),
             new Easy\TeamspeakBundle\EasyTeamspeakBundle(),
+            new Knp\Bundle\TimeBundle\KnpTimeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

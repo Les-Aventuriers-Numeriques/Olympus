@@ -65,5 +65,31 @@
         }
       });
     });
+
+    // Annulation de la suppression d'un message
+    $('a.cancel-delete', $list_messages).on('click', function(e) {
+      e.preventDefault();
+
+      var $self = $(this);
+
+      $.ajax({
+        url: $self.attr('href'),
+        method: 'POST',
+        success: function(response) {
+          if (typeof response == 'string') {
+            $('.list-group-item[data-chat-message-id="'+$self.attr('data-chat-message-id')+'"]', $list_messages).replaceWith(response);
+
+            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+
+            $input_send_message.val('');
+          } else {
+            alert(response.message);
+          }
+        },
+        error: function() {
+          alert('Oups, impossible de supprimer votre message.');
+        }
+      });
+    });
   });
 </script>

@@ -105,6 +105,7 @@ fos_user:
         group_class: Easy\UtilisateurBundle\Entity\Groupe
         
 ornicar_gravatar: ~
+knp_time: ~
 
 services:
     controller.pre_execute_listener:

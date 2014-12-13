@@ -2,7 +2,10 @@
   $(function() {
     var $form_chat = $('form.form-chat');
     var $input_send_message = $('input.send-message', $form_chat);
+    var $list_messages = $('.list-group.messages', '.list-group-chat');
 
+    $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+    
     // Nouveau message
     $form_chat.on('submit', function(e) {
       e.preventDefault();
@@ -18,19 +21,20 @@
         method: 'POST',
         data: data,
         success: function(response) {
-          if (response.result == 'success') {
-            // TODO
-            
+          if (typeof response == 'string') {
+            $list_messages.append(response);
+            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+
             $input_send_message.val('');
           } else {
-            alert(response.data.message);
+            alert(response.message);
           }
         },
         error: function() {
-          alert('Oups, impossible d\'envoyer votre message.');
+          alert('Oups, impossible d\'enregistrer votre message.');
         },
         complete: function() {
-          $input_send_message.prop('disabled', false);
+          $input_send_message.prop('disabled', false).focus();
         }
       });
     });

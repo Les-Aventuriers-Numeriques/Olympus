@@ -78,19 +78,23 @@ frame {
     border-bottom: none;
 }
 
+/* Chat */
 .list-group-chat .messages {
-    min-height: 300px;
+    height: 320px;
     overflow-y: scroll;
 }
 
 .list-group-chat .message,
-.list-group-chat .timestamp,
 .list-group-chat .no-connected {
     font-size: 12px;
 }
 
+.list-group-chat .timestamp {
+    font-size: 11px;
+}
+
 .list-group-chat .no-connected {
-    margin-bottom: 5px;
+    border-top: 1px solid #DDD
 }
 
 .list-group-chat .username {
@@ -98,7 +102,15 @@ frame {
 }
 
 .list-group-chat .username.admin {
-    text-decoration: underline;
+    border-bottom: 1px dotted;
+}
+
+.list-group-chat .list-group-item .actions > a {
+    color: #DDD;
+}
+
+.list-group-chat .list-group-item:hover .actions > a {
+    color: #3399F3;
 }
 
 .list-group-chat .list-group-item {

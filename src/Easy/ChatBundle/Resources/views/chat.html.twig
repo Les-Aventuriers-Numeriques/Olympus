@@ -3,7 +3,7 @@
 
   {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
     <form class="form-chat">
-      <input type="text" class="form-control send-message" autocomplete="off" required="true" placeholder="Tapez ici">
+      <input type="text" name="chat-message" class="form-control send-message" autocomplete="off" required="true" placeholder="Tapez ici">
     </form>
   {% else %}
     <div class="text-muted text-center no-connected">Vous devez être connecté pour envoyer des messages.</div>

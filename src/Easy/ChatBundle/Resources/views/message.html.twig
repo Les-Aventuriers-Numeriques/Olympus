@@ -3,7 +3,7 @@
     <span class="username admin">{{ message.utilisateur }}:</span> {{ message.texte }}
   </div>
   <div class="text-muted">
-    <div class="pull-left">
+    <div class="pull-left actions">
       {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and (is_granted('ROLE_ADMINISTRATEUR') or app.user.id == message.utilisateur.id) %}
         <a href="#" data-toggle="tooltip" title="Editer"><i class="fa fa-pencil"></i></a>
 

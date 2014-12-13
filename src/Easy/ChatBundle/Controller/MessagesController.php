@@ -2,22 +2,43 @@
 
 namespace Easy\ChatBundle\Controller;
 
+use Easy\ChatBundle\Entity\Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class MessagesController extends Controller
 {
-    public function getMessagesAction()
+    protected $em;
+    protected $messageRepository;
+    
+    public function getMessagesAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
+        $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
         
-        $messages = $em->getRepository('ChatBundle:Message')->findAll();
+        $messages = $this->messageRepository->findAll();
     
         return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages));
     }
     
-    public function newMessageAction()
+    public function newMessageAction(Request $request)
     {
-        return new JsonResponse(array('hell' => 'o'));
+        try {
+            $this->em = $this->getDoctrine()->getManager();
+
+            $data = $request->request->all();
+
+            $message = new Message();
+            $message->setTexte($data['chat-message']);
+            $message->setUtilisateur($this->getUser());
+
+            $this->em->persist($message);
+            $this->em->flush();
+
+            return $this->render('ChatBundle::message.html.twig', array('message' => $message));
+        } catch (\Exception $e) {
+            return new JsonResponse(array('message' => $e->getMessage()));
+        }
     }
 }

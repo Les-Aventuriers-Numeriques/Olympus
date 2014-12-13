@@ -2,6 +2,10 @@ parameters:
 #    easy_site.example.class: Easy\SiteBundle\Example
 
 services:
+    easy.twig.site_extension:
+        class: Easy\SiteBundle\Twig\SiteExtension
+        tags:
+            - { name: twig.extension }
 #    easy_site.example:
 #        class: %easy_site.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

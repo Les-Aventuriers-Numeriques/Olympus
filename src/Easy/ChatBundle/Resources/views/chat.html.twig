@@ -1,5 +1,7 @@
 <div class="panel-body panel-list-group list-group-chat">
-  {{ render(controller('ChatBundle:Messages:getMessages')) }}
+  <div class="list-group messages">
+    {{ render(controller('ChatBundle:Messages:getMessages')) }}
+  </div>
 
   {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
     <form class="form-chat">

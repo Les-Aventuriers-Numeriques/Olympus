@@ -1,5 +1,3 @@
-<div class="list-group messages">
-  {% for message in messages %}
-    {% include "ChatBundle::message.html.twig" %}
-  {% endfor %}
-</div>
+{% for message in messages %}
+  {% include "ChatBundle::message.html.twig" %}
+{% endfor %}

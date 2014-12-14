@@ -20,6 +20,6 @@ chat_message_cancel_delete:
         _method: POST
 chat_message_update:
     path:     /chat/message/{id}
-    defaults: { _controller: ChatBundle:Messages:updateMessage }
+    defaults: { _controller: ChatBundle:Messages:editMessage }
     requirements:
         _method: PUT

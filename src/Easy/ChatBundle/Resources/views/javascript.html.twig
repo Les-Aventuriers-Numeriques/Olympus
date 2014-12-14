@@ -2,9 +2,17 @@
   $(function() {
     var $form_chat = $('form.form-chat');
     var $input_send_message = $('input.send-message', $form_chat);
-    var $list_messages = $('.list-group.messages', '.list-group-chat');
+    
+    function scrollChatMessagesToBottom(force) {
+      var $list_messages = $('.list-group.messages', '.list-group-chat');
 
-    $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+      // On scrolle tout en bas seulement si on y est déjà (en cas d'ajout de message)
+      if ($list_messages.scrollTop() == $list_messages.get(0).scrollHeight || force) {
+        $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+      }
+    }
+
+    scrollChatMessagesToBottom(true);
     
     // Mise à jour du chat toutes les 15 secondes
     setInterval(function() {
@@ -13,19 +21,12 @@
         method: 'GET',
         success: function(response) {
           if (typeof response == 'string') {
-            var $list_messages = $('.list-group.messages', '.list-group-chat');
+            $('.list-group.messages', '.list-group-chat').html(response);
 
-            $list_messages.replaceWith(response);
-
-            $list_messages = $('.list-group.messages', '.list-group-chat');
-
-            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+            scrollChatMessagesToBottom(false);
           } else {
             alert(response.message);
           }
-        },
-        error: function() {
-          alert('Oups, impossible de récupérer les messages.');
         }
       });
     }, 15000);
@@ -46,21 +47,14 @@
         data: data,
         success: function(response) {
           if (typeof response == 'string') {
-            var $list_messages = $('.list-group.messages', '.list-group-chat');
+            $('.list-group.messages', '.list-group-chat').append(response);
 
-            $list_messages.append(response);
-
-            $list_messages = $('.list-group.messages', '.list-group-chat');
-
-            $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+            scrollChatMessagesToBottom(false);
 
             $input_send_message.val('');
           } else {
             alert(response.message);
           }
-        },
-        error: function() {
-          alert('Oups, impossible d\'enregistrer votre message.');
         },
         complete: function() {
           $input_send_message.prop('disabled', false).focus();
@@ -85,9 +79,6 @@
           } else {
             alert(response.message);
           }
-        },
-        error: function() {
-          alert('Oups, impossible de supprimer ce message.');
         }
       });
     });
@@ -109,9 +100,6 @@
           } else {
             alert(response.message);
           }
-        },
-        error: function() {
-          alert('Oups, impossible d\'annuler la suppression de ce message.');
         }
       });
     });

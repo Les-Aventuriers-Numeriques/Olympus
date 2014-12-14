@@ -64,7 +64,7 @@
           if (typeof response == 'string') {
             $('.list-group.messages', '.list-group-chat').append(response);
 
-            scrollChatMessagesToBottom(false);
+            scrollChatMessagesToBottom(true);
 
             $input_send_message.val('');
           } else {

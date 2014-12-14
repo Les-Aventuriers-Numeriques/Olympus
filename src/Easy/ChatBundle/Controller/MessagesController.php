@@ -53,6 +53,10 @@ class MessagesController extends Controller
             if (!$message) {
                 throw new \Exception('Message introuvable.');
             }
+            
+            if (($this->getUser()->getId() != $message->getUtilisateur()->getId()) and !$this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR')) {
+                throw new \Exception('Vous n\'avez pas l\'autorisation de supprimer ce message.');
+            }
 
             $message->setIsDeleted(true);
 
@@ -75,6 +79,10 @@ class MessagesController extends Controller
 
             if (!$message) {
                 throw new \Exception('Message introuvable.');
+            }
+
+            if (!$this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR')) {
+                throw new \Exception('Vous n\'avez pas l\'autorisation d\'annuler la suppression de ce message.');
             }
 
             $message->setIsDeleted(false);

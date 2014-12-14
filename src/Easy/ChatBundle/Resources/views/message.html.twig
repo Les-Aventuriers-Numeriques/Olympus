@@ -6,8 +6,6 @@
     <div class="text-muted">
       <div class="pull-left actions">
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and (is_granted('ROLE_ADMINISTRATEUR') or app.user.id == message.utilisateur.id) %}
-          <a href="#" class="edit" data-chat-message-id="{{ message.id }}"><i class="fa fa-pencil"></i></a>
-  
           {% if message.isDeleted and is_granted('ROLE_ADMINISTRATEUR') %}
             <a href="{{ path('chat_message_cancel_delete', {id: message.id}) }}" data-chat-message-id="{{ message.id }}" class="cancel-delete"><i class="fa fa-undo"></i></a>
           {% endif %}

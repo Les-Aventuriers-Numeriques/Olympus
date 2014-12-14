@@ -1,5 +1,5 @@
 {% if not message.isDeleted or is_granted('ROLE_ADMINISTRATEUR') %}
-  <div class="list-group-item {% if message.isDeleted %}list-group-item-danger{% endif %}" data-chat-message-id="{{ message.id }}">
+  <div class="list-group-item{% if message.isDeleted %} list-group-item-danger{% endif %}{% if app.user.id == message.utilisateur.id %} list-group-item-info{% endif %}" data-chat-message-id="{{ message.id }}">
     <div class="message">
       <span class="username">{% if 'ROLE_ADMINISTRATEUR' in message.utilisateur.roles %}<i class="fa fa-star"></i> {% endif %}{{ message.utilisateur }}:</span> {{ message.texte|link_to_hyperlink|raw }}
     </div>

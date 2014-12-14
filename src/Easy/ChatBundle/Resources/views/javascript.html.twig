@@ -11,25 +11,40 @@
         $list_messages.scrollTop($list_messages.get(0).scrollHeight);
       }
     }
-
-    scrollChatMessagesToBottom(true);
     
-    // Mise à jour du chat toutes les 15 secondes
-    setInterval(function() {
-      $.ajax({
-        url: '{{ path('chat_messages_get') }}',
-        method: 'GET',
-        success: function(response) {
-          if (typeof response == 'string') {
-            $('.list-group.messages', '.list-group-chat').html(response);
+    var refresh_interval;
 
-            scrollChatMessagesToBottom(false);
-          } else {
-            alert(response.message);
+    function enableRefreshInterval() {
+      refresh_interval = setInterval(function() {
+        $.ajax({
+          url: '{{ path('chat_messages_get') }}',
+          method: 'GET',
+          success: function(response) {
+            if (typeof response == 'string') {
+              $('.list-group.messages', '.list-group-chat').html(response);
+
+              scrollChatMessagesToBottom(false);
+            } else {
+              alert(response.message);
+            }
           }
-        }
-      });
-    }, 15000);
+        });
+      }, 15000);
+    }
+    
+    function disableRefreshInterval() {
+      clearInterval(refresh_interval);
+    }
+
+    // Si la souris rentre dans le chat, on arrête le refresh
+    $('.list-group.messages', '.list-group-chat').on('mouseenter', function() {
+      disableRefreshInterval();
+    });
+    
+    // Si la souris sort du chat, on relance le refresh
+    $('.list-group.messages', '.list-group-chat').on('mouseleave', function() {
+      enableRefreshInterval();
+    });
     
     // Nouveau message
     $form_chat.on('submit', function(e) {
@@ -103,5 +118,8 @@
         }
       });
     });
+    
+    scrollChatMessagesToBottom(true); // Scroll du chat tout en bas
+    enableRefreshInterval(); // Activation de l'actualisation auto
   });
 </script>

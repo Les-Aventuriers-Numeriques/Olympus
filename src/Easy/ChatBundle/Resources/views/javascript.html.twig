@@ -2,6 +2,7 @@
   $(function() {
     var $form_chat = $('form.form-chat');
     var $input_send_message = $('input.send-message', $form_chat);
+    var i_chat_loading = $('i.chat-loading');
     
     function scrollChatMessagesToBottom(force) {
       var $list_messages = $('.list-group.messages', '.list-group-chat');
@@ -16,6 +17,8 @@
 
     function enableRefreshInterval() {
       refresh_interval = setInterval(function() {
+        i_chat_loading.show();
+        
         $.ajax({
           url: '{{ path('chat_messages_get') }}',
           method: 'GET',
@@ -27,6 +30,9 @@
             } else {
               alert(response.message);
             }
+          },
+          complete: function() {
+            i_chat_loading.hide();
           }
         });
       }, 15000);
@@ -56,6 +62,8 @@
 
       $input_send_message.prop('disabled', true);
 
+      i_chat_loading.show();
+
       $.ajax({
         url: '{{ path('chat_message_new') }}',
         method: 'POST',
@@ -72,6 +80,7 @@
           }
         },
         complete: function() {
+          i_chat_loading.hide();
           $input_send_message.prop('disabled', false).focus();
         }
       });
@@ -82,6 +91,8 @@
       e.preventDefault();
       
       var $self = $(this);
+
+      i_chat_loading.show();
       
       $.ajax({
         url: $self.attr('href'),
@@ -94,6 +105,9 @@
           } else {
             alert(response.message);
           }
+        },
+        complete: function() {
+          i_chat_loading.hide();
         }
       });
     });
@@ -103,6 +117,8 @@
       e.preventDefault();
 
       var $self = $(this);
+
+      i_chat_loading.show();
 
       $.ajax({
         url: $self.attr('href'),
@@ -115,6 +131,9 @@
           } else {
             alert(response.message);
           }
+        },
+        complete: function() {
+          i_chat_loading.hide();
         }
       });
     });

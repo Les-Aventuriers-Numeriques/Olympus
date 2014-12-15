@@ -13,15 +13,22 @@
         <script src="{{ asset('bundles/easysite/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/easysite/js/bootstrap.min.js') }}"></script>
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
             ga('create', 'UA-37507672-1', 'easy-company.fr');
             ga('send', 'pageview');
         </script>
-        
+
         <script>
             linkLoadEtats = "{{ path('easy_ws_etats_load') }}";
         </script>
@@ -43,11 +50,11 @@
                                 <h1 class="panel-title">{% set _icone = block('icone') %}{% if _icone is not empty %}{{ _icone|raw }}{% endif %} {{ _title|raw }}</h1>
                             </div>
                         {% endif %}
-                        {% if app.request.attributes.get('_route') != 'easy_site_homepage' %}<div class="panel-body">{% endif %}
-                                {% block body %}
+                        <div class="panel-body">
+                            {% block body %}
 
-                                {% endblock %}
-                        {% if app.request.attributes.get('_route') != 'easy_site_homepage' %}</div>{% endif %}
+                            {% endblock %}
+                        </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-3">
@@ -72,7 +79,7 @@
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-calendar"></i> Evènements</h3></div>
-                            {{ render(controller('EasyDispoBundle:Evenement:listAccueil')) }}
+                        {{ render(controller('EasyDispoBundle:Evenement:listAccueil')) }}
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-microphone"></i> Teamspeak</h3></div>
@@ -82,7 +89,7 @@
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-beer"></i> Tchat<i class="fa fa-spinner pull-right fa-lg fa-spin chat-loading" style="display: none"></i></h3></div>
-                        {% include "ChatBundle::chat.html.twig" %}
+                                {% include "ChatBundle::chat.html.twig" %}
                     </div>
                 </div>
             </div>
@@ -92,21 +99,21 @@
         </div>
 
         <script>
-        $(function() {
-            // Affichage des tooltips
-            $('[data-toggle="tooltip"]').tooltip({
-                container: 'body'
-            });
+            $(function () {
+                // Affichage des tooltips
+                $('[data-toggle="tooltip"]').tooltip({
+                    container: 'body'
+                });
 
-            // Tooltip des statuts des serveurs
-            $('.tooltip-state').tooltip({
-                html: true,
-                placement: 'left',
-                title: function() {
-                    return $(this).attr('data-tooltip');
-                }
+                // Tooltip des statuts des serveurs
+                $('.tooltip-state').tooltip({
+                    html: true,
+                    placement: 'left',
+                    title: function () {
+                        return $(this).attr('data-tooltip');
+                    }
+                });
             });
-        });
         </script>
     </body>
 </html>

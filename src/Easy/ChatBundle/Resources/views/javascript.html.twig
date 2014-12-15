@@ -78,7 +78,7 @@
     });
     
     // Suppression d'un message
-    $('a.delete', '.list-group-chat .list-group.messages').on('click', function(e) {
+    $('.list-group-chat .list-group.messages').on('click', 'a.delete', function(e) {
       e.preventDefault();
       
       var $self = $(this);
@@ -99,7 +99,7 @@
     });
 
     // Annulation de la suppression d'un message
-    $('a.cancel-delete', '.list-group-chat .list-group.messages').on('click', function(e) {
+    $('.list-group-chat .list-group.messages').on('click', 'a.cancel-delete',  function(e) {
       e.preventDefault();
 
       var $self = $(this);

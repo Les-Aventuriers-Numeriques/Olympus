@@ -2,7 +2,7 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block title %}{{ parent() }}Connexion{% endblock %}
+{% block title %}{{ parent() }} Confirmation de l'inscription{% endblock %}
 
 {% block body %}
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>

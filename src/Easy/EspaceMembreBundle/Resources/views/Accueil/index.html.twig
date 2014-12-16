@@ -20,30 +20,5 @@
             <div><strong>ID Steam :</strong> {% if app.user.idSteam is empty %}<span class="text-danger">Non défini</span>{% else %}{{ app.user.idSteam }}{% endif %}</div>
             <div><strong>Pseudo Steam :</strong> {% if app.user.pseudoSteam is empty %}<span class="text-danger">Non défini</span>{% else %}{{ app.user.pseudoSteam }}{% endif %}</div>
         </div>
-        <div class="col-xs-8">
-            {% if evenements_en_attente|length > 0 %}
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Ces évènements attendent votre disponibilité</h3>
-                </div>
-                <div class="panel-body panel-list-group">
-                    <div class="list-group">
-                        {% for evenement in evenements_en_attente %}
-                        <a href="{{ path('easy_evenement_espacemembre_show', { 'id' : evenement.id }) }}" class="list-group-item">
-                            <h4 class="list-group-item-heading">{{ evenement.titre }}</h4>
-                            <p class="list-group-item-text">Le {{ evenement.dateDebut|date('d/m/Y') }} de {{ evenement.dateDebut|date('H:i') }} à {{ evenement.dateFin|date('H:i') }}</p>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% else %}
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Vous avez renseigné votre disponibilité pour tous les <a href="{{ path('easy_evenement_espacemembre_list') }}">évènements</a>.</h3>
-                </div>
-            </div>
-            {% endif %}
-        </div>
     </div>
 {% endblock %}

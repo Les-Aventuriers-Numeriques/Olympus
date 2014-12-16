@@ -125,3 +125,7 @@ frame {
     padding: 4px 8px;
     height: 30px;
 }
+
+footer ul {
+    margin-bottom: 0;
+}

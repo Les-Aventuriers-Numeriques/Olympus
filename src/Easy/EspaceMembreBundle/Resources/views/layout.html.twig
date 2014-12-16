@@ -32,10 +32,6 @@
                           <div class="list-group">
                                 <a class="list-group-item" href="{{ path('easy_utilisateur_profil', { 'username' : app.user.username }) }}"><i class="fa fa-fw fa-user"></i> Gérer mon Profil</a>
                                 <a class="list-group-item" href="{{ path('easy_don_accueil') }}"><i class="fa fa-fw fa-euro"></i> Consulter les Dons</a>
-                                <a class="list-group-item" href="{{ path('easy_evenement_espacemembre_list') }}"><i class="fa fa-fw fa-calendar"></i> Consulter les Evènements</a>
-                                <a class="list-group-item" href=""><i class="fa fa-fw fa-laptop"></i> Formations</a>
-                                <a class="list-group-item" href=""><i class="fa fa-fw fa-meh-o"></i> Tu veux une médaille ?</a>
-                                <a class="list-group-item" href=""><i class="fa fa-fw fa-envelope"></i> Ecrire un Ticket</a>
                           </div>
                         </div>
                     </div>
@@ -47,10 +43,7 @@
                                 <a class="list-group-item" href="{{ path('easy_categoriearticle_admin') }}"><i class="fa fa-fw fa-folder-open-o"></i> Catégories des Articles</a>
                                 <a class="list-group-item" href="{{ path('easy_article_admin') }}"><i class="fa fa-fw fa-font"></i> Articles</a>
                                 <a class="list-group-item" href="{{ path('easy_utilisateur_admin') }}"><i class="fa fa-fw fa-user"></i> Utilisateurs</a>
-                                <a class="list-group-item" href="{{ path('easy_evenement_admin') }}"><i class="fa fa-fw fa-calendar"></i> Evènements</a>
-                                <a class="list-group-item" href="{{ path('easy_forum_admin') }}"><i class="fa fa-fw fa-comment"></i> Forum</a>
                                 <a class="list-group-item" href="{{ path('easy_don_admin') }}"><i class="fa fa-fw fa-euro"></i> Dons</a>
-                                <a class="list-group-item" href=""><i class="fa fa-fw fa-envelope"></i> Tickets</a>
                                 <a class="list-group-item" href="" id="generate_squad_xml"><i class="fa fa-fw fa-refresh"></i> Générer le squad.xml</a>
                           </div>
                         </div>
@@ -67,8 +60,12 @@
                   </div>
                 </div>
             </div>
-            <footer>
-                =EaSy= Company &copy; 2008 - {{ "now"|date('Y') }} - <a href="">Mentions Légales</a>
+            <footer class="well well-sm">
+                <ul class="list-unstyled list-inline">
+                    <li>=EaSy= Company &copy; 2008 - {{ "now"|date('Y') }}</li>
+                    <li>&bull;</li>
+                    <li><a href="{{ path('easy_site_page_mentions') }}">Mentions Légales</a></li>
+                </ul>
             </footer>
         </div>
 
@@ -120,7 +117,9 @@
             {% endif %}
 
             // Affichage des tooltips
-            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="tooltip"]').tooltip({
+                container: 'body'
+            });
         });
         </script>
     </body>

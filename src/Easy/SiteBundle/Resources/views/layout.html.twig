@@ -89,8 +89,12 @@
                     </div>
                 </div>
             </div>
-            <footer>
-                =EaSy= Company &copy; 2008 - {{ "now"|date('Y') }} - <a href="{{ path('easy_site_page_mentions') }}">Mentions Légales</a>
+            <footer class="well well-sm">
+                <ul class="list-unstyled list-inline">
+                    <li>=EaSy= Company &copy; 2008 - {{ "now"|date('Y') }}</li>
+                    <li>&bull;</li>
+                    <li><a href="{{ path('easy_site_page_mentions') }}">Mentions Légales</a></li>
+                </ul>
             </footer>
         </div>
 

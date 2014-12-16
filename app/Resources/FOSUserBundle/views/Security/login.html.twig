@@ -2,7 +2,7 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block title %}{{ parent() }}Connexion{% endblock %}
+{% block title %}{{ parent() }} Connexion{% endblock %}
 
 {% block body %}
     {% block fos_user_content %}
@@ -23,7 +23,7 @@
                 <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
                 <label for="remember_me">Se rappeler de moi</label>
             </div>
-            <input class="btn btn-default" type="submit" id="_submit" name="_submit" value="Se connecter" />
+            <input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="Se connecter" />
         </form>
     {% endblock fos_user_content %}
 {% endblock %}

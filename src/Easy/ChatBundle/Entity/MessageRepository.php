@@ -14,7 +14,7 @@ class MessageRepository extends EntityRepository
             $q->where('m.isDeleted = :is_deleted')->setParameter('is_deleted', false);
         }
 
-        $q->setMaxResults(25);
+        $q->setMaxResults(30);
         $q->orderBy('m.timestamp', 'ASC');
         
         return $q->getQuery()->getResult();

@@ -9,7 +9,7 @@
 {% block body %}
     {% for article in articles %}
         <h3>{{ article.titre }}</h3>
-        <h6>Le {{ article.date|date('d/m/Y H:i') }} par <b>{{ article.utilisateur.usernameCanonical }}</b> dans <b>{{ article.categoriearticle.libelle }}</b></h6>
+        <h6>{{ time_diff(article.date)|capitalize }} par <b>{{ article.utilisateur.usernameCanonical }}</b> dans <b>{{ article.categoriearticle.libelle }}</b></h6>
         <div>
             <p>{{ article.contenu|raw }}</p>
             {% if not loop.last %}

@@ -13,12 +13,10 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
         <li><a href="{{ path('easy_site_homepage') }}"><i class="fa fa-home"></i> Accueil</a> </li>
-        <li><a href="{{ path('easy_forum_index') }}"><i class="fa fa-comments"></i> Forum</a></li>
         <li><a href="{{ path('easy_site_page_membres') }}"><i class="fa fa-users"></i> Membres</a></li>
         <li><a href="{{ path('easy_site_page_serveurs') }}"><i class="fa fa-hdd-o"></i> Nos Serveurs</a></li>
         <li><a href="{{ path('easy_site_page_recrutement') }}"><i class="fa fa-list"></i> Recrutement</a></li>
         <li><a href="{{ path('easy_site_page_dons') }}"><i class="fa fa-euro"></i> Dons</a></li>
-        <li><a href="{{ path('easy_site_page_wip') }}"><i class="fa fa-envelope"></i> Nous Contacter</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <li><a href="{{ path('espace_membre_accueil') }}"><i class="fa fa-user"></i> Espace Membre</a></li>
         {% endif %}

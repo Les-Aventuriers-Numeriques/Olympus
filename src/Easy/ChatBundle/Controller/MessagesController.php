@@ -14,6 +14,13 @@ class MessagesController extends Controller
     
     public function getMessagesAction(Request $request)
     {
+        $session = $this->getRequest()->getSession();
+        
+        if ($session->get('isMobile') === null) {
+            $mobileDetector = $this->get('mobile_detect.mobile_detector');
+            $session->set('isMobile', $mobileDetector->isMobile());
+        }
+        
         $this->em = $this->getDoctrine()->getManager();
         $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
         
@@ -32,6 +39,7 @@ class MessagesController extends Controller
             $message = new Message();
             $message->setTexte($data['chat-message']);
             $message->setUtilisateur($this->getUser());
+            $message->setIsMobile($this->getRequest()->getSession()->get('isMobile'));
 
             $this->em->persist($message);
             $this->em->flush();

@@ -15,8 +15,8 @@
           {% endif %}
         {% endif %}
       </div>
-      <div class="pull-right timestamp">
-        {{ time_diff(message.timestamp) }}{% if message.isModified %}, modifié{% endif %}
+      <div class="pull-right">
+        {% if message.isMobile %}<i class="fa fa-mobile"></i> {% endif %}<span class="timestamp">{{ time_diff(message.timestamp) }}</span>
       </div>
     </div>
     <div class="clearfix"></div>

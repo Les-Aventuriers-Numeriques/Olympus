@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Easy\ChatBundle\ChatBundle(),
             new Easy\TeamspeakBundle\EasyTeamspeakBundle(),
             new Knp\Bundle\TimeBundle\KnpTimeBundle(),
+            new SunCat\MobileDetectBundle\MobileDetectBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

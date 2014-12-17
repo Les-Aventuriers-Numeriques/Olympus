@@ -26,7 +26,8 @@
         "ornicar/gravatar-bundle" : "dev-master",
         "knplabs/knp-time-bundle": "1.1.*@dev",
         "cunningsoft/chat-bundle": "dev-gladi-dev",
-        "beberlei/DoctrineExtensions": "*"
+        "beberlei/DoctrineExtensions": "*",
+        "suncat/mobile-detect-bundle": "0.10.*"
     },
     "scripts": {
         "post-install-cmd": [

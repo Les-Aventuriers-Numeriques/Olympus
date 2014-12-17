@@ -38,9 +38,9 @@ class Message
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_modified", type="boolean")
+     * @ORM\Column(name="is_mobile", type="boolean")
      */
-    private $isModified = false;
+    private $isMobile = false;
 
     /**
      * @var \DateTime
@@ -116,14 +116,14 @@ class Message
     }
 
     /**
-     * Set isModified
+     * Set isMobile
      *
-     * @param boolean $isModified
+     * @param boolean $isMobile
      * @return Message
      */
-    public function setIsModified($isModified)
+    public function setIsMobile($isMobile)
     {
-        $this->isModified = $isModified;
+        $this->isMobile = $isMobile;
     
         return $this;
     }
@@ -133,9 +133,9 @@ class Message
      *
      * @return boolean 
      */
-    public function getIsModified()
+    public function getIsMobile()
     {
-        return $this->isModified;
+        return $this->isMobile;
     }
 
     /**

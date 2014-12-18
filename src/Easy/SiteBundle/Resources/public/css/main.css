@@ -82,6 +82,8 @@ frame {
 .list-group-chat .messages {
     height: 340px;
     overflow-y: scroll;
+    overflow-x: hidden;
+    word-wrap: break-word;
 }
 
 .list-group-chat .message,

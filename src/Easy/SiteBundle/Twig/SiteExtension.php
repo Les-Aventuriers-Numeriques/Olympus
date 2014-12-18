@@ -12,8 +12,8 @@ class SiteExtension extends \Twig_Extension
 
   public function linkToHyperLinkFilter($text)
   {
-    $pattern = '/(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/i';
-    $replacement = '<a href="$1" target="_blank">&laquo;Lien&raquo;</a>';
+    $pattern = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+    $replacement = '<a href="$0" target="_blank">&laquo;Lien&raquo;</a>';
     
     return preg_replace($pattern, $replacement, $text);
   }

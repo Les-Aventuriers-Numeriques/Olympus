@@ -1,63 +1,65 @@
 <script>
+  {% if not app.request.session.get('isMobile') %}
+    $(window).load(function() {
+      scrollChatMessagesToBottom(true); // Scroll du chat tout en bas
+    });
+  {% endif %}
+
+  function scrollChatMessagesToBottom(force) {
+    var $list_messages = $('.list-group.messages', '.list-group-chat');
+
+    // On scrolle tout en bas seulement si on y est déjà (en cas d'ajout de message)
+    if ($list_messages.scrollTop() == $list_messages.get(0).scrollHeight || force) {
+      $list_messages.scrollTop($list_messages.get(0).scrollHeight);
+    }
+  }
+
   $(function() {
     var $form_chat = $('form.form-chat');
     var $input_send_message = $('input.send-message', $form_chat);
     var i_chat_loading = $('i.chat-loading');
-    
-    function scrollChatMessagesToBottom(force) {
-      var $list_messages = $('.list-group.messages', '.list-group-chat');
 
-      // On scrolle tout en bas seulement si on y est déjà (en cas d'ajout de message)
-      if ($list_messages.scrollTop() == $list_messages.get(0).scrollHeight || force) {
-        $list_messages.scrollTop($list_messages.get(0).scrollHeight);
-      }
+    var refresh_interval;
+
+    function enableRefreshInterval() {
+      refresh_interval = setInterval(function() {
+        i_chat_loading.show();
+
+        $.ajax({
+          url: '{{ path('chat_messages_get') }}',
+          method: 'GET',
+          success: function(response) {
+            if (typeof response == 'string') {
+              $('.list-group.messages', '.list-group-chat').html(response);
+
+              scrollChatMessagesToBottom(false);
+            } else {
+              alert(response.message);
+            }
+          },
+          complete: function() {
+            i_chat_loading.hide();
+          }
+        });
+      }, 10000);
     }
 
-    {% if not app.request.session.get('isMobile') %}
-    
-      var refresh_interval;
-  
-      function enableRefreshInterval() {
-        refresh_interval = setInterval(function() {
-          i_chat_loading.show();
-          
-          $.ajax({
-            url: '{{ path('chat_messages_get') }}',
-            method: 'GET',
-            success: function(response) {
-              if (typeof response == 'string') {
-                $('.list-group.messages', '.list-group-chat').html(response);
-  
-                scrollChatMessagesToBottom(false);
-              } else {
-                alert(response.message);
-              }
-            },
-            complete: function() {
-              i_chat_loading.hide();
-            }
-          });
-        }, 10000);
-      }
-      
-      function disableRefreshInterval() {
-        clearInterval(refresh_interval);
-      }
-  
-      // Si la souris rentre dans le chat, on arrête le refresh
-      $('.list-group.messages', '.list-group-chat').on('mouseenter', function() {
-        disableRefreshInterval();
-      });
-      
-      // Si la souris sort du chat, on relance le refresh
-      $('.list-group.messages', '.list-group-chat').on('mouseleave', function() {
-        enableRefreshInterval();
-      });
+    function disableRefreshInterval() {
+      clearInterval(refresh_interval);
+    }
 
-      enableRefreshInterval(); // Activation de l'actualisation auto
-    
-    {% endif %}
+    // Si la souris rentre dans le chat, on arrête le refresh
+    $('.list-group.messages', '.list-group-chat').on('mouseenter', function() {
+      disableRefreshInterval();
+    });
 
+    // Si la souris sort du chat, on relance le refresh
+    $('.list-group.messages', '.list-group-chat').on('mouseleave', function() {
+      enableRefreshInterval();
+    });
+
+    enableRefreshInterval(); // Activation de l'actualisation auto
+    
     // Nouveau message
     $form_chat.on('submit', function(e) {
       e.preventDefault();
@@ -143,7 +145,5 @@
         }
       });
     });
-    
-    scrollChatMessagesToBottom(true); // Scroll du chat tout en bas
   });
 </script>

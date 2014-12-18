@@ -131,3 +131,7 @@ frame {
 footer ul {
     margin-bottom: 0;
 }
+
+hr {
+    border-color: #6A97C8;
+}

@@ -1,3 +1,7 @@
+{% if with_load_button %}
+  <a href="#" class="list-group-item load-more text-center list-group-item-warning"><i class="fa fa-plus"></i> Afficher d'anciens messages</a>
+{% endif %}
+
 {% for message in messages %}
   {% include "ChatBundle::message.html.twig" %}
 {% endfor %}

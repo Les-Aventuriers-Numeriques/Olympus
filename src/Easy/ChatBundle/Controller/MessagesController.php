@@ -24,11 +24,11 @@ class MessagesController extends Controller
         $this->em = $this->getDoctrine()->getManager();
         $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
 
-        $offset = $request->get('offset', null);
+        $offset = $request->get('offset', 0);
         
         $messages = $this->messageRepository->findAllFiltered($this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR'), $offset);
     
-        return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages, 'with_load_button' => $offset === null));
+        return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages, 'with_load_button' => $offset == 0));
     }
     
     public function newMessageAction(Request $request)

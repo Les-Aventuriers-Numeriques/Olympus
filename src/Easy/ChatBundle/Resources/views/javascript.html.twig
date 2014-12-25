@@ -10,6 +10,7 @@
           $.ajax({
             url: '{{ path('chat_messages_get') }}',
             method: 'GET',
+            data: {offset: offset},
             success: function(response) {
               if (typeof response == 'string') {
                 $('.list-group.messages', '.list-group-chat').html(response);
@@ -45,6 +46,8 @@
       scrollChatMessagesToBottom(true); // Scroll du chat tout en bas
     });
   {% endif %}
+
+  var offset = 0;
 
   function scrollChatMessagesToBottom(force) {
     var $list_messages = $('.list-group.messages', '.list-group-chat');
@@ -160,7 +163,7 @@
 
       $self.addClass('disabled').html('Chargement...');
 
-      var offset = $('.list-group-chat .list-group.messages').children('.list-group-item:not(.load-more)').length;
+      offset = $('.list-group-chat .list-group.messages').children('.list-group-item:not(.load-more)').length;
 
       $.ajax({
         url: '{{ path('chat_messages_get') }}',
@@ -169,8 +172,6 @@
         success: function(response) {
           if (typeof response == 'string') {
             $self.after(response);
-
-            scrollChatMessagesToBottom(false);
           } else {
             alert(response.message);
           }

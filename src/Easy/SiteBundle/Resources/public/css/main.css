@@ -87,7 +87,8 @@ frame {
 }
 
 .list-group-chat .message,
-.list-group-chat .no-connected {
+.list-group-chat .no-connected,
+.list-group-chat .load-more {
     font-size: 12px;
 }
 

@@ -121,7 +121,7 @@
     });
 
     // Annulation de la suppression d'un message
-    $('.list-group-chat .list-group.messages').on('click', 'a.cancel-delete',  function(e) {
+    $('.list-group-chat .list-group.messages').on('click', 'a.cancel-delete', function(e) {
       e.preventDefault();
 
       var $self = $(this);
@@ -142,6 +142,42 @@
         },
         complete: function() {
           i_chat_loading.hide();
+        }
+      });
+    });
+
+    // Chargement de plus de messages anciens
+    $('.list-group-chat .list-group.messages').on('click', 'a.load-more', function(e) {
+      e.preventDefault();
+
+      var $self = $(this);
+
+      if ($self.hasClass('disabled')) { // Si c'est déjà en train de charger
+        return;
+      }
+
+      i_chat_loading.show();
+
+      $self.addClass('disabled').html('Chargement...');
+
+      var offset = $('.list-group-chat .list-group.messages').children('.list-group-item:not(.load-more)').length;
+
+      $.ajax({
+        url: '{{ path('chat_messages_get') }}',
+        data: {offset: offset},
+        method: 'GET',
+        success: function(response) {
+          if (typeof response == 'string') {
+            $self.after(response);
+
+            scrollChatMessagesToBottom(false);
+          } else {
+            alert(response.message);
+          }
+        },
+        complete: function() {
+          $('i.chat-loading').hide();
+          $self.removeClass('disabled').html('<i class="fa fa-plus"></i> Afficher d\'anciens messages');
         }
       });
     });

@@ -23,8 +23,10 @@ class MessagesController extends Controller
         
         $this->em = $this->getDoctrine()->getManager();
         $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
+
+        $offset = $request->get('offset', null);
         
-        $messages = $this->messageRepository->findAllFiltered($this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR'));
+        $messages = $this->messageRepository->findAllFiltered($this->get('security.context')->isGranted('ROLE_ADMINISTRATEUR'), $offset);
     
         return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages));
     }

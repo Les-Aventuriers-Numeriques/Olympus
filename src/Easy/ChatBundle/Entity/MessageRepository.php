@@ -18,7 +18,7 @@ class MessageRepository extends EntityRepository
             $q->setFirstResult($offset);
         }
 
-        $q->setMaxResults(5);
+        $q->setMaxResults(30);
         $q->orderBy('m.timestamp', 'DESC');
         
         return array_reverse($q->getQuery()->getResult(), true);

@@ -4,13 +4,16 @@
       var refresh_interval;
 
       function enableRefreshInterval() {
+        if (offset > 0) {
+          return;
+        }
+
         refresh_interval = setInterval(function() {
           $('i.chat-loading').show();
 
           $.ajax({
             url: '{{ path('chat_messages_get') }}',
             method: 'GET',
-            data: {offset: offset},
             success: function(response) {
               if (typeof response == 'string') {
                 $('.list-group.messages', '.list-group-chat').html(response);

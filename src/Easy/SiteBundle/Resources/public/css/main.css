@@ -136,3 +136,7 @@ footer ul {
 hr {
     border-color: #6A97C8;
 }
+
+.alert.no-margin {
+  margin-bottom: 0;
+}

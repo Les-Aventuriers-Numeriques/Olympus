@@ -12,7 +12,7 @@ class SiteExtension extends \Twig_Extension
 
   public function linkToHyperLinkFilter($text)
   {
-    $pattern = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+    $pattern = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]+(\/\S*)?/';
     $replacement = '<a href="$0" target="_blank">&laquo;Lien&raquo;</a>';
     
     return preg_replace($pattern, $replacement, $text);

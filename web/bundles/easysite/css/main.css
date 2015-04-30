@@ -34,6 +34,14 @@ frame {
     margin-bottom: 5px;
 }
 
+.navbar-nav.navbar-right a {
+  padding: 9px;
+}
+
+.navbar-nav.navbar-right > li > a, .navbar-nav.navbar-right > li > a:hover {
+  padding: 9px;
+}
+
 /***************************************************************
  * Panels */
 
@@ -135,4 +143,8 @@ footer ul {
 
 hr {
     border-color: #6A97C8;
+}
+
+.alert.no-margin {
+  margin-bottom: 0;
 }

@@ -27,7 +27,7 @@ class SiteExtension extends \Twig_Extension
         'sad'
       ),
       array(
-        array(';(', ';-('),
+        array(';(', ';-(', ':\'('),
         'cry'
       ),
       array(

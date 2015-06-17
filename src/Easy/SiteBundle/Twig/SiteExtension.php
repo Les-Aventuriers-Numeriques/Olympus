@@ -65,6 +65,14 @@ class SiteExtension extends \Twig_Extension
       array(
         array('><', '><"'),
         'squint'
+      ),
+      array(
+        array('+1', '\o/'),
+        'thumb-up'
+      ),
+      array(
+        array('médaille'),
+        'medal'
       )
     );
 

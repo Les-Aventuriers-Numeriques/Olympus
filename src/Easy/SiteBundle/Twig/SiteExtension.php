@@ -108,7 +108,7 @@ class SiteExtension extends \Twig_Extension {
                 'brace-yourselves'
             ),
             array(
-                array('10-guy'),
+                array('one-does-not-simply'),
                 'one-does-not-simply'
             ),
             array(

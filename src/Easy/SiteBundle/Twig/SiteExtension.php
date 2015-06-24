@@ -133,6 +133,9 @@ class SiteExtension extends \Twig_Extension {
             ),
         );
         
+        $search = array();
+        $replace = array();
+        
         foreach ($memes as $i => $infos) {
             $search[] = "~(?<!http|https|ftp|ftps)(" . implode('|', array_map('preg_quote', $infos[0])) . ")~";
             $replace[] = '<img src="/bundles/easysite/images/memes/' . $infos[1] . '.jpg" width="64" height="64">';

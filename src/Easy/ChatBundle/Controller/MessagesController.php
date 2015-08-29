@@ -30,6 +30,16 @@ class MessagesController extends Controller
     
         return $this->render('ChatBundle::messages.html.twig', array('messages' => $messages, 'with_load_button' => $offset == 0));
     }
+
+    public function getMessagesJsonAction(Request $request)
+    {
+        $this->em = $this->getDoctrine()->getManager();
+        $this->messageRepository = $this->em->getRepository('ChatBundle:Message');
+        
+        $messages = $this->messageRepository->getLastFiveMessages();
+
+        return new JsonResponse($messages);
+    }
     
     public function newMessageAction(Request $request)
     {

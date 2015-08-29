@@ -3,6 +3,8 @@
 namespace Easy\ChatBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query;
+use JsonSerializable;
 
 class MessageRepository extends EntityRepository
 {
@@ -22,5 +24,15 @@ class MessageRepository extends EntityRepository
         $q->orderBy('m.timestamp', 'DESC');
         
         return array_reverse($q->getQuery()->getResult(), true);
+    }
+    
+    public function getLastFiveMessages()
+    {
+        $q = $this->createQueryBuilder('m');
+        $q->where('m.isDeleted = :is_deleted')->setParameter('is_deleted', false);
+        $q->orderBy('m.timestamp', 'DESC');
+        $q->setMaxResults(5);
+
+        return array_values(array_reverse($q->getQuery()->getResult(), true));
     }
 }

@@ -3,6 +3,7 @@
 namespace Easy\ChatBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * Message
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="chat_message")
  * @ORM\Entity(repositoryClass="Easy\ChatBundle\Entity\MessageRepository")
  */
-class Message
+class Message implements JsonSerializable
 {
     /**
      * @var integer
@@ -182,5 +183,13 @@ class Message
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    function jsonSerialize() {
+        return [
+          'author' => $this->getUtilisateur()->__toString(),
+          'text' => $this->getTexte(),
+          'date' => $this->getTimestamp()->format(\DateTime::RFC3339)
+        ];
     }
 }

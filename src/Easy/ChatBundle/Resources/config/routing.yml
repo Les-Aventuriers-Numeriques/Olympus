@@ -3,6 +3,11 @@ chat_messages_get:
     defaults: { _controller: ChatBundle:Messages:getMessages }
     requirements:
         _method: GET
+chat_messages_get_json:
+    path:     /chat/messages_json
+    defaults: { _controller: ChatBundle:Messages:getMessagesJson }
+    requirements:
+        _method: GET
 chat_message_new:
     path:     /chat/message
     defaults: { _controller: ChatBundle:Messages:newMessage }

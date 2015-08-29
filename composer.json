@@ -27,7 +27,8 @@
         "knplabs/knp-time-bundle": "1.1.*@dev",
         "cunningsoft/chat-bundle": "dev-gladi-dev",
         "beberlei/DoctrineExtensions": "*",
-        "suncat/mobile-detect-bundle": "0.10.*"
+        "suncat/mobile-detect-bundle": "0.10.*",
+        "nelmio/cors-bundle": "^1.4"
     },
     "scripts": {
         "post-install-cmd": [

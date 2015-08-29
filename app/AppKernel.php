@@ -35,6 +35,7 @@ class AppKernel extends Kernel
             new Easy\TeamspeakBundle\EasyTeamspeakBundle(),
             new Knp\Bundle\TimeBundle\KnpTimeBundle(),
             new SunCat\MobileDetectBundle\MobileDetectBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -112,6 +112,22 @@ mobile_detect:
         tablet: ~
     switch_device_view: ~
 
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: []
+        allow_headers: []
+        allow_methods: []
+        expose_headers: []
+        max_age: 0
+        hosts: []
+        origin_regex: false
+    paths:
+        '^/chat/messages_json':
+            allow_origin: ['http://s.epoc.dev/', 'http://s.epoc.fr/']
+            allow_methods: ['GET']
+            max_age: 3600
+
 services:
     controller.pre_execute_listener:
         class: Easy\SiteBundle\Listener\ControllerListener

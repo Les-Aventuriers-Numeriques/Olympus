@@ -124,7 +124,7 @@ nelmio_cors:
         origin_regex: false
     paths:
         '^/chat/messages_json':
-            allow_origin: ['http://s.epoc.dev/', 'http://s.epoc.fr/']
+            allow_origin: ['http://s.epoc.dev', 'http://s.epoc.fr']
             allow_methods: ['GET']
             max_age: 3600
 

@@ -30,9 +30,9 @@ class MessageRepository extends EntityRepository
     {
         $q = $this->createQueryBuilder('m');
         $q->where('m.isDeleted = :is_deleted')->setParameter('is_deleted', false);
-        $q->orderBy('m.timestamp', 'ASC');
+        $q->orderBy('m.timestamp', 'DESC');
         $q->setMaxResults(5);
 
-        return array_values(array_reverse($q->getQuery()->getResult(), true));
+        return array_values($q->getQuery()->getResult());
     }
 }
